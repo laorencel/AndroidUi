@@ -11,6 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidUi"
         tools:targetApi="31" >
+        <activity android:name=".main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!--解决App is not indexable by Google Search-->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
