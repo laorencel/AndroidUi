@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/ll_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- 界面Header组件，在BaseUiActivity中设置Header组件layoutId   -->
+            </LinearLayout>
+
+            <com.laorencel.uilibrary.widget.StateLayout
+                android:id="@+id/state_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/ll_footer"
+                android:layout_below="@id/ll_header">
+
+                <RelativeLayout
+                    android:id="@+id/rl_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </RelativeLayout>
+            </com.laorencel.uilibrary.widget.StateLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+                <!-- 界面Bottom组件，在BaseUiActivity中设置bottom组件layoutId   -->
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>
