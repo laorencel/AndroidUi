@@ -1,0 +1,29 @@
+<resources>
+
+    <style name="AppTheme" parent="AppTheme.NoStatusBar"></style>
+    <style name="AppTheme.NoStatusBar" parent="AppTheme.TextAppearance">
+        <!--        edge to edge    -->
+        <!-- 顶部状态栏  Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- 底部操作栏  navigationBarColor-->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- Optional: set the status bar light and content dark. 设置状态栏文字色为深色, true为浅色背景深色文字, false为深色背景浅色文字-->
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- Optional: set the navigation bar light and content dark. 设置状态栏文字色为深色, true为浅色背景深色文字, false为深色背景浅色文字-->
+        <!--        <item name="android:windowLightNavigationBar">true</item>-->
+        <!--状态栏是否覆盖在ContentView上：true:覆盖，状态栏会根据statusBarColor配色；false：状态栏会跟ContentView分离-->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowBackground">@color/md_theme_light_background</item>
+
+        <!--        窗口（Activity）切换动画-->
+        <item name="android:windowAnimationStyle">@style/default_animation</item>
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimaryVariant">@color/md_theme_light_primary</item>
+        <item name="colorAccent">@color/md_theme_light_secondary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondaryVariant">@color/md_theme_light_secondary</item>
+
+<!--        <item name="enableEdgeToEdge">?attr/enableEdgeToEdge</item>-->
+    </style>
+</resources>

@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
@@ -16,11 +17,15 @@ import com.laorencel.uilibrary.widget.State;
 public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseActivity<VDB, VM> {
 
     protected ActivityBaseUiBinding baseUiBinding;
+
+    //    //toolbar视图（默认会初始化，如果想要定制，重写createToolbar方法
+//    protected ViewDataBinding toolbarBinding;
     //页面头部（toolbar下面，stateLayout上面）
     protected ViewDataBinding headerBinding;
 
     //页面底部（stateLayout下面，固定在底部）
     protected ViewDataBinding footerBinding;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,6 +78,14 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
 
     }
 
+    //    protected void createToolbar(){
+//        toolbarBinding = DataBindingUtil.inflate(getLayoutInflater(), headerLayoutID(), null, false);
+//        if (null != headerBinding && null != baseUiBinding) {
+//            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+//            headerBinding.getRoot().setLayoutParams(params);
+//            baseUiBinding.llHeader.addView(headerBinding.getRoot());
+//        }
+//    }
     @Override
     protected abstract int layoutID();
 
@@ -90,7 +103,7 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
         return -1;
     }
 
-    protected void switchState(State state) {
+    public void switchState(State state) {
         if (null != baseUiBinding)
             baseUiBinding.stateLayout.switchState(state);
     }

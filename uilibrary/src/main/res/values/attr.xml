@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    TextAppearance  start   -->
+    <!--        Display    -->
+    <attr name="textAppearanceDisplayLargeTitle" format="reference" />
+    <attr name="textAppearanceDisplayMediumTitle" format="reference" />
+    <attr name="textAppearanceDisplaySmallTitle" format="reference" />
+
+    <attr name="textAppearanceDisplayLargeSubTitle" format="reference" />
+    <attr name="textAppearanceDisplayMediumSubTitle" format="reference" />
+    <attr name="textAppearanceDisplaySmallSubTitle" format="reference" />
+
+    <attr name="textAppearanceDisplayLargeBody" format="reference" />
+    <attr name="textAppearanceDisplayMediumBody" format="reference" />
+    <attr name="textAppearanceDisplaySmallBody" format="reference" />
+
+    <attr name="textAppearanceDisplayLargeLabel" format="reference" />
+    <attr name="textAppearanceDisplayMediumLabel" format="reference" />
+    <attr name="textAppearanceDisplaySmallLabel" format="reference" />
+
+    <attr name="textAppearanceDisplayLargeHint" format="reference" />
+    <attr name="textAppearanceDisplayMediumHint" format="reference" />
+    <attr name="textAppearanceDisplaySmallHint" format="reference" />
+
+    <attr name="textAppearanceDisplayLargeDisable" format="reference" />
+    <attr name="textAppearanceDisplayMediumDisable" format="reference" />
+    <attr name="textAppearanceDisplaySmallDisable" format="reference" />
+
+    <!--        Headline    -->
+    <attr name="textAppearanceHeadlineLargeTitle" format="reference" />
+    <attr name="textAppearanceHeadlineMediumTitle" format="reference" />
+    <attr name="textAppearanceHeadlineSmallTitle" format="reference" />
+
+    <attr name="textAppearanceHeadlineLargeSubTitle" format="reference" />
+    <attr name="textAppearanceHeadlineMediumSubTitle" format="reference" />
+    <attr name="textAppearanceHeadlineSmallSubTitle" format="reference" />
+
+    <attr name="textAppearanceHeadlineLargeBody" format="reference" />
+    <attr name="textAppearanceHeadlineMediumBody" format="reference" />
+    <attr name="textAppearanceHeadlineSmallBody" format="reference" />
+
+    <attr name="textAppearanceHeadlineLargeLabel" format="reference" />
+    <attr name="textAppearanceHeadlineMediumLabel" format="reference" />
+    <attr name="textAppearanceHeadlineSmallLabel" format="reference" />
+
+    <attr name="textAppearanceHeadlineLargeHint" format="reference" />
+    <attr name="textAppearanceHeadlineMediumHint" format="reference" />
+    <attr name="textAppearanceHeadlineSmallHint" format="reference" />
+
+    <attr name="textAppearanceHeadlineLargeDisable" format="reference" />
+    <attr name="textAppearanceHeadlineMediumDisable" format="reference" />
+    <attr name="textAppearanceHeadlineSmallDisable" format="reference" />
+
+    <!--        Title    -->
+    <attr name="textAppearanceTitleLargeTitle" format="reference" />
+    <attr name="textAppearanceTitleMediumTitle" format="reference" />
+    <attr name="textAppearanceTitleSmallTitle" format="reference" />
+
+    <attr name="textAppearanceTitleLargeSubTitle" format="reference" />
+    <attr name="textAppearanceTitleMediumSubTitle" format="reference" />
+    <attr name="textAppearanceTitleSmallSubTitle" format="reference" />
+
+    <attr name="textAppearanceTitleLargeBody" format="reference" />
+    <attr name="textAppearanceTitleMediumBody" format="reference" />
+    <attr name="textAppearanceTitleSmallBody" format="reference" />
+
+    <attr name="textAppearanceTitleLargeLabel" format="reference" />
+    <attr name="textAppearanceTitleMediumLabel" format="reference" />
+    <attr name="textAppearanceTitleSmallLabel" format="reference" />
+
+    <attr name="textAppearanceTitleLargeHint" format="reference" />
+    <attr name="textAppearanceTitleMediumHint" format="reference" />
+    <attr name="textAppearanceTitleSmallHint" format="reference" />
+
+    <attr name="textAppearanceTitleLargeDisable" format="reference" />
+    <attr name="textAppearanceTitleMediumDisable" format="reference" />
+    <attr name="textAppearanceTitleSmallDisable" format="reference" />
+
+    <!--        Body    -->
+    <attr name="textAppearanceBodyLargeTitle" format="reference" />
+    <attr name="textAppearanceBodyMediumTitle" format="reference" />
+    <attr name="textAppearanceBodySmallTitle" format="reference" />
+
+    <attr name="textAppearanceBodyLargeSubTitle" format="reference" />
+    <attr name="textAppearanceBodyMediumSubTitle" format="reference" />
+    <attr name="textAppearanceBodySmallSubTitle" format="reference" />
+
+    <attr name="textAppearanceBodyLargeBody" format="reference" />
+    <attr name="textAppearanceBodyMediumBody" format="reference" />
+    <attr name="textAppearanceBodySmallBody" format="reference" />
+
+    <attr name="textAppearanceBodyLargeLabel" format="reference" />
+    <attr name="textAppearanceBodyMediumLabel" format="reference" />
+    <attr name="textAppearanceBodySmallLabel" format="reference" />
+
+    <attr name="textAppearanceBodyLargeHint" format="reference" />
+    <attr name="textAppearanceBodyMediumHint" format="reference" />
+    <attr name="textAppearanceBodySmallHint" format="reference" />
+
+    <attr name="textAppearanceBodyLargeDisable" format="reference" />
+    <attr name="textAppearanceBodyMediumDisable" format="reference" />
+    <attr name="textAppearanceBodySmallDisable" format="reference" />
+
+    <!--        Label    -->
+    <attr name="textAppearanceLabelLargeTitle" format="reference" />
+    <attr name="textAppearanceLabelMediumTitle" format="reference" />
+    <attr name="textAppearanceLabelSmallTitle" format="reference" />
+
+    <attr name="textAppearanceLabelLargeSubTitle" format="reference" />
+    <attr name="textAppearanceLabelMediumSubTitle" format="reference" />
+    <attr name="textAppearanceLabelSmallSubTitle" format="reference" />
+
+    <attr name="textAppearanceLabelLargeBody" format="reference" />
+    <attr name="textAppearanceLabelMediumBody" format="reference" />
+    <attr name="textAppearanceLabelSmallBody" format="reference" />
+
+    <attr name="textAppearanceLabelLargeLabel" format="reference" />
+    <attr name="textAppearanceLabelMediumLabel" format="reference" />
+    <attr name="textAppearanceLabelSmallLabel" format="reference" />
+
+    <attr name="textAppearanceLabelLargeHint" format="reference" />
+    <attr name="textAppearanceLabelMediumHint" format="reference" />
+    <attr name="textAppearanceLabelSmallHint" format="reference" />
+
+    <attr name="textAppearanceLabelLargeDisable" format="reference" />
+    <attr name="textAppearanceLabelMediumDisable" format="reference" />
+    <attr name="textAppearanceLabelSmallDisable" format="reference" />
+    <!--    TextAppearance  end   -->
+
+    <!--        <dimen name="m3_app_color_display">@color/md_theme_light_error</dimen>-->
+
+
+    <!--    <attr format="reference" name="textAppearanceDisplayLarge"/>-->
+    <!--    <attr format="reference" name="textAppearanceDisplayMedium"/>-->
+    <!--    <attr format="reference" name="textAppearanceDisplaySmall"/>-->
+    <!--    <attr format="reference" name="textAppearanceHeadlineLarge"/>-->
+    <!--    <attr format="reference" name="textAppearanceHeadlineMedium"/>-->
+    <!--    <attr format="reference" name="textAppearanceHeadlineSmall"/>-->
+    <!--    <attr format="reference" name="textAppearanceTitleLarge"/>-->
+    <!--    <attr format="reference" name="textAppearanceTitleMedium"/>-->
+    <!--    <attr format="reference" name="textAppearanceTitleSmall"/>-->
+    <!--    <attr format="reference" name="textAppearanceBodyLarge"/>-->
+    <!--    <attr format="reference" name="textAppearanceBodyMedium"/>-->
+    <!--    <attr format="reference" name="textAppearanceBodySmall"/>-->
+    <!--    <attr format="reference" name="textAppearanceLabelLarge"/>-->
+    <!--    <attr format="reference" name="textAppearanceLabelMedium"/>-->
+    <!--    <attr format="reference" name="textAppearanceLabelSmall"/>-->
+
+
+    <!--    M3中文本TextAppearance定义（参考）   -->
+    <!--    <item name="textAppearanceDisplayLarge">@style/TextAppearance.Material3.DisplayLarge</item>-->
+    <!--    <item name="textAppearanceDisplayMedium">@style/TextAppearance.Material3.DisplayMedium</item>-->
+    <!--    <item name="textAppearanceDisplaySmall">@style/TextAppearance.Material3.DisplaySmall</item>-->
+
+    <!--    <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Material3.HeadlineLarge</item>-->
+    <!--    <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Material3.HeadlineMedium</item>-->
+    <!--    <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Material3.HeadlineSmall</item>-->
+
+    <!--    <item name="textAppearanceTitleLarge">@style/TextAppearance.Material3.TitleLarge</item>-->
+    <!--    <item name="textAppearanceTitleMedium">@style/TextAppearance.Material3.TitleMedium</item>-->
+    <!--    <item name="textAppearanceTitleSmall">@style/TextAppearance.Material3.TitleSmall</item>-->
+
+    <!--    <item name="textAppearanceBodyLarge">@style/TextAppearance.Material3.BodyLarge</item>-->
+    <!--    <item name="textAppearanceBodyMedium">@style/TextAppearance.Material3.BodyMedium</item>-->
+    <!--    <item name="textAppearanceBodySmall">@style/TextAppearance.Material3.BodySmall</item>-->
+
+    <!--    <item name="textAppearanceLabelLarge">@style/TextAppearance.Material3.LabelLarge</item>-->
+    <!--    <item name="textAppearanceLabelMedium">@style/TextAppearance.Material3.LabelMedium</item>-->
+    <!--    <item name="textAppearanceLabelSmall">@style/TextAppearance.Material3.LabelSmall</item>-->
+</resources>

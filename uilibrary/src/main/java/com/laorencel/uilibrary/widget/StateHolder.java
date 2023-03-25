@@ -6,12 +6,12 @@ import androidx.databinding.ViewDataBinding;
 
 import com.laorencel.uilibrary.widget.bean.StateItem;
 
+import java.util.List;
+
 public class StateHolder {
     private State state;
-    //持有子状态组件
-    private ViewDataBinding dataBinding;
-    //有时并不是使用dataBinding，这时候可以使用view代替
-    private View view;
+    // 持有状态组件（可能是多个组件，所以用list承载）
+    private List<View> views;
     private StateItem item;
 
     public StateHolder() {
@@ -29,20 +29,12 @@ public class StateHolder {
         this.state = state;
     }
 
-    public ViewDataBinding getDataBinding() {
-        return dataBinding;
+    public List<View> getViews() {
+        return views;
     }
 
-    public void setDataBinding(ViewDataBinding dataBinding) {
-        this.dataBinding = dataBinding;
-    }
-
-    public View getView() {
-        return view;
-    }
-
-    public void setView(View view) {
-        this.view = view;
+    public void setViews(List<View> views) {
+        this.views = views;
     }
 
     public StateItem getItem() {
@@ -51,5 +43,14 @@ public class StateHolder {
 
     public void setItem(StateItem item) {
         this.item = item;
+    }
+
+    @Override
+    public String toString() {
+        return "StateHolder{" +
+                "state=" + state +
+                ", views=" + views +
+                ", item=" + item +
+                '}';
     }
 }

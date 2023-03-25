@@ -5,6 +5,9 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,6 +23,17 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("BaseActivity", "onCreate");
+
+        //Lay out your app in full screen
+//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        // control the status bar content color
+        WindowInsetsControllerCompat windowInsetsController =
+                ViewCompat.getWindowInsetsController(getWindow().getDecorView());
+        if (windowInsetsController != null) {
+            windowInsetsController.setAppearanceLightNavigationBars(true);
+        }
+
+
         createView(savedInstanceState);
     }
 

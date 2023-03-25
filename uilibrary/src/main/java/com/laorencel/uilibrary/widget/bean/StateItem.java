@@ -48,4 +48,15 @@ public class StateItem {
         }
         return item;
     }
+
+    @Override
+    public String toString() {
+        return "StateItem{" +
+                "content=" + content.get() +
+                ", tip=" + tip.get() +
+                ", imageSrc=" + imageSrc.get() +
+                ", imageUrl=" + imageUrl.get() +
+                ", button=" + button.get() +
+                '}';
+    }
 }

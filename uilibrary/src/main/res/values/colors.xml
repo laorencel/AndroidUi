@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    <color name="black">#FF000000</color>-->
+    <color name="black">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+    <color name="transparent">@android:color/transparent</color>
+    <!--    <color name="transparent1">@android:color/system_accent1_900</color>-->
+
+
+    <!--    &lt;!&ndash;    应用程序的主要品牌颜色。&ndash;&gt;-->
+    <!--    <color name="colorPrimary">#0336ff</color>-->
+    <!--    &lt;!&ndash;    应用程序的主要品牌颜色。&ndash;&gt;-->
+    <!--    <color name="colorPrimaryDark">#0035c9</color>-->
+    <!--    <color name="colorAccent">#ffde03</color>-->
+
+    <!--    <color name="colorPrimaryVariant">#0035c9</color>-->
+    <!--    <color name="colorOnPrimary">#ffffff</color>-->
+
+    <!--    &lt;!&ndash;    应用的次要品牌颜色(代替colorAccent)，通常是主要品牌颜色的明亮补充&ndash;&gt;-->
+    <!--    <color name="colorSecondary">#ffde03</color>-->
+    <!--    <color name="colorSecondaryVariant">#ffc000</color>-->
+    <!--    <color name="colorOnSecondary">#000000</color>-->
+
+    <!--    &lt;!&ndash;    组件表面的颜色，例如卡片、工作表和菜单&ndash;&gt;-->
+    <!--    <color name="colorSurface">#ffde03</color>-->
+    <!--    <color name="colorOnSurface">#000000</color>-->
+
+    <!--    &lt;!&ndash;    屏幕的背景&ndash;&gt;-->
+    <!--    <color name="colorBackground">#ffffff</color>-->
+    <!--    <color name="colorOnBackground">#000000</color>-->
+
+
+    <!--    <color name="colorPrimary_light">#487BC4</color>-->
+    <!--    <color name="colorPrimary_dark">#1E62CA</color>-->
+    <!--    <color name="colorAccent_light">#E75D5F</color>-->
+    <!--    <color name="colorAccent_dark">#E02D31</color>-->
+
+    <!--Style Theme设置-->
+    <!--    <color name="statusBarColor">@android:color/transparent</color>-->
+    <!--    <color name="navigationBarColor">@android:color/transparent</color>-->
+    <!--    <color name="windowBackground">@color/color_page</color>-->
+    <!--&lt;!&ndash;    <color name="colorBackground">@color/color_page</color>&ndash;&gt;-->
+    <!--    <color name="colorSwitchThumbNormal">@color/color_text_dark</color>-->
+    <!--    <color name="colorControlNormal">@color/color_text_dark</color>-->
+    <!--    <color name="colorControlHighlight">@color/colorAccent_light</color>-->
+    <!--    <color name="colorControlActivated">@color/colorAccent</color>-->
+    <!--    <color name="textColor">@color/color_text_dark</color>-->
+    <!--    <color name="editTextColor">@color/color_text_dark</color>-->
+    <!--    <color name="textColorPrimary">@color/color_text_dark</color>-->
+    <!--    <color name="textColorSecondary">@color/color_text_dark</color>-->
+    <!--    <color name="textColorPrimaryDisableOnly">@color/color_text_dark</color>-->
+    <!--    &lt;!&ndash;&ndash;&gt;-->
+
+    <!--    <color name="color_text_black">@color/color_black</color>-->
+    <!--    <color name="color_text_dark">@color/color_dark</color>-->
+    <!--    <color name="color_text_gray">@color/color_gray</color>-->
+    <!--    <color name="color_text_white">@color/color_white</color>-->
+    <!--    <color name="color_text_hint">@color/color_hint</color>-->
+
+    <!--    &lt;!&ndash;颜色区域 start (其他颜色都是引用)&ndash;&gt;-->
+    <!--    <color name="color_transparent">#00FFFFFF</color>-->
+
+    <!--    <color name="color_black">#000000</color>-->
+    <!--    <color name="color_dark">#646464</color>-->
+    <!--    <color name="color_gray">#8A8A8A</color>-->
+    <!--    <color name="color_gray_light">#D1D1D1</color>-->
+    <!--    <color name="color_gray_purple">#C4C3CF</color>-->
+    <!--    <color name="color_gray_purple_light">#F8F7FF</color>-->
+    <!--    <color name="color_hint">#CCCCCC</color>-->
+    <!--    <color name="color_white">#FEFEFE</color>-->
+    <!--    <color name="color_page">#F3F3F3</color>-->
+    <!--    <color name="color_unable">#646464</color>-->
+    <!--    <color name="color_line_gray">#D1D1D1</color>-->
+    <!--    <color name="color_line_white">#FEFEFE</color>-->
+
+    <!--    <color name="color_green">#45ED45</color>-->
+    <!--    <color name="color_red">#EA3E4C</color>-->
+    <!--    <color name="pink">#F0BBC2</color>-->
+    <!--    <color name="pink_light">#F5D6DA</color>-->
+    <!--    <color name="color_yellow">#f9b322</color>-->
+    <!--    <color name="color_yellow_dark">#F7AB0E</color>-->
+    <!--    <color name="color_yellow_light">#F7C764</color>-->
+    <!--    <color name="color_blue">#628BFF</color>-->
+    <!--    &lt;!&ndash;颜色区域 end&ndash;&gt;-->
+
+    <!--    &lt;!&ndash;SuperTextLayout&ndash;&gt;-->
+    <!--    <color name="color_white_pressed">@color/color_gray_light</color>  &lt;!&ndash;白色背景按下去的颜色&ndash;&gt;-->
+    <!--    &lt;!&ndash;stateLayout&ndash;&gt;-->
+    <!--    &lt;!&ndash;<color name="content_color">#343434</color>&ndash;&gt;-->
+    <!--    <color name="state_tip_color">@color/color_text_dark</color>-->
+    <!--    <color name="state_retry_color">@color/color_text_gray</color>-->
+    <!--    &lt;!&ndash;&ndash;&gt;-->
+
+    <!--
+    1.colorPrimary 应用的主要色调，actionBar默认使用该颜色，Toolbar导航栏的底色
+
+    2.colorPrimaryDark 应用的主要暗色调，statusBarColor默认使用该颜色
+
+    3.statusBarColor 状态栏颜色，默认使用colorPrimaryDark
+
+    4.windowBackground 窗口背景颜色
+
+    5.navigationBarColor 底部栏颜色
+
+    6.colorForeground 应用的前景色，ListView的分割线，switch滑动区默认使用该颜色
+
+    7.colorBackground 应用的背景色，popMenu的背景默认使用该颜色
+
+    8.colorAccent CheckBox，RadioButton，SwitchCompat等一般控件的选中效果默认采用该颜色
+
+    9.colorControlNormal CheckBox，RadioButton，SwitchCompat等默认状态的颜色。
+
+    10.colorControlHighlight 控件按压时的色调
+
+    11.colorControlActivated 控件选中时的颜色，默认使用colorAccent
+
+    12.colorButtonNormal 默认按钮的背景颜色
+
+    13.editTextColor：默认EditView输入框字体的颜色。
+
+    14.textColor Button，textView的文字颜色
+
+    15.textColorPrimaryDisableOnly RadioButton checkbox等控件的文字
+
+    16.textColorPrimary 应用的主要文字颜色，actionBar的标题文字默认使用该颜色
+
+    17.colorSwitchThumbNormal: switch thumbs 默认状态的颜色. (switch off)
+    -->
+
+    <!--    <color name="m3_app_color_primary">?attr/colorPrimary</color>-->
+    <!--    <color name="m3_app_color_display">#333333</color>-->
+    <!--    <color name="m3_app_color_headline">#333333</color>-->
+    <!--    <color name="m3_app_color_title">#CC333333</color>-->
+    <!--    <color name="m3_app_color_body">#CC333333</color>-->
+<!--        <color name="m3_app_color_label">#80333333</color>-->
+
+    <!--    标题和重要内容文字颜色 95%     -->
+    <color name="m3_app_color_light_title">#F2333333</color>
+    <!--    次标题和重要内容文字颜色 80%     -->
+    <color name="m3_app_color_light_title_sub">#CC333333</color>
+    <!--    主要内容文字颜色 70%     -->
+    <color name="m3_app_color_light_body">#B3333333</color>
+    <!--    文本内容文字颜色 50%     -->
+    <color name="m3_app_color_light_label">#80333333</color>
+    <!--    hint内容文字颜色 30%     -->
+    <color name="m3_app_color_light_hint">#4D333333</color>
+    <!--    disable内容文字颜色 40%     -->
+    <color name="m3_app_color_light_disable">#66333333</color>
+
+    <!--    标题和重要内容文字颜色 95%     -->
+    <color name="m3_app_color_dark_title">#F2FFFFFF</color>
+    <!--    次标题和重要内容文字颜色 80%     -->
+    <color name="m3_app_color_dark_title_sub">#CCFFFFFF</color>
+    <!--    主要内容文字颜色 70%     -->
+    <color name="m3_app_color_dark_body">#B3FFFFFF</color>
+    <!--    文本内容文字颜色 50%     -->
+    <color name="m3_app_color_dark_label">#80FFFFFF</color>
+    <!--    hint内容文字颜色 30%     -->
+    <color name="m3_app_color_dark_hint">#4DFFFFFF</color>
+    <!--    disable内容文字颜色 40%     -->
+    <color name="m3_app_color_dark_disable">#66FFFFFF</color>
+
+    <color name="m3_app_color_dark_title_onPrimary">#F2FFFFFF</color>
+
+
+    <!--    Material3生成颜色   -->
+    <color name="seed">#6750A4</color>
+
+    <!--    light    -->
+    <color name="md_theme_light_primary">#6750A4</color>
+
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+
+    <color name="md_theme_light_primaryContainer">#EADDFF</color>
+
+    <color name="md_theme_light_onPrimaryContainer">#21005D</color>
+
+    <color name="md_theme_light_secondary">#625B71</color>
+
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+
+    <color name="md_theme_light_secondaryContainer">#E8DEF8</color>
+
+    <color name="md_theme_light_onSecondaryContainer">#1D192B</color>
+
+    <color name="md_theme_light_tertiary">#7D5260</color>
+
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+
+    <color name="md_theme_light_tertiaryContainer">#FFD8E4</color>
+
+    <color name="md_theme_light_onTertiaryContainer">#31111D</color>
+
+    <color name="md_theme_light_error">#B3261E</color>
+
+    <color name="md_theme_light_onError">#FFFFFF</color>
+
+    <color name="md_theme_light_errorContainer">#F9DEDC</color>
+
+    <color name="md_theme_light_onErrorContainer">#410E0B</color>
+
+    <color name="md_theme_light_outline">#79747E</color>
+
+    <color name="md_theme_light_background">#FFFBFE</color>
+
+    <color name="md_theme_light_onBackground">#1C1B1F</color>
+
+    <color name="md_theme_light_surface">#FFFBFE</color>
+
+    <color name="md_theme_light_onSurface">#1C1B1F</color>
+
+    <color name="md_theme_light_surfaceVariant">#E7E0EC</color>
+
+    <color name="md_theme_light_onSurfaceVariant">#49454F</color>
+
+    <color name="md_theme_light_inverseSurface">#313033</color>
+
+    <color name="md_theme_light_inverseOnSurface">#F4EFF4</color>
+
+    <color name="md_theme_light_inversePrimary">#D0BCFF</color>
+
+    <color name="md_theme_light_shadow">#000000</color>
+
+    <color name="md_theme_light_surfaceTint">#6750A4</color>
+
+    <color name="md_theme_light_outlineVariant">#CAC4D0</color>
+
+    <color name="md_theme_light_scrim">#000000</color>
+
+    <!--    dark    -->
+    <color name="md_theme_dark_primary">#D0BCFF</color>
+
+    <color name="md_theme_dark_onPrimary">#381E72</color>
+
+    <color name="md_theme_dark_primaryContainer">#4F378B</color>
+
+    <color name="md_theme_dark_onPrimaryContainer">#EADDFF</color>
+
+    <color name="md_theme_dark_secondary">#CCC2DC</color>
+
+    <color name="md_theme_dark_onSecondary">#332D41</color>
+
+    <color name="md_theme_dark_secondaryContainer">#4A4458</color>
+
+    <color name="md_theme_dark_onSecondaryContainer">#E8DEF8</color>
+
+    <color name="md_theme_dark_tertiary">#EFB8C8</color>
+
+    <color name="md_theme_dark_onTertiary">#492532</color>
+
+    <color name="md_theme_dark_tertiaryContainer">#633B48</color>
+
+    <color name="md_theme_dark_onTertiaryContainer">#FFD8E4</color>
+
+    <color name="md_theme_dark_error">#F2B8B5</color>
+
+    <color name="md_theme_dark_onError">#601410</color>
+
+    <color name="md_theme_dark_errorContainer">#8C1D18</color>
+
+    <color name="md_theme_dark_onErrorContainer">#F9DEDC</color>
+
+    <color name="md_theme_dark_outline">#938F99</color>
+
+    <color name="md_theme_dark_background">#1C1B1F</color>
+
+    <color name="md_theme_dark_onBackground">#E6E1E5</color>
+
+    <color name="md_theme_dark_surface">#1C1B1F</color>
+
+    <color name="md_theme_dark_onSurface">#E6E1E5</color>
+
+    <color name="md_theme_dark_surfaceVariant">#49454F</color>
+
+    <color name="md_theme_dark_onSurfaceVariant">#CAC4D0</color>
+
+    <color name="md_theme_dark_inverseSurface">#E6E1E5</color>
+
+    <color name="md_theme_dark_inverseOnSurface">#313033</color>
+
+    <color name="md_theme_dark_inversePrimary">#6750A4</color>
+
+    <color name="md_theme_dark_shadow">#000000</color>
+
+    <color name="md_theme_dark_surfaceTint">#D0BCFF</color>
+
+    <color name="md_theme_dark_outlineVariant">#49454F</color>
+
+    <color name="md_theme_dark_scrim">#000000</color>
+</resources>

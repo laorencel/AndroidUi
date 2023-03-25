@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-<data>
-    <variable
-        name="item"
-        type="com.laorencel.uilibrary.widget.bean.StateItem" />
-</data>
+    <data>
+
+        <variable
+            name="item"
+            type="com.laorencel.uilibrary.widget.bean.StateItem" />
+
+        <import type="android.view.View" />
+    </data>
+
     <LinearLayout
         android:id="@+id/ll_content"
         android:layout_width="match_parent"
@@ -17,24 +21,27 @@
             android:id="@+id/img_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@{item.imageSrc}"/>
+            android:src="@{item.imageSrc}" />
 
         <TextView
             android:id="@+id/tv_content"
-            android:text="@{item.content}"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@{item.content}"
+            android:visibility="@{null!=item.content?View.VISIBLE:View.GONE}" />
 
         <TextView
             android:id="@+id/tv_tip"
-            android:text="@{item.tip}"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@{item.tip}"
+            android:visibility="@{null!=item.tip?View.VISIBLE:View.GONE}" />
 
         <Button
             android:id="@+id/btn_handle"
-            android:text="@{item.button}"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@{item.button}"
+            android:visibility="@{null!=item.button?View.VISIBLE:View.GONE}" />
     </LinearLayout>
 </layout>
