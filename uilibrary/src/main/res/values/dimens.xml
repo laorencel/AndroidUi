@@ -25,6 +25,27 @@
     <dimen name="m3_app_typescale_label_small_text_size">11sp</dimen>
 
 
+    <!--    edge distance: padding margin 边距   -->
+    <dimen name="margin_distance_none">@dimen/dp_0</dimen>
+    <dimen name="margin_distance_extra_small">@dimen/dp_4</dimen>
+    <dimen name="margin_distance_small">@dimen/dp_8</dimen>
+    <dimen name="margin_distance_medium">@dimen/dp_12</dimen>
+    <dimen name="margin_distance_large">@dimen/dp_16</dimen>
+    <dimen name="margin_distance_extra_large">@dimen/dp_20</dimen>
+
+    <!--    corner 圆角    -->
+    <dimen name="corner_none">@dimen/dp_0</dimen>
+    <dimen name="corner_extra_small">@dimen/dp_4</dimen>
+    <dimen name="corner_small">@dimen/dp_8</dimen>
+    <dimen name="corner_medium">@dimen/dp_12</dimen>
+    <dimen name="corner_large">@dimen/dp_16</dimen>
+    <dimen name="corner_extra_large">@dimen/dp_28</dimen>
+    <dimen name="corner_full">50%</dimen>
+
+    <!--    divider 分割线    -->
+    <dimen name="divider_thickness">@dimen/dp_1</dimen>
+    <dimen name="divider_heavy_thickness">@dimen/dp_8</dimen>
+
     <!--    0-100 dp/sp -->
     <dimen name="dp_0">0dp</dimen>
     <dimen name="dp_0_5">0.5dp</dimen>
