@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    TextAppearance  start   -->
+    <!--    size:Display.color:Primary   -->
+    <style name="TextAppearance.App.DisplayLarge.Primary" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_large_text_size</item>
+        <!--        <item name="android:textColorHint">@color/m3_app_color_light_hint</item>-->
+        <!--        <item name="android:disabledAlpha">@dimen/m3_app_disabled_alpha_light</item>-->
+    </style>
+
+    <style name="TextAppearance.App.DisplayMedium.Primary" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplaySmall.Primary" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_small_text_size</item>
+    </style>
+
+    <!--    size:Display.color:Title   -->
+    <style name="TextAppearance.App.DisplayLarge.Title" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplayMedium.Title" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplaySmall.Title" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_small_text_size</item>
+    </style>
+
+    <!--    size:Display.color:SubTitle   -->
+    <style name="TextAppearance.App.DisplayLarge.SubTitle" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplayMedium.SubTitle" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplaySmall.SubTitle" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_small_text_size</item>
+    </style>
+
+    <!--    size:Display.color:Body   -->
+    <style name="TextAppearance.App.DisplayLarge.Body" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplayMedium.Body" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplaySmall.Body" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_small_text_size</item>
+    </style>
+
+    <!--    size:Display.color:Label   -->
+    <style name="TextAppearance.App.DisplayLarge.Label" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplayMedium.Label" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplaySmall.Label" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_small_text_size</item>
+    </style>
+
+    <!--    size:Display.color:Hint   -->
+    <style name="TextAppearance.App.DisplayLarge.Hint" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplayMedium.Hint" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplaySmall.Hint" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_small_text_size</item>
+    </style>
+
+    <!--    size:Display.color:Disable   -->
+    <style name="TextAppearance.App.DisplayLarge.Disable" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplayMedium.Disable" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.DisplaySmall.Disable" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_display_small_text_size</item>
+    </style>
+
+    <!--    size:Headline.color:Primary   -->
+    <style name="TextAppearance.App.HeadlineLarge.Primary" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineMedium.Primary" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineSmall.Primary" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_small_text_size</item>
+    </style>
+
+    <!--    size:Headline.color:Title   -->
+    <style name="TextAppearance.App.HeadlineLarge.Title" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineMedium.Title" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineSmall.Title" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_small_text_size</item>
+    </style>
+
+    <!--    size:Headline.color:SubTitle   -->
+    <style name="TextAppearance.App.HeadlineLarge.SubTitle" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineMedium.SubTitle" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineSmall.SubTitle" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_small_text_size</item>
+    </style>
+
+    <!--    size:Headline.color:Body   -->
+    <style name="TextAppearance.App.HeadlineLarge.Body" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineMedium.Body" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineSmall.Body" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_small_text_size</item>
+    </style>
+
+    <!--    size:Headline.color:Label   -->
+    <style name="TextAppearance.App.HeadlineLarge.Label" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineMedium.Label" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineSmall.Label" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_small_text_size</item>
+    </style>
+
+    <!--    size:Headline.color:Hint   -->
+    <style name="TextAppearance.App.HeadlineLarge.Hint" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineMedium.Hint" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineSmall.Hint" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_small_text_size</item>
+    </style>
+
+    <!--    size:Headline.color:Disable   -->
+    <style name="TextAppearance.App.HeadlineLarge.Disable" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineMedium.Disable" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.HeadlineSmall.Disable" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_headline_small_text_size</item>
+    </style>
+
+    <!--    size:Title.color:Primary   -->
+    <style name="TextAppearance.App.TitleLarge.Primary" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium.Primary" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleSmall.Primary" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_small_text_size</item>
+    </style>
+
+    <!--    size:Title.color:Title   -->
+    <style name="TextAppearance.App.TitleLarge.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleSmall.Title" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_small_text_size</item>
+    </style>
+
+    <!--    size:Title.color:SubTitle   -->
+    <style name="TextAppearance.App.TitleLarge.SubTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium.SubTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleSmall.SubTitle" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_small_text_size</item>
+    </style>
+
+    <!--    size:Title.color:Body   -->
+    <style name="TextAppearance.App.TitleLarge.Body" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium.Body" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleSmall.Body" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_small_text_size</item>
+    </style>
+
+    <!--    size:Title.color:Label   -->
+    <style name="TextAppearance.App.TitleLarge.Label" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium.Label" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleSmall.Label" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_small_text_size</item>
+    </style>
+
+    <!--    size:Title.color:Hint   -->
+    <style name="TextAppearance.App.TitleLarge.Hint" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium.Hint" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleSmall.Hint" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_small_text_size</item>
+    </style>
+
+    <!--    size:Title.color:Disable   -->
+    <style name="TextAppearance.App.TitleLarge.Disable" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium.Disable" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleSmall.Disable" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_title_small_text_size</item>
+    </style>
+
+    <!--    size:Body.color:Primary   -->
+    <style name="TextAppearance.App.BodyLarge.Primary" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMedium.Primary" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodySmall.Primary" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_small_text_size</item>
+    </style>
+
+    <!--    size:Body.color:Title   -->
+    <style name="TextAppearance.App.BodyLarge.Title" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMedium.Title" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodySmall.Title" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_small_text_size</item>
+    </style>
+
+    <!--    size:Body.color:SubTitle   -->
+    <style name="TextAppearance.App.BodyLarge.SubTitle" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMedium.SubTitle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodySmall.SubTitle" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_small_text_size</item>
+    </style>
+
+    <!--    size:Body.color:Body   -->
+    <style name="TextAppearance.App.BodyLarge.Body" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMedium.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodySmall.Body" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_small_text_size</item>
+    </style>
+
+    <!--    size:Body.color:Label   -->
+    <style name="TextAppearance.App.BodyLarge.Label" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMedium.Label" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodySmall.Label" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_small_text_size</item>
+    </style>
+
+    <!--    size:Body.color:Hint   -->
+    <style name="TextAppearance.App.BodyLarge.Hint" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMedium.Hint" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodySmall.Hint" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_small_text_size</item>
+    </style>
+
+    <!--    size:Body.color:Disable   -->
+    <style name="TextAppearance.App.BodyLarge.Disable" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMedium.Disable" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.BodySmall.Disable" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_body_small_text_size</item>
+    </style>
+
+    <!--    size:Label.color:Primary   -->
+    <style name="TextAppearance.App.LabelLarge.Primary" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelMedium.Primary" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelSmall.Primary" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_small_text_size</item>
+    </style>
+
+    <!--    size:Label.color:Title   -->
+    <style name="TextAppearance.App.LabelLarge.Title" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelMedium.Title" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelSmall.Title" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/m3_app_color_light_title</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_small_text_size</item>
+    </style>
+
+    <!--    size:Label.color:SubTitle   -->
+    <style name="TextAppearance.App.LabelLarge.SubTitle" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelMedium.SubTitle" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelSmall.SubTitle" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/m3_app_color_light_title_sub</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_small_text_size</item>
+    </style>
+
+    <!--    size:Label.color:Body   -->
+    <style name="TextAppearance.App.LabelLarge.Body" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelMedium.Body" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelSmall.Body" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/m3_app_color_light_body</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_small_text_size</item>
+    </style>
+
+    <!--    size:Label.color:Label   -->
+    <style name="TextAppearance.App.LabelLarge.Label" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelMedium.Label" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelSmall.Label" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/m3_app_color_light_label</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_small_text_size</item>
+    </style>
+
+    <!--    size:Label.color:Hint   -->
+    <style name="TextAppearance.App.LabelLarge.Hint" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelMedium.Hint" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelSmall.Hint" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/m3_app_color_light_hint</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_small_text_size</item>
+    </style>
+
+    <!--    size:Label.color:Disable   -->
+    <style name="TextAppearance.App.LabelLarge.Disable" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_large_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelMedium.Disable" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelSmall.Disable" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/m3_app_color_light_disable</item>
+        <item name="android:textSize">@dimen/m3_app_typescale_label_small_text_size</item>
+    </style>
+    <!--    TextAppearance  end   -->
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><!--    注意：selector中各个state状态的顺序是会影响实际效果-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="?attr/colorPrimaryVariant" tools:ignore="PrivateResource" />
+            <corners android:radius="@dimen/corner_full" />
+        </shape>
+    </item>
+
+    <item android:state_focused="true">
+        <shape android:shape="oval">
+            <solid android:color="?attr/colorPrimaryVariant" tools:ignore="PrivateResource" />
+            <corners android:radius="@dimen/corner_full" />
+        </shape>
+    </item>
+
+    <item android:state_selected="true">
+        <shape android:shape="oval">
+            <solid android:color="?attr/colorPrimaryVariant" tools:ignore="PrivateResource" />
+            <corners android:radius="@dimen/corner_full" />
+        </shape>
+    </item>
+
+    <item android:state_checked="true">
+        <shape android:shape="oval">
+            <solid android:color="?attr/colorPrimaryVariant" tools:ignore="PrivateResource" />
+            <corners android:radius="@dimen/corner_full" />
+        </shape>
+    </item>
+
+    <item>
+        <!--        矩形（rectangle）、椭圆（oval）、线（line）、圆环（ring）     -->
+        <shape android:shape="oval">
+            <solid android:color="?attr/colorPrimary" />
+            <corners android:radius="@dimen/corner_full" />
+        </shape>
+    </item>
+
+</selector>
