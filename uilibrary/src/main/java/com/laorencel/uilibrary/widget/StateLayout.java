@@ -4,6 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
@@ -117,10 +121,20 @@ public class StateLayout extends FrameLayout {
             addView(binding.getRoot());
         }
 
+        if (null == showAnimation) {
+            showAnimation = getShowAnimation();
+        }
+        if (null == hideAnimation) {
+            hideAnimation = getHideAnimation();
+        }
         //TODO 状态切换动画
         if (null != holder.getViews() && holder.getViews().size() > 0) {
             for (int i = 0; i < holder.getViews().size(); i++) {
-                holder.getViews().get(i).setVisibility(View.VISIBLE);
+                if (holder.getViews().get(i).getVisibility() != View.VISIBLE) {
+                    holder.getViews().get(i).setVisibility(View.VISIBLE);
+                    showAnimation.setFillAfter(false);
+                    holder.getViews().get(i).startAnimation(showAnimation);
+                }
             }
         }
         for (Map.Entry<State, StateHolder> entry : stateMap.entrySet()) {
@@ -128,10 +142,30 @@ public class StateLayout extends FrameLayout {
                 StateHolder otherHolder = entry.getValue();
                 if (null != otherHolder.getViews() && otherHolder.getViews().size() > 0) {
                     for (int i = 0; i < otherHolder.getViews().size(); i++) {
-                        otherHolder.getViews().get(i).setVisibility(View.GONE);
+                        if (otherHolder.getViews().get(i).getVisibility() != View.GONE) {
+                            otherHolder.getViews().get(i).setVisibility(View.GONE);
+                            hideAnimation.setFillAfter(false);
+                            otherHolder.getViews().get(i).startAnimation(hideAnimation);
+                        }
                     }
                 }
             }
         }
+    }
+
+    private Animation showAnimation, hideAnimation;
+
+    private Animation getShowAnimation() {
+        Animation animation = new AlphaAnimation(0.0f, 1.0f);
+        animation.setDuration(200);
+        animation.setInterpolator(new DecelerateInterpolator());
+        return animation;
+    }
+
+    private Animation getHideAnimation() {
+        Animation animation = new AlphaAnimation(1.0f, 0.0f);
+        animation.setDuration(200);
+        animation.setInterpolator(new AccelerateDecelerateInterpolator());
+        return animation;
     }
 }

@@ -37,6 +37,12 @@
 
     <style name="AppTheme.TextAppearance" parent="Theme.Material3.Light.Ui">
         <!--    TextAppearance  start   -->
+        <item name="appTextColorTitle">@color/m3_app_color_light_title</item>
+        <item name="appTextColorSubTitle">@color/m3_app_color_light_title_sub</item>
+        <item name="appTextColorBody">@color/m3_app_color_light_body</item>
+        <item name="appTextColorLabel">@color/m3_app_color_light_label</item>
+        <item name="appTextColorHint">@color/m3_app_color_light_hint</item>
+        <item name="appTextColorDisable">@color/m3_app_color_light_disable</item>
         <!--    Display   -->
         <item name="textAppearanceDisplayLargeTitle">@style/TextAppearance.App.DisplayLarge.Title
         </item>
@@ -307,7 +313,6 @@
         <!-- 设置背景模糊的透明度-->
         <item name="android:backgroundDimAmount">0.5</item>
     </style>
-
 
 
 </resources>

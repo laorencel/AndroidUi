@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import com.laorencel.uilibrary.R;
 import com.laorencel.uilibrary.databinding.ActivityBaseUiBinding;
 import com.laorencel.uilibrary.widget.State;
+import com.laorencel.uilibrary.widget.bean.StateItem;
 
 public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseActivity<VDB, VM> {
 
@@ -104,7 +105,11 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
     }
 
     public void switchState(State state) {
+        switchState(state, null);
+    }
+
+    public void switchState(State state, StateItem item) {
         if (null != baseUiBinding)
-            baseUiBinding.stateLayout.switchState(state);
+            baseUiBinding.stateLayout.switchState(state, item);
     }
 }

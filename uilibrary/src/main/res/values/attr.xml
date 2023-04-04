@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    TextAppearance  start   -->
+
+    <attr name="appTextColorTitle" format="reference" />
+    <attr name="appTextColorSubTitle" format="reference" />
+    <attr name="appTextColorBody" format="reference" />
+    <attr name="appTextColorLabel" format="reference" />
+    <attr name="appTextColorHint" format="reference" />
+    <attr name="appTextColorDisable" format="reference" />
+
     <!--        Display    -->
     <attr name="textAppearanceDisplayLargeTitle" format="reference" />
     <attr name="textAppearanceDisplayMediumTitle" format="reference" />

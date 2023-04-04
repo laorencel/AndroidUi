@@ -3,20 +3,22 @@ package com.laorencel.uilibrary.http;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 
-public class HttpClient {
-    private HttpClient() {
+public class RetrofitClient {
+    private RetrofitClient() {
     }
 
     private static class Builder {
-        private static final HttpClient INSTANCE = new HttpClient();
+        private static final RetrofitClient INSTANCE = new RetrofitClient();
     }
 
-    public static HttpClient get() {
+    public static RetrofitClient get() {
         return Builder.INSTANCE;
     }
 
@@ -38,6 +40,10 @@ public class HttpClient {
                 builder.addConverterFactory(factories.get(i));
             }
         }
+//        //在使用retrofit 以Mutopart 进行表单数据上传时,后台收到的数据有双引号
+//        builder.addConverterFactory(ScalarsConverterFactory.create());
+        // rxjava适配
+        builder.addCallAdapterFactory(RxJava3CallAdapterFactory.createWithScheduler(Schedulers.io()));
         builder.client(createOkHttpClient(interceptors));
         return builder.build();
     }
@@ -49,6 +55,16 @@ public class HttpClient {
                 builder.addInterceptor(interceptors.get(i));
             }
         }
+
+//      Gson gson = new GsonBuilder()
+//                .setLenient()
+//                .registerTypeAdapter(long.class, LongTypeAdapter)
+//                .registerTypeAdapter(Long.class, LongTypeAdapter)
+//                .registerTypeAdapter(int.class, IntTypeAdapter)
+//                .registerTypeAdapter(Integer.class, IntTypeAdapter)
+//                .registerTypeAdapter(String.class,StringTypeAdapter)
+//                .create();
+
         return builder
                 .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)

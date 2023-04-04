@@ -27,6 +27,12 @@
 
     <style name="AppTheme.TextAppearance" parent="Theme.Material3.Dark.Ui">
         <!--    TextAppearance  start   -->
+        <item name="appTextColorTitle">@color/m3_app_color_dark_title</item>
+        <item name="appTextColorSubTitle">@color/m3_app_color_dark_title_sub</item>
+        <item name="appTextColorBody">@color/m3_app_color_dark_body</item>
+        <item name="appTextColorLabel">@color/m3_app_color_dark_label</item>
+        <item name="appTextColorHint">@color/m3_app_color_dark_hint</item>
+        <item name="appTextColorDisable">@color/m3_app_color_dark_disable</item>
         <!--    Display   -->
         <item name="textAppearanceDisplayLargeTitle">@style/TextAppearance.App.DisplayLarge.Title
         </item>

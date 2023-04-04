@@ -47,7 +47,6 @@
                 android:background="@drawable/surface_corner_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/dp_20"
                 android:layout_marginTop="20dp"
                 android:text="TextView" />
 
