@@ -1,18 +1,18 @@
 package com.laorencel.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 
 import com.laorencel.ui.R;
 import com.laorencel.ui.databinding.ActivityMainBinding;
-import com.laorencel.ui.databinding.ActivityMainFooterBinding;
-import com.laorencel.uilibrary.ui.BaseActivity;
+import com.laorencel.ui.login.LoginActivity;
+import com.laorencel.ui.test.m3.button.TestButtonActivity;
 import com.laorencel.uilibrary.ui.BaseUiActivity;
-import com.laorencel.uilibrary.widget.State;
 
-import java.util.Random;
 
 public class MainActivity extends BaseUiActivity<ActivityMainBinding, MainVM> {
 
@@ -22,21 +22,20 @@ public class MainActivity extends BaseUiActivity<ActivityMainBinding, MainVM> {
     }
 
     @Override
-    protected int headerLayoutID() {
-        return super.headerLayoutID();
-    }
-
-    @Override
-    protected int footerLayoutID() {
-        return R.layout.activity_main_footer;
-    }
-
-    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        ((ActivityMainFooterBinding) footerBinding).setActivity(this);
     }
 
+    public void toTestM3Button(View view) {
+        startActivity(new Intent(MainActivity.this, TestButtonActivity.class));
+    }
+
+    public void toLogin(View view) {
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+    }
+
+    protected void setToolbar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+    }
 }

@@ -1,18 +1,31 @@
 package com.laorencel.uilibrary.ui;
 
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.color.MaterialColors;
+import com.laorencel.uilibrary.R;
+import com.laorencel.uilibrary.manager.UiWindowManager;
 import com.laorencel.uilibrary.util.ClassUtil;
+import com.laorencel.uilibrary.util.EdgeToEdgeUtil;
 
 public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends AppCompatActivity {
 
@@ -24,15 +37,16 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
         super.onCreate(savedInstanceState);
         Log.i("BaseActivity", "onCreate");
 
-        //Lay out your app in full screen
-//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         // control the status bar content color
-        WindowInsetsControllerCompat windowInsetsController =
-                ViewCompat.getWindowInsetsController(getWindow().getDecorView());
-        if (windowInsetsController != null) {
-            windowInsetsController.setAppearanceLightNavigationBars(true);
-        }
+//        WindowInsetsControllerCompat windowInsetsController =
+//                ViewCompat.getWindowInsetsController(getWindow().getDecorView());
+//        if (windowInsetsController != null) {
+//            windowInsetsController.setAppearanceLightNavigationBars(true);
+//        }
 
+        UiWindowManager uiWindowManager = new UiWindowManager();
+        uiWindowManager.applyEdgeToEdge(getWindow(), true);
+        uiWindowManager.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
 
         createView(savedInstanceState);
     }
@@ -54,5 +68,15 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
             return new ViewModelProvider(this).get(viewModelClass);
         }
         return null;
+    }
+
+    protected void setToolbar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(view -> {
+            onBackPressed();
+        });
+//        toolbar.setNavigationIcon(R.drawable.ic_navigation);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//添加默认的返回图标
+        getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
     }
 }

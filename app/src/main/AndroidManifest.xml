@@ -22,6 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".test.m3.button.TestButtonActivity"/>
+        <activity android:name=".login.LoginActivity"/>
     </application>
 
 </manifest>

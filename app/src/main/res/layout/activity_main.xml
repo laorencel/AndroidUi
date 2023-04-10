@@ -1,177 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:layout_margin="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_margin="@dimen/dp_20"
-                    android:layout_height="wrap_content"
-                    android:text="CardView" />
-            </androidx.cardview.widget.CardView>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_distance_medium"
+                android:background="@drawable/corner_extra_small"
+                android:onClick="toTestM3Button"
+                android:text="test_m3_button" />
 
             <Button
-                android:background="@drawable/surface_corner_small"
                 android:layout_width="wrap_content"
-                android:text="test shape"
-                android:layout_height="wrap_content"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:background="@drawable/surface_corner_small_bottom"
-                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_distance_medium"
-                android:text="test shape"
-                android:layout_height="wrap_content"/>
-
-            <RadioButton
-                android:background="@drawable/surface_corner_small"
-                android:layout_width="wrap_content"
-                android:text="test shape"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/tv_test"
-                android:background="@drawable/surface_corner_small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="TextView" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_title"
-                android:textAppearance="?attr/textAppearanceBodyLargeTitle" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_title_sub"
-                android:textAppearance="?attr/textAppearanceBodyLargeSubTitle" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_body"
-                android:textAppearance="?attr/textAppearanceBodyLargeBody" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_label"
-                android:textAppearance="?attr/textAppearanceBodyLargeLabel" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_hint"
-                android:textAppearance="?attr/textAppearanceBodyLargeHint" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_disable"
-                android:textAppearance="?attr/textAppearanceBodyLargeDisable" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_appcompat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="AppCompatTextView" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="EditText" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="AppCompatEditText" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_app"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="AppCompatButton" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="TextView" />
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-              style="@style/ShapeAppearance.Material3.SmallComponent"
-                android:text="MaterialButtonTest" />
-
-
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.ElevatedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ElevatedButton" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FilledButton" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.TonalButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TonalButton" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OutlinedButton" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextButton" />
-
-            <!--        <com.google.android.material.button.MaterialButton-->
-            <!--            android:layout_width="wrap_content"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:text="MaterialButton"/>-->
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="CheckBox"
-                android:textAppearance="?attr/textAppearanceLabelMedium" />
-
+                android:background="@drawable/corner_extra_small"
+                android:onClick="toLogin"
+                android:text="toLogin" />
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
+
+<!--        <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--&lt;!&ndash;    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:fitsSystemWindows="true"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:orientation="vertical">&ndash;&gt;-->
+
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:id="@+id/appbar_layout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fitsSystemWindows="true">-->
+
+<!--            <androidx.appcompat.widget.Toolbar-->
+<!--                android:id="@+id/toolbar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
+
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/ll_header"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+<!--                &lt;!&ndash; 界面Header组件，在BaseUiActivity中设置Header组件layoutId   &ndash;&gt;-->
+<!--                &lt;!&ndash;                <TextView&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:text="header" />&ndash;&gt;-->
+<!--            </LinearLayout>-->
+
+<!--            <com.laorencel.uilibrary.widget.StateLayout-->
+<!--                android:id="@+id/state_layout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_above="@id/ll_footer"-->
+<!--                android:layout_below="@id/ll_header">-->
+
+<!--                <androidx.core.widget.NestedScrollView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/rl_content"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
+
+<!--                    </RelativeLayout>-->
+
+<!--                </androidx.core.widget.NestedScrollView>-->
+
+<!--            </com.laorencel.uilibrary.widget.StateLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/ll_footer"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:orientation="vertical">-->
+<!--                &lt;!&ndash; 界面Bottom组件，在BaseUiActivity中设置bottom组件layoutId   &ndash;&gt;-->
+<!--                &lt;!&ndash;                <TextView&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    android:text="bottom" />&ndash;&gt;-->
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
+
+<!--&lt;!&ndash;    </LinearLayout>&ndash;&gt;-->
+<!--        </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 </layout>

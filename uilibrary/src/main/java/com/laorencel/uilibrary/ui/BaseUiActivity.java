@@ -2,7 +2,9 @@ package com.laorencel.uilibrary.ui;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
@@ -27,7 +29,6 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
     //页面底部（stateLayout下面，固定在底部）
     protected ViewDataBinding footerBinding;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,6 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
         baseUiBinding = DataBindingUtil.setContentView(this, R.layout.activity_base_ui);
         viewModel = createViewModel();
 
-
         if (layoutID() != -1) {
             contentBinding = DataBindingUtil.inflate(getLayoutInflater(), layoutID(), null, false);
             if (null != contentBinding && null != baseUiBinding) {
@@ -54,39 +54,42 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
             }
         }
 
-        //页面头部（toolbar下面，stateLayout上面）
+        //页面头部（添加在appbarLayout內，toolbar下面，stateLayout上面）
         if (headerLayoutID() != -1) {
             headerBinding = DataBindingUtil.inflate(getLayoutInflater(), headerLayoutID(), null, false);
             if (null != headerBinding && null != baseUiBinding) {
-                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 headerBinding.getRoot().setLayoutParams(params);
-                baseUiBinding.llHeader.addView(headerBinding.getRoot());
+                baseUiBinding.appbarLayout.addView(headerBinding.getRoot());
             }
         }
-        //页面底部（stateLayout下面，固定在底部）
+        //页面底部（添加在bottomAppbar內，stateLayout下面，固定在底部）
         if (footerLayoutID() != -1) {
             footerBinding = DataBindingUtil.inflate(getLayoutInflater(), footerLayoutID(), null, false);
             if (null != footerBinding && null != baseUiBinding) {
-                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 footerBinding.getRoot().setLayoutParams(params);
-                baseUiBinding.llFooter.addView(footerBinding.getRoot());
+                baseUiBinding.bottomAppbar.addView(footerBinding.getRoot());
+                baseUiBinding.bottomAppbar.setVisibility(View.VISIBLE);
+
+                if (null != contentBinding) {
+                    contentBinding.getRoot().setPadding(
+                            contentBinding.getRoot().getPaddingLeft(),
+                            contentBinding.getRoot().getPaddingTop(),
+                            contentBinding.getRoot().getPaddingRight(),
+                            contentBinding.getRoot().getPaddingBottom() + baseUiBinding.bottomAppbar.getHeight()
+                    );
+                }
             }
+        } else {
+            baseUiBinding.bottomAppbar.setVisibility(View.GONE);
         }
 
         if (null != baseUiBinding) {
-            setSupportActionBar(baseUiBinding.toolbar);
+            setToolbar(baseUiBinding.toolbar);
         }
-
     }
 
-    //    protected void createToolbar(){
-//        toolbarBinding = DataBindingUtil.inflate(getLayoutInflater(), headerLayoutID(), null, false);
-//        if (null != headerBinding && null != baseUiBinding) {
-//            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-//            headerBinding.getRoot().setLayoutParams(params);
-//            baseUiBinding.llHeader.addView(headerBinding.getRoot());
-//        }
-//    }
     @Override
     protected abstract int layoutID();
 
