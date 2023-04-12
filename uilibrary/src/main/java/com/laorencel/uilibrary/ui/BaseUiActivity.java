@@ -21,18 +21,37 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
 
     protected ActivityBaseUiBinding baseUiBinding;
 
-    //    //toolbar视图（默认会初始化，如果想要定制，重写createToolbar方法
-//    protected ViewDataBinding toolbarBinding;
-    //页面头部（toolbar下面，stateLayout上面）
+    //页面头部（添加在appbarLayout內，toolbar下面，stateLayout上面）
     protected ViewDataBinding headerBinding;
 
-    //页面底部（stateLayout下面，固定在底部）
+    //页面底部（添加在bottomAppbar內，stateLayout下面，固定在底部）
     protected ViewDataBinding footerBinding;
+
+    /**
+     * 子页面必须实现，页面布局id，返回-1不加载
+     * @return 布局id
+     */
+    @Override
+    protected abstract int layoutID();
+
+    /**
+     * 页面头部布局资源layoutID（添加在appbarLayout內，toolbar下面，stateLayout上面）
+     */
+    protected int headerLayoutID() {
+        return -1;
+    }
+
+    /**
+     * 页面底部布局资源layoutID（添加在bottomAppbar內，stateLayout下面，固定在底部）
+     */
+    protected int footerLayoutID() {
+        return -1;
+    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -90,27 +109,21 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
         }
     }
 
-    @Override
-    protected abstract int layoutID();
-
     /**
-     * 页面头部布局资源layoutID
+     * 状态页面切换
+     *
+     * @param state State状态
      */
-    protected int headerLayoutID() {
-        return -1;
-    }
-
-    /**
-     * 页面底部布局资源layoutID
-     */
-    protected int footerLayoutID() {
-        return -1;
-    }
-
     public void switchState(State state) {
         switchState(state, null);
     }
 
+    /**
+     * 状态页面切换
+     *
+     * @param state State状态
+     * @param item  StateItem配置
+     */
     public void switchState(State state, StateItem item) {
         if (null != baseUiBinding)
             baseUiBinding.stateLayout.switchState(state, item);
