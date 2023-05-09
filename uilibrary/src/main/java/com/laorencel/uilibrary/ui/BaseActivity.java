@@ -26,6 +26,8 @@ import com.laorencel.uilibrary.R;
 import com.laorencel.uilibrary.manager.UiWindowManager;
 import com.laorencel.uilibrary.util.ClassUtil;
 import com.laorencel.uilibrary.util.EdgeToEdgeUtil;
+import com.laorencel.uilibrary.widget.State;
+import com.laorencel.uilibrary.widget.bean.StateItem;
 
 public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends AppCompatActivity {
 
@@ -78,5 +80,25 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
 //        toolbar.setNavigationIcon(R.drawable.ic_navigation);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//添加默认的返回图标
         getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
+    }
+
+    /**
+     * 状态页面切换
+     *
+     * @param state State状态
+     */
+    public void switchState(State state) {
+        switchState(state, null);
+    }
+
+    /**
+     * 状态页面切换
+     *
+     * @param state State状态
+     * @param item  StateItem配置
+     */
+    public void switchState(State state, StateItem item) {
+//        if (null != baseUiBinding)
+//            baseUiBinding.stateLayout.switchState(state, item);
     }
 }

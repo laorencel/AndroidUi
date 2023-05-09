@@ -113,15 +113,6 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
      * 状态页面切换
      *
      * @param state State状态
-     */
-    public void switchState(State state) {
-        switchState(state, null);
-    }
-
-    /**
-     * 状态页面切换
-     *
-     * @param state State状态
      * @param item  StateItem配置
      */
     public void switchState(State state, StateItem item) {

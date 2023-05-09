@@ -17,7 +17,7 @@ import com.laorencel.uilibrary.databinding.FragmentBaseUiBinding;
 import com.laorencel.uilibrary.widget.State;
 import com.laorencel.uilibrary.widget.bean.StateItem;
 
-public class BaseUiFragment<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseFragment<VDB, VM> {
+public abstract class BaseUiFragment<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseFragment<VDB, VM> {
     FragmentBaseUiBinding baseUiBinding;
 
     //页面头部（添加在appbarLayout內，toolbar下面，stateLayout上面）
@@ -26,10 +26,7 @@ public class BaseUiFragment<VDB extends ViewDataBinding, VM extends BaseViewMode
     //页面底部（添加在bottomAppbar內，stateLayout下面，固定在底部）
     protected ViewDataBinding footerBinding;
 
-    @Override
-    protected int layoutID() {
-        return -1;
-    }
+    protected abstract int layoutID();
 
     /**
      * 页面头部布局资源layoutID(添加在appbarLayout內，toolbar下面，stateLayout上面)
@@ -93,22 +90,13 @@ public class BaseUiFragment<VDB extends ViewDataBinding, VM extends BaseViewMode
             }
 
         } else {
-            ViewGroup parent = (ViewGroup) contentBinding.getRoot().getParent();
+            ViewGroup parent = (ViewGroup) baseUiBinding.getRoot().getParent();
             if (null != parent) {
-                parent.removeView(contentBinding.getRoot());
+                parent.removeView(baseUiBinding.getRoot());
             }
         }
 
-        return contentBinding.getRoot();
-    }
-
-    /**
-     * 状态页面切换
-     *
-     * @param state State状态
-     */
-    public void switchState(State state) {
-        switchState(state, null);
+        return baseUiBinding.getRoot();
     }
 
     /**

@@ -17,6 +17,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.laorencel.uilibrary.util.ClassUtil;
+import com.laorencel.uilibrary.widget.State;
+import com.laorencel.uilibrary.widget.bean.StateItem;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -84,5 +86,26 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+
+    /**
+     * 状态页面切换
+     *
+     * @param state State状态
+     */
+    public void switchState(State state) {
+        switchState(state, null);
+    }
+
+    /**
+     * 状态页面切换
+     *
+     * @param state State状态
+     * @param item  StateItem配置
+     */
+    public void switchState(State state, StateItem item) {
+//        if (null != baseUiBinding)
+//            baseUiBinding.stateLayout.switchState(state, item);
     }
 }
