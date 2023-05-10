@@ -12,6 +12,9 @@ import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class BaseViewModel extends ViewModel {
+
+    //Rxjava 使用 CompositeDisposable 收集所有的 Disposable 句柄，而后在 onDestroy 中调用 clear 统一注销
+    //在适当时机取消订阅、截断数据流，避免内存泄露。
     private CompositeDisposable compositeDisposable;
 
     protected void addDisposable(Observable observable, Consumer consumer, Consumer errorConsumer) {
@@ -60,12 +63,16 @@ public class BaseViewModel extends ViewModel {
         }
     }
 
-    @Override
-    protected void onCleared() {
+    public void clearDisposable() {
         if (this.compositeDisposable != null && !compositeDisposable.isDisposed()) {
             this.compositeDisposable.clear();
             this.compositeDisposable = null;
         }
+    }
+
+    @Override
+    protected void onCleared() {
+        clearDisposable();
         super.onCleared();
     }
 }
