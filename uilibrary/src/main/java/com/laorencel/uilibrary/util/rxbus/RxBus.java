@@ -2,9 +2,12 @@ package com.laorencel.uilibrary.util.rxbus;
 
 import androidx.lifecycle.LifecycleOwner;
 
+import com.laorencel.uilibrary.http.DefaultHttpClientFactory;
+
 import java.util.Map;
 
 import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.subjects.PublishSubject;
 import io.reactivex.rxjava3.subjects.Subject;
 
 /**
@@ -14,6 +17,7 @@ import io.reactivex.rxjava3.subjects.Subject;
  */
 public class RxBus {
     private RxBus() {
+        subject = PublishSubject.create().toSerialized();
     }
 
     private static class Builder {
