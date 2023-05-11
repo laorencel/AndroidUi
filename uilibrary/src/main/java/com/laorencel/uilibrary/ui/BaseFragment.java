@@ -57,6 +57,23 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
         return contentBinding.getRoot();
     }
 
+    /**
+     * onActivityCreated() 方法现已弃用。
+     * 与 Fragment 视图有关的代码应在 onViewCreated()（在 onActivityCreated() 之前调用）中执行，而其他初始化代码应在 onCreate() 中执行。
+     * 如需专门在 Activity 的 onCreate() 完成时接收回调，应在 onAttach() 中的 Activity 的 Lifecycle 上注册 LifeCycleObserver，并在收到 onCreate() 回调后将其移除。
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (null == viewModel) {
+            viewModel = createViewModel();
+        }
+    }
+
     protected VM createViewModel() {
         Class<VM> viewModelClass = ClassUtil.getViewModel(this);
         if (null != viewModelClass) {
@@ -65,38 +82,36 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
         return null;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        //onAttach()始终在任何Lifecycle 状态更改之前调用，所以onAttach()在onCreate()之前调用。
+//    @Override
+//    public void onAttach(@NonNull Context context) {
+//        super.onAttach(context);
+//        //onAttach()始终在任何Lifecycle 状态更改之前调用，所以onAttach()在onCreate()之前调用。
+//
+//        //onActivityCreated弃用后的替代方案
+//        //因为onActivityCreated()是宿主Activity的onCreate()之后立即调用，
+//        // 所以可以在onAttach的时候，通过订阅Activity的lifecycle来获取Activity的onCreate()事件，记得要removeObserver。
+//        //requireActivity() 返回的是宿主activity
+//        requireActivity().getLifecycle().addObserver(new LifecycleEventObserver() {
+//            @Override
+//            public void onStateChanged(@NonNull @NotNull LifecycleOwner source, @NonNull @NotNull Lifecycle.Event event) {
+//                if (event.getTargetState() == Lifecycle.State.CREATED) {
+//                    //在这里任你飞翔
+//                    onAttachActivityCreated();
+//
+//                    requireActivity().getLifecycle().removeObserver(this);  //这里是删除观察者
+//                }
+//            }
+//        });
+//    }
 
-        //onActivityCreated弃用后的替代方案
-        //因为onActivityCreated()是宿主Activity的onCreate()之后立即调用，
-        // 所以可以在onAttach的时候，通过订阅Activity的lifecycle来获取Activity的onCreate()事件，记得要removeObserver。
-        //requireActivity() 返回的是宿主activity
-        requireActivity().getLifecycle().addObserver(new LifecycleEventObserver() {
-            @Override
-            public void onStateChanged(@NonNull @NotNull LifecycleOwner source, @NonNull @NotNull Lifecycle.Event event) {
-                if (event.getTargetState() == Lifecycle.State.CREATED) {
-                    //在这里任你飞翔
-                    onAttachActivityCreated();
+//    public void onAttachActivityCreated() {
+//
+//    }
 
-                    requireActivity().getLifecycle().removeObserver(this);  //这里是删除观察者
-                }
-            }
-        });
-    }
-
-    public void onAttachActivityCreated() {
-        if (null == viewModel) {
-            viewModel = createViewModel();
-        }
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
+//    @Override
+//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+//        super.onActivityCreated(savedInstanceState);
+//    }
 
 
     /**
