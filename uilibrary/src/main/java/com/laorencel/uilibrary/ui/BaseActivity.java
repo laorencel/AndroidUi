@@ -1,33 +1,20 @@
 package com.laorencel.uilibrary.ui;
 
-import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.WindowInsets;
-import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.OnApplyWindowInsetsListener;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.material.color.MaterialColors;
-import com.laorencel.uilibrary.R;
 import com.laorencel.uilibrary.manager.UiWindowManager;
 import com.laorencel.uilibrary.util.ClassUtil;
-import com.laorencel.uilibrary.util.EdgeToEdgeUtil;
-import com.laorencel.uilibrary.widget.State;
-import com.laorencel.uilibrary.widget.bean.StateItem;
+import com.laorencel.uilibrary.widget.state.State;
+import com.laorencel.uilibrary.widget.state.bean.StateItem;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;

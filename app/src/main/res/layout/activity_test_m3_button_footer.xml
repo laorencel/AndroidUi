@@ -8,7 +8,7 @@
             name="activity"
             type="com.laorencel.ui.test.m3.button.TestButtonActivity" />
 
-        <import type="com.laorencel.uilibrary.widget.State" />
+        <import type="com.laorencel.uilibrary.widget.state.State" />
     </data>
 
     <com.google.android.flexbox.FlexboxLayout

@@ -1,9 +1,9 @@
-package com.laorencel.uilibrary.widget.bean;
+package com.laorencel.uilibrary.widget.state.bean;
 
 import androidx.databinding.ObservableField;
 
 import com.laorencel.uilibrary.R;
-import com.laorencel.uilibrary.widget.State;
+import com.laorencel.uilibrary.widget.state.State;
 
 public class StateItem {
     public ObservableField<String> content = new ObservableField<>();

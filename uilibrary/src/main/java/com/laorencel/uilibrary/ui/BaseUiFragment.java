@@ -14,8 +14,8 @@ import androidx.databinding.ViewDataBinding;
 
 import com.laorencel.uilibrary.R;
 import com.laorencel.uilibrary.databinding.FragmentBaseUiBinding;
-import com.laorencel.uilibrary.widget.State;
-import com.laorencel.uilibrary.widget.bean.StateItem;
+import com.laorencel.uilibrary.widget.state.State;
+import com.laorencel.uilibrary.widget.state.bean.StateItem;
 
 public abstract class BaseUiFragment<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseFragment<VDB, VM> {
     FragmentBaseUiBinding baseUiBinding;

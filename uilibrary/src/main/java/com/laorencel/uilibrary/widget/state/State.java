@@ -1,4 +1,4 @@
-package com.laorencel.uilibrary.widget;
+package com.laorencel.uilibrary.widget.state;
 
 public enum State {
 

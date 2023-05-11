@@ -1,10 +1,8 @@
-package com.laorencel.uilibrary.widget;
+package com.laorencel.uilibrary.widget.state;
 
 import android.view.View;
 
-import androidx.databinding.ViewDataBinding;
-
-import com.laorencel.uilibrary.widget.bean.StateItem;
+import com.laorencel.uilibrary.widget.state.bean.StateItem;
 
 import java.util.List;
 

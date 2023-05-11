@@ -5,7 +5,7 @@
 
         <variable
             name="item"
-            type="com.laorencel.uilibrary.widget.bean.StateItem" />
+            type="com.laorencel.uilibrary.widget.state.bean.StateItem" />
 
         <import type="android.view.View" />
     </data>

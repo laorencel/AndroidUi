@@ -1,4 +1,4 @@
-package com.laorencel.uilibrary.widget;
+package com.laorencel.uilibrary.widget.state;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.laorencel.uilibrary.databinding.LayoutStateBinding;
-import com.laorencel.uilibrary.widget.bean.StateItem;
+import com.laorencel.uilibrary.widget.state.bean.StateItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;

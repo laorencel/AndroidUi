@@ -1,21 +1,19 @@
 package com.laorencel.uilibrary.ui;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
 import com.laorencel.uilibrary.R;
 import com.laorencel.uilibrary.databinding.ActivityBaseUiBinding;
-import com.laorencel.uilibrary.widget.State;
-import com.laorencel.uilibrary.widget.bean.StateItem;
+import com.laorencel.uilibrary.widget.state.State;
+import com.laorencel.uilibrary.widget.state.bean.StateItem;
 
 public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseActivity<VDB, VM> {
 

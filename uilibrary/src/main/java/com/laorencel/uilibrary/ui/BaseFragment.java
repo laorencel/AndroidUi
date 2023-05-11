@@ -1,6 +1,5 @@
 package com.laorencel.uilibrary.ui;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleEventObserver;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.laorencel.uilibrary.util.ClassUtil;
-import com.laorencel.uilibrary.widget.State;
-import com.laorencel.uilibrary.widget.bean.StateItem;
-
-import org.jetbrains.annotations.NotNull;
+import com.laorencel.uilibrary.widget.state.State;
+import com.laorencel.uilibrary.widget.state.bean.StateItem;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
