@@ -12,9 +12,14 @@ import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.laorencel.uilibrary.bean.Pagination;
+import com.laorencel.uilibrary.ui.adapter.BaseAdapter;
 import com.laorencel.uilibrary.util.ClassUtil;
+import com.laorencel.uilibrary.util.EmptyUtil;
 import com.laorencel.uilibrary.widget.state.State;
 import com.laorencel.uilibrary.widget.state.bean.StateItem;
+
+import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
@@ -55,9 +60,10 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
      * onActivityCreated() 方法现已弃用。
      * 与 Fragment 视图有关的代码应在 onViewCreated()（在 onActivityCreated() 之前调用）中执行，而其他初始化代码应在 onCreate() 中执行。
      * 如需专门在 Activity 的 onCreate() 完成时接收回调，应在 onAttach() 中的 Activity 的 Lifecycle 上注册 LifeCycleObserver，并在收到 onCreate() 回调后将其移除。
-     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     *
+     * @param view               The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
      * @param savedInstanceState If non-null, this fragment is being re-constructed
-     * from a previous saved state as given here.
+     *                           from a previous saved state as given here.
      */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -126,6 +132,32 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
     public void switchState(State state, StateItem item) {
 //        if (null != baseUiBinding)
 //            baseUiBinding.stateLayout.switchState(state, item);
+    }
+
+    /**
+     * 通用设置列表数据，根据当前页数，数据是否为空，切换状态页面，如果不是第一页且数据为空，会将页数减一
+     *
+     * @param list       数据
+     * @param adapter    BaseAdapter
+     * @param pagination Pagination
+     * @param <T>        数据类型
+     */
+    protected <T> void setListData(List<T> list, BaseAdapter<T> adapter, Pagination pagination) {
+        if (EmptyUtil.isEmpty(list)) {
+            if (pagination.isStartPage()) {
+                switchState(State.EMPTY);
+            } else {
+                switchState(State.CONTENT);
+                pagination.minusPage();
+            }
+        } else {
+            switchState(State.CONTENT);
+            if (pagination.isStartPage()) {
+                adapter.setList(list);
+            } else {
+                adapter.addAll(list);
+            }
+        }
     }
 
     protected void addDisposable(Observable observable, Consumer consumer, Consumer errorConsumer) {

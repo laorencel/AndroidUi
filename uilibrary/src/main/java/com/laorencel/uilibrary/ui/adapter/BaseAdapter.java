@@ -11,12 +11,17 @@ import java.util.List;
 
 /**
  * RecyclerView.Adapter基础封装
+ *
  * @param <T>
  */
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
 
     private List<T> list = new ArrayList<>();
     private OnItemClickListener<T> itemClickListener;
+
+    public void setItemClickListener(OnItemClickListener<T> itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
@@ -47,6 +52,29 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
             this.list = new ArrayList<>();
         }
         notifyDataSetChanged();
+    }
+
+    /**
+     * 插入数据 调用List.addAll方法
+     * @param list 数据
+     */
+    public void addAll(List<T> list) {
+        if (null != list && list.size() > 0) {
+            this.list.addAll(list);
+            notifyItemRangeInserted(this.list.size() - list.size(), list.size());
+        }
+    }
+
+    /**
+     * 插入数据
+     * @param fromIndex 开始index
+     * @param list 数据
+     */
+    public void addAll(int fromIndex, List<T> list) {
+        if (null != list && list.size() > 0) {
+            this.list.addAll(list);
+            notifyItemRangeInserted(fromIndex, list.size());
+        }
     }
 
 

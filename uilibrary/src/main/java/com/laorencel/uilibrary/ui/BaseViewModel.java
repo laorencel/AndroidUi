@@ -2,6 +2,8 @@ package com.laorencel.uilibrary.ui;
 
 import androidx.lifecycle.ViewModel;
 
+import com.laorencel.uilibrary.bean.Pagination;
+
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
@@ -12,10 +14,24 @@ import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class BaseViewModel extends ViewModel {
-
+    /**
+     * 分页数据
+     */
+    protected Pagination pagination;
     //Rxjava 使用 CompositeDisposable 收集所有的 Disposable 句柄，而后在 onDestroy 中调用 clear 统一注销
     //在适当时机取消订阅、截断数据流，避免内存泄露。
     private CompositeDisposable compositeDisposable;
+
+    protected BaseViewModel() {
+        pagination = new Pagination();
+    }
+
+    public Pagination getPagination() {
+        if (null == pagination) {
+            pagination = new Pagination();
+        }
+        return pagination;
+    }
 
     protected void addDisposable(Observable observable, Consumer consumer, Consumer errorConsumer) {
         if (null == observable) return;

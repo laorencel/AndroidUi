@@ -11,10 +11,15 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.laorencel.uilibrary.bean.Pagination;
 import com.laorencel.uilibrary.manager.UiWindowManager;
+import com.laorencel.uilibrary.ui.adapter.BaseAdapter;
 import com.laorencel.uilibrary.util.ClassUtil;
+import com.laorencel.uilibrary.util.EmptyUtil;
 import com.laorencel.uilibrary.widget.state.State;
 import com.laorencel.uilibrary.widget.state.bean.StateItem;
+
+import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
@@ -96,6 +101,32 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
     public void switchState(State state, StateItem item) {
 //        if (null != baseUiBinding)
 //            baseUiBinding.stateLayout.switchState(state, item);
+    }
+
+    /**
+     * 通用设置列表数据，根据当前页数，数据是否为空，切换状态页面，如果不是第一页且数据为空，会将页数减一
+     *
+     * @param list       数据
+     * @param adapter    BaseAdapter
+     * @param pagination Pagination
+     * @param <T>        数据类型
+     */
+    protected <T> void setListData(List<T> list, BaseAdapter<T> adapter, Pagination pagination) {
+        if (EmptyUtil.isEmpty(list)) {
+            if (pagination.isStartPage()) {
+                switchState(State.EMPTY);
+            } else {
+                switchState(State.CONTENT);
+                pagination.minusPage();
+            }
+        } else {
+            switchState(State.CONTENT);
+            if (pagination.isStartPage()) {
+                adapter.setList(list);
+            } else {
+                adapter.addAll(list);
+            }
+        }
     }
 
     protected void addDisposable(Observable observable, Consumer consumer, Consumer errorConsumer) {
