@@ -27,6 +27,7 @@
         <item name="android:windowAnimationStyle">@style/default_animation</item>
 
         <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorPrimaryVariant">@color/md_theme_light_primary</item>
         <item name="colorAccent">@color/md_theme_light_secondary</item>
         <!-- Secondary brand color. -->

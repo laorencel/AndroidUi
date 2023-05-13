@@ -8,9 +8,8 @@ import com.laorencel.ui.R;
 import com.laorencel.ui.databinding.ActivityTestM3ButtonBinding;
 import com.laorencel.ui.databinding.ActivityTestM3ButtonFooterBinding;
 import com.laorencel.uilibrary.ui.BaseUiActivity;
-import com.laorencel.uilibrary.ui.BaseViewModel;
 
-public class TestButtonActivity extends BaseUiActivity<ActivityTestM3ButtonBinding, BaseViewModel> {
+public class TestButtonActivity extends BaseUiActivity<ActivityTestM3ButtonBinding, TestButtonVM> {
     @Override
     protected int layoutID() {
         return R.layout.activity_test_m3_button;
