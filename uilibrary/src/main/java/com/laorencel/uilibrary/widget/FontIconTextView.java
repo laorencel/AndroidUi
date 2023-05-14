@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.laorencel.uilibrary.R;
+
 /**
  * 简单封装，在代码中使用时就不需要再设置Typeface了
  */
@@ -15,14 +17,17 @@ import androidx.annotation.Nullable;
 public class FontIconTextView extends TextView {
     public FontIconTextView(Context context) {
         super(context);
+        init(context);
     }
 
     public FontIconTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init(context);
     }
 
     public FontIconTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
     }
 
     public FontIconTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -39,6 +44,7 @@ public class FontIconTextView extends TextView {
         //设置字体图标
         Typeface font = Typeface.createFromAsset(context.getAssets(), "iconfont.ttf");
         this.setTypeface(font);
+//        setText(getResources().getString(R.string.font_icon_add));
 
         //正常的写法（只是代码中，xml中不需要）
 //        Typeface font = Typeface.createFromAsset(getAssets(), "iconfont.ttf");

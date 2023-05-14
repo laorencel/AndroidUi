@@ -48,23 +48,24 @@ public class Pagination implements Parcelable {
 
     /**
      * 请求数据开始条数
+     *
      * @return
      */
     public int getStart() {
         //如果是开始页（有的是0，有的是1），需要从数据库第一条开始查
-        return this.page == PAGE_START ? 0 : this.page * pageSize;
+        return (this.page == PAGE_START ? 0 : this.page) * pageSize;
     }
 
     /**
      * 请求数据结束条数
+     *
      * @return
      */
     public int getEnd() {
-        return (this.page + 1) * pageSize;
+        return ((this.page == PAGE_START ? 0 : this.page) + 1) * pageSize;
     }
 
     /**
-     *
      * @return 是否为第一页
      */
     public boolean isStartPage() {
