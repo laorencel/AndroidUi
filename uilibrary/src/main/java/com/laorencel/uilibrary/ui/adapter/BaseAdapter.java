@@ -16,8 +16,8 @@ import java.util.List;
  */
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
 
-    private List<T> list = new ArrayList<>();
-    private OnItemClickListener<T> itemClickListener;
+    protected List<T> list = new ArrayList<>();
+    protected OnItemClickListener<T> itemClickListener;
 
     public void setItemClickListener(OnItemClickListener<T> itemClickListener) {
         this.itemClickListener = itemClickListener;
@@ -125,8 +125,8 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
      * @param index
      */
     public void remove(int index) {
-        notifyItemRemoved(index);
         list.remove(index);
+        notifyItemRemoved(index);
         //受影响的item都刷新position
         notifyItemRangeChanged(index, list.size() - 1);
     }
