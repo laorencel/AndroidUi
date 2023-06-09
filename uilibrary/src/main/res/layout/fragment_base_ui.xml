@@ -2,57 +2,41 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar_layout"
+
+        <LinearLayout
+            android:id="@+id/top_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
+            android:fitsSystemWindows="true"
+            android:orientation="vertical" />
 
-            <!--            <com.google.android.material.appbar.CollapsingToolbarLayout-->
-            <!--                android:id="@+id/collapsing_toolbar_layout"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:fitsSystemWindows="true"-->
-            <!--                app:layout_scrollFlags="scroll|enterAlways">-->
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <!--            </com.google.android.material.appbar.CollapsingToolbarLayout>-->
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.core.widget.NestedScrollView
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_above="@id/bottom_layout"
+            android:layout_below="@id/top_layout" />
 
-            <com.laorencel.uilibrary.widget.state.StateLayout
-                android:id="@+id/state_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:minHeight="600dp">
+        <com.laorencel.uilibrary.widget.state.StateLayout
+            android:id="@+id/state_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_layout"
+            android:layout_below="@id/top_layout"
+            android:minHeight="600dp"
+            android:visibility="gone" />
 
-                <RelativeLayout
-                    android:id="@+id/rl_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </RelativeLayout>
-
-            </com.laorencel.uilibrary.widget.state.StateLayout>
-
-        </androidx.core.widget.NestedScrollView>
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottom_appbar"
+        <LinearLayout
+            android:id="@+id/bottom_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            android:fitsSystemWindows="true" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            android:fitsSystemWindows="true"
+            android:orientation="horizontal" />
+    </RelativeLayout>
 </layout>

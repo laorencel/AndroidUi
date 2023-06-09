@@ -130,4 +130,34 @@ dependencies {
     //Logger
 //    api 'com.orhanobut:logger:2.2.0'
 
+    // rxpermissions 权限管理
+    api 'com.github.tbruyelle:rxpermissions:0.12'
+
+    // XPopup弹窗 https://gitee.com/lxj_gitee/XPopup
+    api 'com.github.li-xiaojun:XPopup:2.9.19'
+
+    // glide
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // SmartRefreshLayout 智能下拉刷新框架 地址：https://github.com/scwang90/SmartRefreshLayout/tree/master
+    // 注意：分包之后不会有默认的Header和Footer需要手动添加！还是原来的三种方法！
+    //    api 'androidx.appcompat:appcompat:1.0.0'                 //必须 1.0.0 以上
+    //    api 'io.github.scwang90:refresh-layout-kernel:2.0.6'      //核心必须依赖
+    //    api 'io.github.scwang90:refresh-header-classics:2.0.6'    //经典刷新头
+    //    api 'io.github.scwang90:refresh-header-radar:2.0.6'       //雷达刷新头
+    //    api 'io.github.scwang90:refresh-header-falsify:2.0.6'     //虚拟刷新头
+    //    api 'io.github.scwang90:refresh-header-material:2.0.6'    //谷歌刷新头
+    //    api 'io.github.scwang90:refresh-header-two-level:2.0.6'   //二级刷新头
+    //    api 'io.github.scwang90:refresh-footer-ball:2.0.6'        //球脉冲加载
+    //    api 'io.github.scwang90:refresh-footer-classics:2.0.6'    //经典加载
+    // 使用时需要在项目build.gradle中添加镜像，否则很难成功依赖
+    api  'com.scwang.smart:refresh-layout-kernel:2.0.3'      //核心必须依赖
+    api  'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
+    api  'com.scwang.smart:refresh-header-radar:2.0.3'       //雷达刷新头
+    api  'com.scwang.smart:refresh-header-falsify:2.0.3'     //虚拟刷新头
+    api  'com.scwang.smart:refresh-header-material:2.0.3'    //谷歌刷新头
+    api  'com.scwang.smart:refresh-header-two-level:2.0.3'   //二级刷新头
+    api  'com.scwang.smart:refresh-footer-ball:2.0.3'        //球脉冲加载
+    api  'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
 }

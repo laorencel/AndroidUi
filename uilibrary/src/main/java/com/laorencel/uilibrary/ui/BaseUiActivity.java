@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
@@ -14,6 +15,10 @@ import com.laorencel.uilibrary.R;
 import com.laorencel.uilibrary.databinding.ActivityBaseUiBinding;
 import com.laorencel.uilibrary.widget.state.State;
 import com.laorencel.uilibrary.widget.state.bean.StateItem;
+import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+
+import java.util.Objects;
 
 public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseActivity<VDB, VM> {
 
@@ -27,6 +32,7 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
 
     /**
      * 子页面必须实现，页面布局id，返回-1不加载
+     *
      * @return 布局id
      */
     @Override
@@ -65,9 +71,9 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
             contentBinding = DataBindingUtil.inflate(getLayoutInflater(), layoutID(), null, false);
             if (null != contentBinding && null != baseUiBinding) {
                 //这里的LayoutParams要看contentBinding是加载在哪个父组件里面，相应的获取RelativeLayout还是其他类型。
-                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 contentBinding.getRoot().setLayoutParams(params);
-                baseUiBinding.rlContent.addView(contentBinding.getRoot());
+                baseUiBinding.refreshLayout.addView(contentBinding.getRoot());
             }
         }
 
@@ -104,7 +110,44 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
 
         if (null != baseUiBinding) {
             setToolbar(baseUiBinding.toolbar);
+
+            baseUiBinding.refreshLayout.setEnableRefresh(refreshEnable());
+            baseUiBinding.refreshLayout.setEnableLoadMore(loadMoreEnable());
+            baseUiBinding.refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+                @Override
+                public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                    BaseUiActivity.this.onLoadMore(refreshLayout);
+                }
+
+                @Override
+                public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                    BaseUiActivity.this.onRefresh(refreshLayout);
+                }
+            });
         }
+    }
+
+    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+    }
+
+    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+    }
+
+    public boolean refreshEnable() {
+        return false;
+    }
+
+    public boolean loadMoreEnable() {
+        return false;
+    }
+
+    public void showToolbar(boolean show) {
+        if (show) {
+            Objects.requireNonNull(getSupportActionBar()).show();
+        } else {
+            Objects.requireNonNull(getSupportActionBar()).hide();
+        }
+//        baseUiBinding.appbarLayout.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     /**
@@ -114,7 +157,19 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
      * @param item  StateItem配置
      */
     public void switchState(State state, StateItem item) {
-        if (null != baseUiBinding)
-            baseUiBinding.stateLayout.switchState(state, item);
+        if (null != baseUiBinding) {
+            if (state == State.CONTENT) {
+                if (null != contentBinding) {
+                    contentBinding.getRoot().setVisibility(View.VISIBLE);
+                }
+                baseUiBinding.stateLayout.setVisibility(View.GONE);
+            } else {
+                if (null != contentBinding) {
+                    contentBinding.getRoot().setVisibility(View.GONE);
+                }
+                baseUiBinding.stateLayout.setVisibility(View.VISIBLE);
+                baseUiBinding.stateLayout.switchState(state, item);
+            }
+        }
     }
 }

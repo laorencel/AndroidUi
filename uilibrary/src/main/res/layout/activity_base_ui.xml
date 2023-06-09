@@ -32,22 +32,18 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <com.laorencel.uilibrary.widget.state.StateLayout
-                android:id="@+id/state_layout"
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/refresh_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:minHeight="600dp">
-
-                <RelativeLayout
-                    android:id="@+id/rl_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </RelativeLayout>
-
-            </com.laorencel.uilibrary.widget.state.StateLayout>
+                android:layout_height="match_parent" />
 
         </androidx.core.widget.NestedScrollView>
+
+        <com.laorencel.uilibrary.widget.state.StateLayout
+            android:id="@+id/state_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="600dp"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_appbar"

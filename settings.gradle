@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //        SmartRefreshLayout使用时需要的阿里云镜像
+        maven { url 'https://maven.aliyun.com/repository/public' }
     }
 }
 rootProject.name = "AndroidUi"
