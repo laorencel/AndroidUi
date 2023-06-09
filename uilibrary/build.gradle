@@ -130,15 +130,15 @@ dependencies {
     //Logger
 //    api 'com.orhanobut:logger:2.2.0'
 
-    // rxpermissions 权限管理
-    api 'com.github.tbruyelle:rxpermissions:0.12'
-
-    // XPopup弹窗 https://gitee.com/lxj_gitee/XPopup
-    api 'com.github.li-xiaojun:XPopup:2.9.19'
-
-    // glide
-    api 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+//    // rxpermissions 权限管理
+//    api 'com.github.tbruyelle:rxpermissions:0.12'
+//
+//    // XPopup弹窗 https://gitee.com/lxj_gitee/XPopup
+//    api 'com.github.li-xiaojun:XPopup:2.9.19'
+//
+//    // glide
+//    api 'com.github.bumptech.glide:glide:4.11.0'
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     // SmartRefreshLayout 智能下拉刷新框架 地址：https://github.com/scwang90/SmartRefreshLayout/tree/master
     // 注意：分包之后不会有默认的Header和Footer需要手动添加！还是原来的三种方法！
