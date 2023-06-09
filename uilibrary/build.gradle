@@ -131,7 +131,9 @@ dependencies {
 //    api 'com.orhanobut:logger:2.2.0'
 
 //    // rxpermissions 权限管理
-//    api 'com.github.tbruyelle:rxpermissions:0.12'
+//    api 'com.github.tbruyelle:rxpermissions:0.12',{
+//        exclude group: 'io.reactivex'
+//    }
 //
 //    // XPopup弹窗 https://gitee.com/lxj_gitee/XPopup
 //    api 'com.github.li-xiaojun:XPopup:2.9.19'
