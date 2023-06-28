@@ -24,6 +24,11 @@ import java.util.Map;
 public class StateLayout extends FrameLayout {
 
     private State currentState = State.CONTENT;
+    private OnStateClickListener onStateClickListener;
+
+    public void setOnStateClickListener(OnStateClickListener onStateClickListener) {
+        this.onStateClickListener = onStateClickListener;
+    }
 
     //使用map保存子状态组件
     private final HashMap<State, StateHolder> stateMap = new HashMap<>();
@@ -114,6 +119,15 @@ public class StateLayout extends FrameLayout {
             LayoutStateBinding binding = LayoutStateBinding.inflate(inflater);
             binding.setItem(holder.getItem());
             binding.getRoot().setTag(state);//为状态视图添加相应状态的tag
+            binding.getRoot().setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (null != onStateClickListener) {
+                        State clickState = (State) v.getTag();
+                        onStateClickListener.onClick(v, clickState);
+                    }
+                }
+            });
             List<View> views = new ArrayList<>();
             views.add(binding.getRoot());
             holder.setViews(views);
@@ -167,5 +181,9 @@ public class StateLayout extends FrameLayout {
         animation.setDuration(200);
         animation.setInterpolator(new AccelerateDecelerateInterpolator());
         return animation;
+    }
+
+    public interface OnStateClickListener {
+        void onClick(View view, State state);
     }
 }

@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.laorencel.uilibrary.R;
 import com.laorencel.uilibrary.databinding.FragmentBaseUiBinding;
 import com.laorencel.uilibrary.widget.state.State;
+import com.laorencel.uilibrary.widget.state.StateLayout;
 import com.laorencel.uilibrary.widget.state.bean.StateItem;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -110,6 +111,13 @@ public abstract class BaseUiFragment<VDB extends ViewDataBinding, VM extends Bas
                 @Override
                 public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                     BaseUiFragment.this.onRefresh(refreshLayout);
+                }
+            });
+
+            baseUiBinding.stateLayout.setOnStateClickListener(new StateLayout.OnStateClickListener() {
+                @Override
+                public void onClick(View view, State state) {
+                    onStateClick(view, state);
                 }
             });
         }

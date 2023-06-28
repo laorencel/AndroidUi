@@ -2,6 +2,7 @@ package com.laorencel.uilibrary.ui;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -101,6 +102,15 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
     public void switchState(State state, StateItem item) {
 //        if (null != baseUiBinding)
 //            baseUiBinding.stateLayout.switchState(state, item);
+    }
+
+    /**
+     * 状态页面点击
+     * @param view 点击的View
+     * @param state {@link State}
+     */
+    public void onStateClick(View view , State state) {
+
     }
 
     /**

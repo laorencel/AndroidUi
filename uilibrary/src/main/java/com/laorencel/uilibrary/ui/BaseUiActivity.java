@@ -14,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import com.laorencel.uilibrary.R;
 import com.laorencel.uilibrary.databinding.ActivityBaseUiBinding;
 import com.laorencel.uilibrary.widget.state.State;
+import com.laorencel.uilibrary.widget.state.StateLayout;
 import com.laorencel.uilibrary.widget.state.bean.StateItem;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -124,6 +125,13 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
                     BaseUiActivity.this.onRefresh(refreshLayout);
                 }
             });
+
+            baseUiBinding.stateLayout.setOnStateClickListener(new StateLayout.OnStateClickListener() {
+                @Override
+                public void onClick(View view, State state) {
+                    onStateClick(view, state);
+                }
+            });
         }
     }
 
@@ -172,4 +180,6 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
             }
         }
     }
+
+
 }

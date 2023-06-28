@@ -135,6 +135,15 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
     }
 
     /**
+     * 状态页面点击
+     * @param view 点击的View
+     * @param state {@link State}
+     */
+    public void onStateClick(View view , State state) {
+
+    }
+
+    /**
      * 通用设置列表数据，根据当前页数，数据是否为空，切换状态页面，如果不是第一页且数据为空，会将页数减一
      *
      * @param list       数据

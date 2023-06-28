@@ -19,16 +19,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/bottom_layout"
-            android:layout_below="@id/top_layout" />
+            android:layout_below="@id/top_layout">
 
-        <com.laorencel.uilibrary.widget.state.StateLayout
-            android:id="@+id/state_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/bottom_layout"
-            android:layout_below="@id/top_layout"
-            android:minHeight="600dp"
-            android:visibility="gone" />
+            <com.laorencel.uilibrary.widget.state.StateLayout
+                android:id="@+id/state_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="600dp"
+                android:visibility="gone" />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
 
         <LinearLayout
             android:id="@+id/bottom_layout"
