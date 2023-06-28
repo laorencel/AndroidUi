@@ -136,10 +136,11 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
 
     /**
      * 状态页面点击
-     * @param view 点击的View
+     *
+     * @param view  点击的View
      * @param state {@link State}
      */
-    public void onStateClick(View view , State state) {
+    public void onStateClick(View view, State state) {
 
     }
 
@@ -152,20 +153,24 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
      * @param <T>        数据类型
      */
     protected <T> void setListData(List<T> list, BaseAdapter<T> adapter, Pagination pagination) {
-        if (EmptyUtil.isEmpty(list)) {
+        setListData(list, adapter, pagination, true);
+    }
+
+    protected <T> void setListData(List<T> list, BaseAdapter<T> adapter, Pagination pagination, boolean switchState) {
+        if (switchState && EmptyUtil.isEmpty(list)) {
             if (pagination.isStartPage()) {
                 switchState(State.EMPTY);
             } else {
                 switchState(State.CONTENT);
                 pagination.minusPage();
             }
+            return;
+        }
+        switchState(State.CONTENT);
+        if (pagination.isStartPage()) {
+            adapter.setList(list);
         } else {
-            switchState(State.CONTENT);
-            if (pagination.isStartPage()) {
-                adapter.setList(list);
-            } else {
-                adapter.addAll(list);
-            }
+            adapter.addAll(list);
         }
     }
 

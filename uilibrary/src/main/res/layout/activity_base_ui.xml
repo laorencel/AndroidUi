@@ -37,15 +37,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.laorencel.uilibrary.widget.state.StateLayout
-                    android:id="@+id/state_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:minHeight="600dp" />
             </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
         </androidx.core.widget.NestedScrollView>
 
+        <com.laorencel.uilibrary.widget.state.StateLayout
+            android:id="@+id/state_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="600dp"
+            android:visibility="gone" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_appbar"

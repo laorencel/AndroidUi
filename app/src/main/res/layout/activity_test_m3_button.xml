@@ -2,193 +2,193 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp_20"
-                    android:text="CardView" />
-
-            </androidx.cardview.widget.CardView>
-
-            <com.laorencel.uilibrary.widget.FontIconTextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_20"
-                android:text="@string/font_icon_arrow_right" />
+                android:text="CardView" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/surface_corner_small"
-                android:text="test shape" />
+        </androidx.cardview.widget.CardView>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_distance_medium"
-                android:background="@drawable/surface_corner_small_bottom"
-                android:text="test shape" />
+        <com.laorencel.uilibrary.widget.FontIconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_20"
+            android:text="@string/font_icon_arrow_right" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/surface_corner_small"
-                android:text="test shape" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/surface_corner_small"
+            android:text="test shape" />
 
-            <TextView
-                android:id="@+id/tv_test"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/surface_corner_small"
-                android:text="TextView" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_distance_medium"
+            android:background="@drawable/surface_corner_small_bottom"
+            android:text="test shape" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_title"
-                android:textAppearance="?attr/textAppearanceBodyLargeTitle" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/surface_corner_small"
+            android:text="test shape" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_title_sub"
-                android:textAppearance="?attr/textAppearanceBodyLargeSubTitle" />
+        <TextView
+            android:id="@+id/tv_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/surface_corner_small"
+            android:text="TextView" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_body"
-                android:textAppearance="?attr/textAppearanceBodyLargeBody" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="m3_app_color_title"
+            android:textAppearance="?attr/textAppearanceBodyLargeTitle" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_label"
-                android:textAppearance="?attr/textAppearanceBodyLargeLabel" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="m3_app_color_title_sub"
+            android:textAppearance="?attr/textAppearanceBodyLargeSubTitle" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_hint"
-                android:textAppearance="?attr/textAppearanceBodyLargeHint" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="m3_app_color_body"
+            android:textAppearance="?attr/textAppearanceBodyLargeBody" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="m3_app_color_disable"
-                android:textAppearance="?attr/textAppearanceBodyLargeDisable" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="m3_app_color_label"
+            android:textAppearance="?attr/textAppearanceBodyLargeLabel" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_appcompat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="AppCompatTextView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="m3_app_color_hint"
+            android:textAppearance="?attr/textAppearanceBodyLargeHint" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="EditText" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="m3_app_color_disable"
+            android:textAppearance="?attr/textAppearanceBodyLargeDisable" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="AppCompatEditText" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_appcompat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="AppCompatTextView" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_app"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="AppCompatButton" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="EditText" />
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="AppCompatEditText" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="TextView" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/ShapeAppearance.Material3.SmallComponent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MaterialButtonTest" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AppCompatButton" />
 
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.ElevatedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ElevatedButton" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="TextView" />
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FilledButton" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/ShapeAppearance.Material3.SmallComponent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MaterialButtonTest" />
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.TonalButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TonalButton" />
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OutlinedButton" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ElevatedButton" />
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextButton" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FilledButton" />
 
-            <!--        <com.google.android.material.button.MaterialButton-->
-            <!--            android:layout_width="wrap_content"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:text="MaterialButton"/>-->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TonalButton" />
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp"
-                android:checked="true"
-                android:text="CheckBox"
-                android:textAppearance="?attr/textAppearanceLabelMedium" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OutlinedButton" />
 
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MaterialCheckBox" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextButton" />
 
-<!--            <Switch-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Switch" />-->
+        <!--        <com.google.android.material.button.MaterialButton-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="MaterialButton"/>-->
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SwitchMaterial" />
-        </LinearLayout>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:checked="true"
+            android:text="CheckBox"
+            android:textAppearance="?attr/textAppearanceLabelMedium" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MaterialCheckBox" />
+
+        <!--            <Switch-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Switch" />-->
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SwitchMaterial" />
+    </LinearLayout>
 </layout>
