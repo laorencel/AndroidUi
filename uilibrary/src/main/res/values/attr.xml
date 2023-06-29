@@ -175,4 +175,11 @@
     <!--    <item name="textAppearanceLabelLarge">@style/TextAppearance.Material3.LabelLarge</item>-->
     <!--    <item name="textAppearanceLabelMedium">@style/TextAppearance.Material3.LabelMedium</item>-->
     <!--    <item name="textAppearanceLabelSmall">@style/TextAppearance.Material3.LabelSmall</item>-->
+
+
+    <declare-styleable name="FontIconTextView">
+        <!--FontIcon资源名称，如：iconfont.ttf-->
+        <attr name="typefaceAsset" format="string" />
+    </declare-styleable>
+
 </resources>
