@@ -17,6 +17,7 @@ import com.laorencel.uilibrary.util.EmptyUtil;
  */
 @SuppressLint("AppCompatCustomView")
 public class FontIconTextView extends TextView {
+    private Context context;
     private String typefaceAsset = "iconfont.ttf";
 
     public FontIconTextView(Context context) {
@@ -39,16 +40,27 @@ public class FontIconTextView extends TextView {
         init(context, attrs);
     }
 
+    public void setTypefaceAsset(String typefaceAsset) {
+        if (!EmptyUtil.isEmpty(typefaceAsset)) {
+            this.typefaceAsset = typefaceAsset;
+            //设置字体图标
+            Typeface font = Typeface.createFromAsset(context.getAssets(), typefaceAsset);
+            this.setTypeface(font);
+        }
+
+    }
+
     /**
      * 初始化
      *
      * @param context
      */
     private void init(Context context, @Nullable AttributeSet attrs) {
+        this.context = context;
         if (null != attrs) {
             try (TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.FontIconTextView)) {
                 typefaceAsset = ta.getString(R.styleable.FontIconTextView_typefaceAsset);
-                ta.recycle();
+//                ta.recycle();
             }
         }
         if (!EmptyUtil.isEmpty(typefaceAsset)) {
