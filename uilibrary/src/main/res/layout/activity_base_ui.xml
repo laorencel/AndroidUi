@@ -46,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minHeight="600dp"
+            android:layout_margin="@dimen/dp_100"
             android:visibility="gone" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
