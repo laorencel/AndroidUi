@@ -59,15 +59,18 @@ public class FontIconTextView extends TextView {
         this.context = context;
         if (null != attrs) {
             try (TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.FontIconTextView)) {
-                typefaceAsset = ta.getString(R.styleable.FontIconTextView_typefaceAsset);
-//                ta.recycle();
+                String typefaceAsset = ta.getString(R.styleable.FontIconTextView_typefaceAsset);
+                if (!EmptyUtil.isEmpty(typefaceAsset)) {
+                    this.typefaceAsset = typefaceAsset;
+                }
             }
         }
-        if (!EmptyUtil.isEmpty(typefaceAsset)) {
-            //设置字体图标
-            Typeface font = Typeface.createFromAsset(context.getAssets(), typefaceAsset);
-            this.setTypeface(font);
+        if (EmptyUtil.isEmpty(typefaceAsset)) {
+            typefaceAsset = "iconfont.ttf";
         }
+        //设置字体图标
+        Typeface font = Typeface.createFromAsset(context.getAssets(), typefaceAsset);
+        this.setTypeface(font);
 
 //        setText(getResources().getString(R.string.font_icon_add));
 
