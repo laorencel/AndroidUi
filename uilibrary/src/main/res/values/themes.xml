@@ -45,6 +45,20 @@
         <item name="appTextColorHint">@color/m3_app_color_light_hint</item>
         <item name="appTextColorDisable">@color/m3_app_color_light_disable</item>
         <!--    Display   -->
+        <item name="textAppearanceDisplayLargePrimary">@style/TextAppearance.App.DisplayLarge.Primary
+        </item>
+        <item name="textAppearanceDisplayMediumPrimary">
+            @style/TextAppearance.App.DisplayMedium.Primary
+        </item>
+        <item name="textAppearanceDisplaySmallPrimary">@style/TextAppearance.App.DisplaySmall.Primary
+        </item>
+        <item name="textAppearanceDisplayLargeOnPrimary">@style/TextAppearance.App.DisplayLarge.OnPrimary
+        </item>
+        <item name="textAppearanceDisplayMediumOnPrimary">
+            @style/TextAppearance.App.DisplayMedium.OnPrimary
+        </item>
+        <item name="textAppearanceDisplaySmallOnPrimary">@style/TextAppearance.App.DisplaySmall.OnPrimary
+        </item>
         <item name="textAppearanceDisplayLargeTitle">@style/TextAppearance.App.DisplayLarge.Title
         </item>
         <item name="textAppearanceDisplayMediumTitle">
@@ -90,6 +104,24 @@
             @style/TextAppearance.App.DisplaySmall.Disable
         </item>
         <!--    Headline   -->
+        <item name="textAppearanceHeadlineLargePrimary">
+            @style/TextAppearance.App.HeadlineLarge.Primary
+        </item>
+        <item name="textAppearanceHeadlineMediumPrimary">
+            @style/TextAppearance.App.HeadlineMedium.Primary
+        </item>
+        <item name="textAppearanceHeadlineSmallPrimary">
+            @style/TextAppearance.App.HeadlineSmall.Primary
+        </item>
+        <item name="textAppearanceHeadlineLargeOnPrimary">
+            @style/TextAppearance.App.HeadlineLarge.OnPrimary
+        </item>
+        <item name="textAppearanceHeadlineMediumOnPrimary">
+            @style/TextAppearance.App.HeadlineMedium.OnPrimary
+        </item>
+        <item name="textAppearanceHeadlineSmallOnPrimary">
+            @style/TextAppearance.App.HeadlineSmall.OnPrimary
+        </item>
         <item name="textAppearanceHeadlineLargeTitle">
             @style/TextAppearance.App.HeadlineLarge.Title
         </item>
@@ -141,6 +173,14 @@
             @style/TextAppearance.App.HeadlineSmall.Disable
         </item>
         <!--    Title   -->
+        <item name="textAppearanceTitleLargePrimary">@style/TextAppearance.App.TitleLarge.Primary</item>
+        <item name="textAppearanceTitleMediumPrimary">@style/TextAppearance.App.TitleMedium.Primary
+        </item>
+        <item name="textAppearanceTitleSmallPrimary">@style/TextAppearance.App.TitleSmall.Primary</item>
+        <item name="textAppearanceTitleLargeOnPrimary">@style/TextAppearance.App.TitleLarge.OnPrimary</item>
+        <item name="textAppearanceTitleMediumOnPrimary">@style/TextAppearance.App.TitleMedium.OnPrimary
+        </item>
+        <item name="textAppearanceTitleSmallOnPrimary">@style/TextAppearance.App.TitleSmall.OnPrimary</item>
         <item name="textAppearanceTitleLargeTitle">@style/TextAppearance.App.TitleLarge.Title</item>
         <item name="textAppearanceTitleMediumTitle">@style/TextAppearance.App.TitleMedium.Title
         </item>
@@ -172,6 +212,12 @@
         <item name="textAppearanceTitleSmallDisable">@style/TextAppearance.App.TitleSmall.Disable
         </item>
         <!--    Body   -->
+        <item name="textAppearanceBodyLargePrimary">@style/TextAppearance.App.BodyLarge.Primary</item>
+        <item name="textAppearanceBodyMediumPrimary">@style/TextAppearance.App.BodyMedium.Primary</item>
+        <item name="textAppearanceBodySmallPrimary">@style/TextAppearance.App.BodySmall.Primary</item>
+        <item name="textAppearanceBodyLargeOnPrimary">@style/TextAppearance.App.BodyLarge.OnPrimary</item>
+        <item name="textAppearanceBodyMediumOnPrimary">@style/TextAppearance.App.BodyMedium.OnPrimary</item>
+        <item name="textAppearanceBodySmallOnPrimary">@style/TextAppearance.App.BodySmall.OnPrimary</item>
         <item name="textAppearanceBodyLargeTitle">@style/TextAppearance.App.BodyLarge.Title</item>
         <item name="textAppearanceBodyMediumTitle">@style/TextAppearance.App.BodyMedium.Title</item>
         <item name="textAppearanceBodySmallTitle">@style/TextAppearance.App.BodySmall.Title</item>
@@ -198,6 +244,14 @@
         <item name="textAppearanceBodySmallDisable">@style/TextAppearance.App.BodySmall.Disable
         </item>
         <!--    Label   -->
+        <item name="textAppearanceLabelLargePrimary">@style/TextAppearance.App.LabelLarge.Primary</item>
+        <item name="textAppearanceLabelMediumPrimary">@style/TextAppearance.App.LabelMedium.Primary
+        </item>
+        <item name="textAppearanceLabelSmallPrimary">@style/TextAppearance.App.LabelSmall.Primary</item>
+        <item name="textAppearanceLabelLargeOnPrimary">@style/TextAppearance.App.LabelLarge.OnPrimary</item>
+        <item name="textAppearanceLabelMediumOnPrimary">@style/TextAppearance.App.LabelMedium.OnPrimary
+        </item>
+        <item name="textAppearanceLabelSmallOnPrimary">@style/TextAppearance.App.LabelSmall.OnPrimary</item>
         <item name="textAppearanceLabelLargeTitle">@style/TextAppearance.App.LabelLarge.Title</item>
         <item name="textAppearanceLabelMediumTitle">@style/TextAppearance.App.LabelMedium.Title
         </item>

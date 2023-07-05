@@ -2,14 +2,22 @@
 <resources>
     <!--    TextAppearance  start   -->
 
-    <attr name="appTextColorTitle" format="reference" />
-    <attr name="appTextColorSubTitle" format="reference" />
-    <attr name="appTextColorBody" format="reference" />
-    <attr name="appTextColorLabel" format="reference" />
-    <attr name="appTextColorHint" format="reference" />
-    <attr name="appTextColorDisable" format="reference" />
+    <attr name="appTextColorTitle" format="color" />
+    <attr name="appTextColorSubTitle" format="color" />
+    <attr name="appTextColorBody" format="color" />
+    <attr name="appTextColorLabel" format="color" />
+    <attr name="appTextColorHint" format="color" />
+    <attr name="appTextColorDisable" format="color" />
 
     <!--        Display    -->
+    <attr name="textAppearanceDisplayLargePrimary" format="reference" />
+    <attr name="textAppearanceDisplayMediumPrimary" format="reference" />
+    <attr name="textAppearanceDisplaySmallPrimary" format="reference" />
+
+    <attr name="textAppearanceDisplayLargeOnPrimary" format="reference" />
+    <attr name="textAppearanceDisplayMediumOnPrimary" format="reference" />
+    <attr name="textAppearanceDisplaySmallOnPrimary" format="reference" />
+
     <attr name="textAppearanceDisplayLargeTitle" format="reference" />
     <attr name="textAppearanceDisplayMediumTitle" format="reference" />
     <attr name="textAppearanceDisplaySmallTitle" format="reference" />
@@ -35,6 +43,14 @@
     <attr name="textAppearanceDisplaySmallDisable" format="reference" />
 
     <!--        Headline    -->
+    <attr name="textAppearanceHeadlineLargePrimary" format="reference" />
+    <attr name="textAppearanceHeadlineMediumPrimary" format="reference" />
+    <attr name="textAppearanceHeadlineSmallPrimary" format="reference" />
+
+    <attr name="textAppearanceHeadlineLargeOnPrimary" format="reference" />
+    <attr name="textAppearanceHeadlineMediumOnPrimary" format="reference" />
+    <attr name="textAppearanceHeadlineSmallOnPrimary" format="reference" />
+
     <attr name="textAppearanceHeadlineLargeTitle" format="reference" />
     <attr name="textAppearanceHeadlineMediumTitle" format="reference" />
     <attr name="textAppearanceHeadlineSmallTitle" format="reference" />
@@ -60,6 +76,14 @@
     <attr name="textAppearanceHeadlineSmallDisable" format="reference" />
 
     <!--        Title    -->
+    <attr name="textAppearanceTitleLargePrimary" format="reference" />
+    <attr name="textAppearanceTitleMediumPrimary" format="reference" />
+    <attr name="textAppearanceTitleSmallPrimary" format="reference" />
+
+    <attr name="textAppearanceTitleLargeOnPrimary" format="reference" />
+    <attr name="textAppearanceTitleMediumOnPrimary" format="reference" />
+    <attr name="textAppearanceTitleSmallOnPrimary" format="reference" />
+
     <attr name="textAppearanceTitleLargeTitle" format="reference" />
     <attr name="textAppearanceTitleMediumTitle" format="reference" />
     <attr name="textAppearanceTitleSmallTitle" format="reference" />
@@ -85,6 +109,14 @@
     <attr name="textAppearanceTitleSmallDisable" format="reference" />
 
     <!--        Body    -->
+    <attr name="textAppearanceBodyLargePrimary" format="reference" />
+    <attr name="textAppearanceBodyMediumPrimary" format="reference" />
+    <attr name="textAppearanceBodySmallPrimary" format="reference" />
+
+    <attr name="textAppearanceBodyLargeOnPrimary" format="reference" />
+    <attr name="textAppearanceBodyMediumOnPrimary" format="reference" />
+    <attr name="textAppearanceBodySmallOnPrimary" format="reference" />
+
     <attr name="textAppearanceBodyLargeTitle" format="reference" />
     <attr name="textAppearanceBodyMediumTitle" format="reference" />
     <attr name="textAppearanceBodySmallTitle" format="reference" />
@@ -110,6 +142,14 @@
     <attr name="textAppearanceBodySmallDisable" format="reference" />
 
     <!--        Label    -->
+    <attr name="textAppearanceLabelLargePrimary" format="reference" />
+    <attr name="textAppearanceLabelMediumPrimary" format="reference" />
+    <attr name="textAppearanceLabelSmallPrimary" format="reference" />
+
+    <attr name="textAppearanceLabelLargeOnPrimary" format="reference" />
+    <attr name="textAppearanceLabelMediumOnPrimary" format="reference" />
+    <attr name="textAppearanceLabelSmallOnPrimary" format="reference" />
+
     <attr name="textAppearanceLabelLargeTitle" format="reference" />
     <attr name="textAppearanceLabelMediumTitle" format="reference" />
     <attr name="textAppearanceLabelSmallTitle" format="reference" />
