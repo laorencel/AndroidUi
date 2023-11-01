@@ -58,12 +58,12 @@ public class FontIconTextView extends TextView {
     private void init(Context context, @Nullable AttributeSet attrs) {
         this.context = context;
         if (null != attrs) {
-            try (TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.FontIconTextView)) {
-                String typefaceAsset = ta.getString(R.styleable.FontIconTextView_typefaceAsset);
-                if (!EmptyUtil.isEmpty(typefaceAsset)) {
-                    this.typefaceAsset = typefaceAsset;
-                }
+            TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.FontIconTextView);
+            String typefaceAsset = ta.getString(R.styleable.FontIconTextView_typefaceAsset);
+            if (!EmptyUtil.isEmpty(typefaceAsset)) {
+                this.typefaceAsset = typefaceAsset;
             }
+            ta.recycle();
         }
         if (EmptyUtil.isEmpty(typefaceAsset)) {
             typefaceAsset = "iconfont.ttf";
