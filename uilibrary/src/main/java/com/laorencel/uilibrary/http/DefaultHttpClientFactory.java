@@ -20,6 +20,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * 默认的网络请求工厂，作为一个实例，实际项目中可以按此编写
+ *
  */
 public class DefaultHttpClientFactory {
 

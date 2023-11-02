@@ -1,9 +1,11 @@
 package com.laorencel.uilibrary.ui;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +14,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.laorencel.uilibrary.bean.Pagination;
 import com.laorencel.uilibrary.ui.adapter.BaseAdapter;
 import com.laorencel.uilibrary.util.ClassUtil;
@@ -35,6 +38,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
     private CompositeDisposable compositeDisposable;
     protected VDB contentBinding;
     protected VM viewModel;
+    private ProgressDialog progressDialog;
 
     protected abstract int layoutID();
 
@@ -108,11 +112,72 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
 //
 //    }
 
-//    @Override
+    //    @Override
 //    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 //        super.onActivityCreated(savedInstanceState);
 //    }
+    protected void showSnackbar(View view, String content) {
+        if (null != view && !EmptyUtil.isEmpty(content)) {
+            Snackbar.make(view, content, Snackbar.LENGTH_LONG).show();
+        }
+    }
 
+    protected void showSnackbar(View view, int stringId) {
+        if (null != view && !EmptyUtil.isEmpty(stringId)) {
+            Snackbar.make(view, getResources().getString(stringId), Snackbar.LENGTH_LONG).show();
+        }
+    }
+
+    protected void showToast(View view, int stringId) {
+        if (null != view && !EmptyUtil.isEmpty(stringId)) {
+            Toast.makeText(getContext(), getResources().getString(stringId), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    protected void showToast(View view, String content) {
+        if (null != view && !EmptyUtil.isEmpty(content)) {
+            Toast.makeText(getContext(), content, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    //上次加载弹窗message内容
+    private String lastProgressMessage;
+
+    protected void showProgress(boolean show) {
+        showProgress(show, "", true);
+    }
+
+    protected void showProgress(boolean show, String message, boolean cancelable) {
+        if (show) {
+            if (!EmptyUtil.isEmpty(lastProgressMessage) && !lastProgressMessage.equals(message)) {
+                //2次弹窗message不一样，销毁重新创建
+                destroyProgress();
+            }
+            if (progressDialog == null) {
+                progressDialog = new ProgressDialog(getContext());
+                progressDialog.setCancelable(cancelable);//设置是否可以通过点击Back键取消
+                progressDialog.setCanceledOnTouchOutside(cancelable);//设置在点击Dialog外是否取消Dialog进度条
+                progressDialog.setMessage(!EmptyUtil.isEmpty(message) ? message : "加载中");
+            }
+            //            Logger.d("progressDialog.isShowing()" + (progressDialog.isShowing()));
+            if (progressDialog != null && !progressDialog.isShowing()) {
+                progressDialog.show();
+            }
+        } else {
+            if (progressDialog != null && progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        }
+    }
+
+    protected void destroyProgress() {
+        if (progressDialog != null) {
+            if (progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+            progressDialog = null;
+        }
+    }
 
     /**
      * 状态页面切换
@@ -206,6 +271,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
     @Override
     public void onDestroy() {
         clearDisposable();
+        destroyProgress();
         super.onDestroy();
     }
 }
