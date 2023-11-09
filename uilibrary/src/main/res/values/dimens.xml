@@ -43,7 +43,7 @@
     <dimen name="corner_full">50%</dimen>
 
     <!--    divider 分割线    -->
-    <dimen name="divider_thickness">@dimen/dp_1</dimen>
+    <dimen name="divider_thickness">@dimen/dp_0_5</dimen>
     <dimen name="divider_heavy_thickness">@dimen/dp_8</dimen>
 
     <!--    0-100 dp/sp -->

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:shape="oval">
     <stroke
         android:width="@dimen/divider_thickness"
-        android:color="?attr/colorOutline"
-        tools:ignore="PrivateResource" />
+        android:color="?attr/colorOutline" />
 </shape>
