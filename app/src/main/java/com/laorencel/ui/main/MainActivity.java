@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.laorencel.ui.R;
 import com.laorencel.ui.databinding.ActivityMainBinding;
 import com.laorencel.ui.login.LoginActivity;
+import com.laorencel.ui.test.bottomnav.BottomNavActivity;
 import com.laorencel.ui.test.m3.button.TestButtonActivity;
 import com.laorencel.uilibrary.ui.BaseUiActivity;
 
@@ -33,6 +34,10 @@ public class MainActivity extends BaseUiActivity<ActivityMainBinding, MainVM> {
 
     public void toLogin(View view) {
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
+    }
+
+    public void toBottomNav(View view) {
+        startActivity(new Intent(MainActivity.this, BottomNavActivity.class));
     }
 
     protected void setToolbar(Toolbar toolbar) {

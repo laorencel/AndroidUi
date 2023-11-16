@@ -25,6 +25,7 @@
         </activity>
         <activity android:name=".test.m3.button.TestButtonActivity"/>
         <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".test.bottomnav.BottomNavActivity"/>
     </application>
 
 </manifest>
