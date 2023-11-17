@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    字体文件直接从阿里巴巴矢量图库下载即可 -->
     <!--    assets/iconfont.ttf文件对应的常用图标，另外可以自定义一个组件专门显示icon -->
     <!--    快速生成string资源文件办法：找个js项目，将下载的文件夹中的iconfont.json内容遍历一遍，生成资源，代码如下：    -->
     <!--    let list = jsonObj.glyphs.map(item=>{-->
@@ -8,6 +9,45 @@
     <!--    })-->
     <!--    console.log(list.join('\r\n'))-->
 
+    <string name="font_icon_wifi">&#xe651;</string>
+    <string name="font_icon_wifiless">&#xe603;</string>
+    <string name="font_icon_navigation_filling">&#xe71e;</string>
+    <string name="font_icon_navigation_circle_filling">&#xe71f;</string>
+    <string name="font_icon_navigation_circle">&#xe720;</string>
+    <string name="font_icon_mine_filling">&#xe609;</string>
+    <string name="font_icon_people_three_filling">&#xe717;</string>
+    <string name="font_icon_mine">&#xe8a0;</string>
+    <string name="font_icon_mine_1">&#xe62f;</string>
+    <string name="font_icon_mine_1_filling">&#xe656;</string>
+    <string name="font_icon_people_two_filling">&#xe60a;</string>
+    <string name="font_icon_mine_2_filling">&#xe653;</string>
+    <string name="font_icon_order_filling">&#xe78b;</string>
+    <string name="font_icon_people_three">&#xe650;</string>
+    <string name="font_icon_mine_3">&#xe64f;</string>
+    <string name="font_icon_coupon">&#xe623;</string>
+    <string name="font_icon_mine_2">&#xe60d;</string>
+    <string name="font_icon_money_dollar_circle_filling">&#xe8ef;</string>
+    <string name="font_icon_money_dollar_circle">&#xe71a;</string>
+    <string name="font_icon_money_dollar">&#xe71b;</string>
+    <string name="font_icon_people_two">&#xe718;</string>
+    <string name="font_icon_coupon_filling">&#xe719;</string>
+    <string name="font_icon_order">&#xe787;</string>
+    <string name="font_icon_mine_3_filling">&#xe655;</string>
+    <string name="font_icon_ordering">&#xe71c;</string>
+    <string name="font_icon_ordering_filling">&#xe71d;</string>
+    <string name="font_icon_money_rmb_circle">&#xe831;</string>
+    <string name="font_icon_money_rmb">&#xe832;</string>
+    <string name="font_icon_money_rmb_circle_fill">&#xe833;</string>
+    <string name="font_icon_undo">&#xe608;</string>
+    <string name="font_icon_undo_filling">&#xe61b;</string>
+    <string name="font_icon_call_talking">&#xe612;</string>
+    <string name="font_icon_message">&#xe78a;</string>
+    <string name="font_icon_qrcode">&#xe7dd;</string>
+    <string name="font_icon_message_fill">&#xe84a;</string>
+    <string name="font_icon_telephone_filling">&#xeb12;</string>
+    <string name="font_icon_call_talking_filling">&#xe93c;</string>
+    <string name="font_icon_notice_filling">&#xe83e;</string>
+    <string name="font_icon_notice">&#xe83f;</string>
     <string name="font_icon_column_3">&#xe663;</string>
     <string name="font_icon_column_4">&#xe664;</string>
     <string name="font_icon_add">&#xe665;</string>

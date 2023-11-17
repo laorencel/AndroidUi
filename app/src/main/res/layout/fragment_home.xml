@@ -10,5 +10,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="home" />
+        <com.laorencel.uilibrary.widget.FontIconTextView
+            android:layout_width="wrap_content"
+            android:text="@string/font_icon_arrow_down_bold"
+            android:layout_height="wrap_content"/>
+        <com.laorencel.uilibrary.widget.FontIconTextView
+            android:layout_width="wrap_content"
+            android:text="@string/font_icon_wifi"
+            android:layout_height="wrap_content"/>
+        <com.laorencel.uilibrary.widget.FontIconTextView
+            android:layout_width="wrap_content"
+            android:text="@string/font_icon_navigation_filling"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </layout>
