@@ -10,6 +10,13 @@
     <!--    console.log(list.join('\r\n'))-->
     <string name="font_icon">iconfont.ttf</string>
 
+    <string name="font_icon_shop_cart">&#xe600;</string>
+    <string name="font_icon_shop_cart_filling">&#xe601;</string>
+    <string name="font_icon_up_down_filling">&#xe630;</string>
+    <string name="font_icon_dark_mode">&#xe86a;</string>
+    <string name="font_icon_QQ">&#xe882;</string>
+    <string name="font_icon_alipay">&#xe60b;</string>
+    <string name="font_icon_wechat">&#xe604;</string>
     <string name="font_icon_wifi">&#xe651;</string>
     <string name="font_icon_wifiless">&#xe603;</string>
     <string name="font_icon_navigation_filling">&#xe71e;</string>
