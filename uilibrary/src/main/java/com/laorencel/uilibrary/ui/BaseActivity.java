@@ -53,8 +53,8 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
 //        }
 
         UiWindowManager uiWindowManager = new UiWindowManager();
-        uiWindowManager.applyEdgeToEdge(getWindow(), true);
-        uiWindowManager.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+        uiWindowManager.applyEdgeToEdge(getWindow(), isEdgeToEdgeEnabled());
+        uiWindowManager.setDefaultNightMode(defaultNightMode());
 
         createView(savedInstanceState);
     }
@@ -69,6 +69,24 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
     }
 
     protected abstract int layoutID();
+
+    /**
+     * 是否设置EdgeToEdge
+     *
+     * @return true or false
+     */
+    protected boolean isEdgeToEdgeEnabled() {
+        return true;
+    }
+
+    /**
+     * 设置夜间模式
+     *
+     * @return 默认跟随系统 AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+     */
+    protected int defaultNightMode() {
+        return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+    }
 
     protected VM createViewModel() {
         Class<VM> viewModelClass = ClassUtil.getViewModel(this);

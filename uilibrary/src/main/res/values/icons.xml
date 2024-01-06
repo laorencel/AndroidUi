@@ -8,6 +8,7 @@
     <!--    return  '<string name="font_icon_'+item.name.replaceAll('-','_')+'">&#x'+item.unicode+';</string>';-->
     <!--    })-->
     <!--    console.log(list.join('\r\n'))-->
+    <string name="font_icon">iconfont.ttf</string>
 
     <string name="font_icon_wifi">&#xe651;</string>
     <string name="font_icon_wifiless">&#xe603;</string>
