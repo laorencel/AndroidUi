@@ -176,19 +176,19 @@
             android:text="CheckBox"
             android:textAppearance="?attr/textAppearanceLabelMedium" />
 
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MaterialCheckBox" />
+<!--        <com.google.android.material.checkbox.MaterialCheckBox-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="MaterialCheckBox" />-->
 
-        <!--            <Switch-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:text="Switch" />-->
+<!--        &lt;!&ndash;            <Switch&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:text="Switch" />&ndash;&gt;-->
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SwitchMaterial" />
+<!--        <com.google.android.material.switchmaterial.SwitchMaterial-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="SwitchMaterial" />-->
     </LinearLayout>
 </layout>
