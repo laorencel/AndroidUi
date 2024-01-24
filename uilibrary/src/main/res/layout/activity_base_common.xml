@@ -5,35 +5,33 @@
         android:id="@+id/rl_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true">
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.appbar.AppBarLayout>
 
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/ll_content"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_above="@id/ll_bottom"-->
-<!--            android:layout_below="@id/appbar_layout"-->
-<!--            android:orientation="vertical">-->
-
-<!--        </LinearLayout>-->
-        <com.scwang.smart.refresh.layout.SmartRefreshLayout
-            android:id="@+id/refresh_layout"
+        <LinearLayout
+            android:id="@+id/ll_content"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_above="@id/ll_bottom"
             android:layout_below="@id/appbar_layout"
-            android:layout_height="match_parent">
+            android:orientation="vertical" />
 
-        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+        <!--        <com.scwang.smart.refresh.layout.SmartRefreshLayout-->
+        <!--            android:id="@+id/ll_content"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_above="@id/ll_bottom"-->
+        <!--            android:layout_below="@id/appbar_layout"-->
+        <!--            android:layout_height="match_parent" />-->
 
         <com.laorencel.uilibrary.widget.state.StateLayout
             android:id="@+id/state_layout"

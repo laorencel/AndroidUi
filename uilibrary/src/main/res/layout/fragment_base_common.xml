@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:id="@+id/rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_layout"
+            android:layout_below="@id/top_layout"
+            android:orientation="vertical">
+
+        </LinearLayout>
+<!--        <com.scwang.smart.refresh.layout.SmartRefreshLayout-->
+<!--            android:id="@+id/ll_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_above="@id/bottom_layout"-->
+<!--            android:layout_below="@id/top_layout">-->
+
+<!--        </com.scwang.smart.refresh.layout.SmartRefreshLayout>-->
+
+        <com.laorencel.uilibrary.widget.state.StateLayout
+            android:id="@+id/state_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="600dp"
+            android:layout_above="@id/bottom_layout"
+            android:layout_below="@id/top_layout"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal" />
+    </RelativeLayout>
+</layout>

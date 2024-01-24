@@ -79,7 +79,7 @@ public abstract class BaseCommonActivity<VDB extends ViewDataBinding, VM extends
                 //这里的LayoutParams要看contentBinding是加载在哪个父组件里面，相应的获取RelativeLayout还是其他类型。
                 ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 contentBinding.getRoot().setLayoutParams(params);
-                baseCommonBinding.refreshLayout.addView(contentBinding.getRoot());
+                baseCommonBinding.llContent.addView(contentBinding.getRoot());
             }
         }
 
@@ -124,19 +124,19 @@ public abstract class BaseCommonActivity<VDB extends ViewDataBinding, VM extends
         if (null != baseCommonBinding) {
             setToolbar(baseCommonBinding.toolbar);
 
-            baseCommonBinding.refreshLayout.setEnableRefresh(refreshEnable());
-            baseCommonBinding.refreshLayout.setEnableLoadMore(loadMoreEnable());
-            baseCommonBinding.refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
-                @Override
-                public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                    BaseCommonActivity.this.onLoadMore(refreshLayout);
-                }
-
-                @Override
-                public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                    BaseCommonActivity.this.onRefresh(refreshLayout);
-                }
-            });
+//            baseCommonBinding.refreshLayout.setEnableRefresh(refreshEnable());
+//            baseCommonBinding.refreshLayout.setEnableLoadMore(loadMoreEnable());
+//            baseCommonBinding.refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+//                @Override
+//                public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+//                    BaseCommonActivity.this.onLoadMore(refreshLayout);
+//                }
+//
+//                @Override
+//                public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+//                    BaseCommonActivity.this.onRefresh(refreshLayout);
+//                }
+//            });
 
             baseCommonBinding.stateLayout.setOnStateClickListener(new StateLayout.OnStateClickListener() {
                 @Override
@@ -156,19 +156,19 @@ public abstract class BaseCommonActivity<VDB extends ViewDataBinding, VM extends
 //        baseCommonBinding.appbarLayout.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
-    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-    }
-
-    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-    }
-
-    public boolean refreshEnable() {
-        return false;
-    }
-
-    public boolean loadMoreEnable() {
-        return false;
-    }
+//    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+//    }
+//
+//    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+//    }
+//
+//    public boolean refreshEnable() {
+//        return false;
+//    }
+//
+//    public boolean loadMoreEnable() {
+//        return false;
+//    }
 
     /**
      * 状态页面切换

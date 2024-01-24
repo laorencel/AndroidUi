@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="?attr/colorError"
             android:orientation="vertical">
 
             <TextView
@@ -24,167 +25,167 @@
                 android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
                 android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_distance_large"
-                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"
-                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/margin_distance_large"-->
+<!--                android:text="测试啊；垃圾开始地方；卢卡斯简单；法律框架啊崧；懒得看风景；阿拉山口剪短发"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMediumTitle" />-->
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+<!--    </androidx.core.widget.NestedScrollView>-->
 
 </layout>
