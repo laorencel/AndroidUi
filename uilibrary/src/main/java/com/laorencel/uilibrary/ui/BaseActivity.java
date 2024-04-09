@@ -196,6 +196,12 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
     }
 
     /**
+     * 自动加载更多
+     */
+    public void autoLoadMore() {
+    }
+
+    /**
      * 结束刷新
      */
     public void finishRefresh() {
