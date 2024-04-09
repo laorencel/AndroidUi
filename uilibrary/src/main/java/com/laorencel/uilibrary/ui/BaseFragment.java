@@ -180,6 +180,66 @@ public abstract class BaseFragment<VDB extends ViewDataBinding, VM extends BaseV
     }
 
     /**
+     * 下拉刷新是否可用
+     * 主要用于一些可刷新加载更多组件包装
+     *
+     * @return boolean
+     */
+    public boolean refreshEnable() {
+        return false;
+    }
+
+    /**
+     * 加载更多是否可用
+     *
+     * @return boolean
+     */
+    public boolean loadMoreEnable() {
+        return false;
+    }
+
+    /**
+     * 自动刷新
+     */
+    public void autoRefresh() {
+    }
+
+    /**
+     * 结束刷新
+     */
+    public void finishRefresh() {
+    }
+
+    /**
+     * 结束上拉加载更多
+     */
+    public void finishLoadMore() {
+    }
+
+    /**
+     * 结束上拉加载更多并通知组件没有更多数据了
+     */
+    public void finishLoadMoreWithNoMoreData() {
+    }
+
+    /**
+     * 刷新回调，接口请求在这里实现
+     *
+     * @param object Object
+     */
+    public void onRefresh(Object object) {
+    }
+
+    /**
+     * 加载更多回调，接口请求在这里实现
+     *
+     * @param object Object
+     */
+    public void onLoadMore(Object object) {
+    }
+
+
+    /**
      * 状态页面切换
      *
      * @param state State状态

@@ -51,8 +51,8 @@ public class TestButtonActivity extends BaseUiActivity<ActivityTestM3ButtonBindi
     }
 
     @Override
-    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-        super.onRefresh(refreshLayout);
+    public void onRefresh(Object object) {
+        super.onRefresh(object);
         addDisposable(Observable
                 .timer(1000, TimeUnit.MILLISECONDS)
                 .subscribeOn(Schedulers.io())

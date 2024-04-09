@@ -118,12 +118,12 @@ public abstract class BaseUiFragment<VDB extends ViewDataBinding, VM extends Bas
             baseUiBinding.refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
                 @Override
                 public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                    BaseUiFragment.this.onLoadMore(refreshLayout);
+                    BaseUiFragment.this.onLoadMore(baseUiBinding.refreshLayout);
                 }
 
                 @Override
                 public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                    BaseUiFragment.this.onRefresh(refreshLayout);
+                    BaseUiFragment.this.onRefresh(baseUiBinding.refreshLayout);
                 }
             });
 
@@ -138,18 +138,28 @@ public abstract class BaseUiFragment<VDB extends ViewDataBinding, VM extends Bas
         return baseUiBinding.getRoot();
     }
 
-    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+    @Override
+    public void autoRefresh() {
+        super.autoRefresh();
+        baseUiBinding.refreshLayout.autoRefresh();
     }
 
-    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+    @Override
+    public void finishRefresh() {
+        super.finishRefresh();
+        baseUiBinding.refreshLayout.finishRefresh();
     }
 
-    public boolean refreshEnable() {
-        return false;
+    @Override
+    public void finishLoadMore() {
+        super.finishLoadMore();
+        baseUiBinding.refreshLayout.finishLoadMore();
     }
 
-    public boolean loadMoreEnable() {
-        return false;
+    @Override
+    public void finishLoadMoreWithNoMoreData() {
+        super.finishLoadMoreWithNoMoreData();
+        baseUiBinding.refreshLayout.finishLoadMoreWithNoMoreData();
     }
 
     /**

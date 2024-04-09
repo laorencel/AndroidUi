@@ -132,12 +132,12 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
             baseUiBinding.refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
                 @Override
                 public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                    BaseUiActivity.this.onLoadMore(refreshLayout);
+                    BaseUiActivity.this.onLoadMore(baseUiBinding.refreshLayout);
                 }
 
                 @Override
                 public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                    BaseUiActivity.this.onRefresh(refreshLayout);
+                    BaseUiActivity.this.onRefresh(baseUiBinding.refreshLayout);
                 }
             });
 
@@ -150,18 +150,28 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
         }
     }
 
-    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+    @Override
+    public void autoRefresh() {
+        super.autoRefresh();
+        baseUiBinding.refreshLayout.autoRefresh();
     }
 
-    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+    @Override
+    public void finishRefresh() {
+        super.finishRefresh();
+        baseUiBinding.refreshLayout.finishRefresh();
     }
 
-    public boolean refreshEnable() {
-        return false;
+    @Override
+    public void finishLoadMore() {
+        super.finishLoadMore();
+        baseUiBinding.refreshLayout.finishLoadMore();
     }
 
-    public boolean loadMoreEnable() {
-        return false;
+    @Override
+    public void finishLoadMoreWithNoMoreData() {
+        super.finishLoadMoreWithNoMoreData();
+        baseUiBinding.refreshLayout.finishLoadMoreWithNoMoreData();
     }
 
     public void showToolbar(boolean show) {
