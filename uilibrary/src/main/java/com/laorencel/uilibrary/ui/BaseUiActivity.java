@@ -152,31 +152,26 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
 
     @Override
     public void autoRefresh() {
-        super.autoRefresh();
         baseUiBinding.refreshLayout.autoRefresh();
     }
 
     @Override
     public void autoLoadMore() {
-        super.autoLoadMore();
         baseUiBinding.refreshLayout.autoLoadMore();
     }
 
     @Override
     public void finishRefresh() {
-        super.finishRefresh();
         baseUiBinding.refreshLayout.finishRefresh();
     }
 
     @Override
     public void finishLoadMore() {
-        super.finishLoadMore();
         baseUiBinding.refreshLayout.finishLoadMore();
     }
 
     @Override
     public void finishLoadMoreWithNoMoreData() {
-        super.finishLoadMoreWithNoMoreData();
         baseUiBinding.refreshLayout.finishLoadMoreWithNoMoreData();
     }
 
