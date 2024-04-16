@@ -73,6 +73,7 @@ public abstract class TreeAdapter<T extends TreeNodeImpl> extends RecyclerView.A
                     if (node.isExpand()) {
                         list.removeAll(children);
                         node.setExpand(false);
+                        notifyItemChanged(index);
                         notifyItemRangeRemoved(index + 1, children.size());
                         if (null != itemChangeListener) {
                             itemChangeListener.onExpandChange(v, index, node.isExpand(), node);
@@ -80,6 +81,7 @@ public abstract class TreeAdapter<T extends TreeNodeImpl> extends RecyclerView.A
                     } else {
                         list.addAll(index + 1, children);
                         node.setExpand(true);
+                        notifyItemChanged(index);
                         notifyItemRangeInserted(index + 1, children.size());
                         if (null != itemChangeListener) {
                             itemChangeListener.onExpandChange(v, index, node.isExpand(), node);
@@ -87,6 +89,7 @@ public abstract class TreeAdapter<T extends TreeNodeImpl> extends RecyclerView.A
                     }
                 } else {
                     node.setExpand(!node.isExpand());
+                    notifyItemChanged(index);
                     if (null != itemChangeListener) {
                         itemChangeListener.onExpandChange(v, index, node.isExpand(), node);
                     }
@@ -125,6 +128,8 @@ public abstract class TreeAdapter<T extends TreeNodeImpl> extends RecyclerView.A
                             }
                         }
                     }
+
+                    notifyDataSetChanged();
                     if (null != itemChangeListener) {
                         List<TreeNode<T>> checkedNodes = new ArrayList<>();
                         List<String> checkedIds = new ArrayList<>();
@@ -136,7 +141,6 @@ public abstract class TreeAdapter<T extends TreeNodeImpl> extends RecyclerView.A
                         }
                         itemChangeListener.onCheckChange(v, index, true, checkedNodes, checkedIds);
                     }
-                    notifyDataSetChanged();
                 }
             }
         });
