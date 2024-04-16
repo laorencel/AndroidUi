@@ -29,8 +29,8 @@ public abstract class TreeHolder<T extends TreeNodeImpl, VDB extends ViewDataBin
 
     public void onBindViewHolder(int position, TreeNode<T> data) {
         dataBinding.setData(data);
-        onBind(position, data.getData());
+        onBind(position, data);
     }
 
-    public abstract void onBind(int position, T data);
+    public abstract void onBind(int position, TreeNode<T> data);
 }

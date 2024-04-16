@@ -75,15 +75,20 @@ public abstract class TreeAdapter<T extends TreeNodeImpl> extends RecyclerView.A
                         node.setExpand(false);
                         notifyItemRangeRemoved(index + 1, children.size());
                         if (null != itemChangeListener) {
-                            itemChangeListener.onExpandChange(v, index, false, node.getData());
+                            itemChangeListener.onExpandChange(v, index, node.isExpand(), node);
                         }
                     } else {
                         list.addAll(index + 1, children);
                         node.setExpand(true);
                         notifyItemRangeInserted(index + 1, children.size());
                         if (null != itemChangeListener) {
-                            itemChangeListener.onExpandChange(v, index, true, node.getData());
+                            itemChangeListener.onExpandChange(v, index, node.isExpand(), node);
                         }
+                    }
+                } else {
+                    node.setExpand(!node.isExpand());
+                    if (null != itemChangeListener) {
+                        itemChangeListener.onExpandChange(v, index, node.isExpand(), node);
                     }
                 }
             }
@@ -94,33 +99,42 @@ public abstract class TreeAdapter<T extends TreeNodeImpl> extends RecyclerView.A
                 if (checkMode != CHECK_MODE_NONE) {
                     int index = (int) v.getTag();
                     TreeNode<T> node = list.get(index);
+                    int nodeChildrenSize = 0;
                     if (!node.isLeaf()) {
-                        for (int i = 0; i < node.getChildren().size(); i++) {
-                            node.getChildren().get(i).setChecked(node.isChecked());
+                        List<TreeNode<T>> nodeChildren = TreeUtil.getNodeChildren(node);
+                        nodeChildrenSize = nodeChildren.size();
+                        for (int i = 0; i < nodeChildren.size(); i++) {
+                            nodeChildren.get(i).setChecked(node.isChecked());
                         }
                     }
                     //0:不选；1：单选；2：多选
                     if (checkMode == CHECK_MODE_RADIO) {
                         for (int i = 0; i < list.size(); i++) {
-                            if (i != index) {
+                            if (i < index || i > (index + nodeChildrenSize)) {
                                 TreeNode<T> otherNode = list.get(i);
                                 otherNode.setChecked(!node.isChecked());
-                                if (!otherNode.isLeaf()) {
-                                    for (int j = 0; j < otherNode.getChildren().size(); j++) {
-                                        otherNode.getChildren().get(j).setChecked(!node.isChecked());
-                                    }
-                                }
+//                                if (otherNode.getLevel() <= node.getLevel()) {
+//                                    otherNode.setChecked(!node.isChecked());
+//                                    if (!otherNode.isLeaf()) {
+//                                        List<TreeNode<T>> otherNodeChildren = TreeUtil.getNodeChildren(otherNode);
+//                                        for (int j = 0; j < otherNodeChildren.size(); j++) {
+//                                            otherNodeChildren.get(j).setChecked(!node.isChecked());
+//                                        }
+//                                    }
+//                                }
                             }
                         }
                     }
                     if (null != itemChangeListener) {
+                        List<TreeNode<T>> checkedNodes = new ArrayList<>();
                         List<String> checkedIds = new ArrayList<>();
                         for (int i = 0; i < list.size(); i++) {
                             if (list.get(i).isChecked()) {
+                                checkedNodes.add(list.get(i));
                                 checkedIds.add(list.get(i).getNodeId());
                             }
                         }
-                        itemChangeListener.onCheckChange(v, index, true, checkedIds);
+                        itemChangeListener.onCheckChange(v, index, true, checkedNodes, checkedIds);
                     }
                     notifyDataSetChanged();
                 }
@@ -182,9 +196,9 @@ public abstract class TreeAdapter<T extends TreeNodeImpl> extends RecyclerView.A
         notifyItemRangeChanged(index, list.size() - 1);
     }
 
-    public interface OnItemChangeListener<T> {
-        void onExpandChange(View view, int position, boolean expand, T data);
+    public interface OnItemChangeListener<T extends TreeNodeImpl> {
+        void onExpandChange(View view, int position, boolean expand, TreeNode<T> data);
 
-        void onCheckChange(View view, int position, boolean checked, List<String> checkedIds);
+        void onCheckChange(View view, int position, boolean checked, List<TreeNode<T>> checkedNodes, List<String> checkedIds);
     }
 }

@@ -70,11 +70,11 @@ public class TreeNode<T extends TreeNodeImpl> implements TreeNodeImpl {
         } else {
             isExpand.set(expand);
         }
-        if (!isExpand.get() && null != children) {
-            for (TreeNode node : children) {
-                node.setExpand(false);
-            }
-        }
+//        if (!isExpand.get() && null != children) {
+//            for (TreeNode node : children) {
+//                node.setExpand(false);
+//            }
+//        }
     }
 
     public boolean isChecked() {
@@ -91,11 +91,11 @@ public class TreeNode<T extends TreeNodeImpl> implements TreeNodeImpl {
             isChecked.set(checked);
         }
 
-        if (null != children) {
-            for (TreeNode node : children) {
-                node.setChecked(checked);
-            }
-        }
+//        if (null != children) {
+//            for (TreeNode node : children) {
+//                node.setChecked(checked);
+//            }
+//        }
     }
 
     public int getLevel() {
