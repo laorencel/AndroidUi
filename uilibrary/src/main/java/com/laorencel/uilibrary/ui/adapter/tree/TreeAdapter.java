@@ -162,6 +162,10 @@ public abstract class TreeAdapter<T extends TreeNodeImpl> extends RecyclerView.A
         return list.size();
     }
 
+    public List<TreeNode<T>> getList() {
+        return list;
+    }
+
     public void setList(List<T> list) {
         if (null != list) {
             this.list = TreeUtil.convertList(list);
