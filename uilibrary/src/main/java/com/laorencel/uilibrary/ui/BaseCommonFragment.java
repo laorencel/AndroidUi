@@ -70,6 +70,11 @@ public abstract class BaseCommonFragment<VDB extends ViewDataBinding, VM extends
                     ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                     contentBinding.getRoot().setLayoutParams(params);
                     baseUiBinding.llContent.addView(contentBinding.getRoot());
+                    baseUiBinding.llContent.post(() -> {
+                        int height = baseUiBinding.llContent.getHeight();
+                        contentBinding.getRoot().setMinimumHeight(height);
+                        baseUiBinding.stateLayout.setMinimumHeight(height);
+                    });
                 }
             }
 

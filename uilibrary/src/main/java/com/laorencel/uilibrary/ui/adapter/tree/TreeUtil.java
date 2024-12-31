@@ -78,6 +78,7 @@ public class TreeUtil {
         return nodes;
     }
 
+    //获取已展开的children
     public static <T extends TreeNodeImpl> List<TreeNode<T>> getNodeChildren(TreeNode<T> node) {
         List<TreeNode<T>> result = new ArrayList<>();
         getRNodeChildren(result, node);
@@ -90,6 +91,23 @@ public class TreeUtil {
             result.add(child);
             if (child.isExpand() && !child.isLeaf()) {
                 getRNodeChildren(result, child);
+            }
+        }
+    }
+
+    //获取所有children
+    public static <T extends TreeNodeImpl> List<TreeNode<T>> getAllNodeChildren(TreeNode<T> node) {
+        List<TreeNode<T>> result = new ArrayList<>();
+        getAllRNodeChildren(result, node);
+        return result;
+    }
+
+    private static <T extends TreeNodeImpl> void getAllRNodeChildren(List<TreeNode<T>> result, TreeNode<T> node) {
+        List<TreeNode<T>> children = node.getChildren();
+        for (TreeNode child : children) {
+            result.add(child);
+            if (child.isExpand() && !child.isLeaf()) {
+                getAllRNodeChildren(result, child);
             }
         }
     }

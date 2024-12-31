@@ -43,6 +43,22 @@
                 android:background="@drawable/corner_extra_small"
                 android:onClick="toTestCommon"
                 android:text="to test common" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_distance_medium"
+                android:background="@drawable/corner_extra_small"
+                android:onClick="toKt"
+                android:text="to kt" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_distance_medium"
+                android:background="@drawable/corner_extra_small"
+                android:onClick="toKtList"
+                android:text="to kt list" />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

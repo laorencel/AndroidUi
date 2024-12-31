@@ -42,7 +42,7 @@ public class TestButtonActivity extends BaseUiActivity<ActivityTestM3ButtonBindi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((ActivityTestM3ButtonFooterBinding) footerBinding).setActivity(TestButtonActivity.this);
+        ((ActivityTestM3ButtonFooterBinding) footerBinding).setAppUi(TestButtonActivity.this);
     }
 
     @Override

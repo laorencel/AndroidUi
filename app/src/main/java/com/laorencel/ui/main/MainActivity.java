@@ -12,6 +12,8 @@ import com.laorencel.ui.databinding.ActivityMainBinding;
 import com.laorencel.ui.login.LoginActivity;
 import com.laorencel.ui.test.bottomnav.BottomNavActivity;
 import com.laorencel.ui.test.common.TestCommonActivity;
+import com.laorencel.ui.test.kt.KtTestActivity;
+import com.laorencel.ui.test.kt.KtTestListActivity;
 import com.laorencel.ui.test.m3.button.TestButtonActivity;
 import com.laorencel.uilibrary.ui.BaseUiActivity;
 
@@ -43,6 +45,13 @@ public class MainActivity extends BaseUiActivity<ActivityMainBinding, MainVM> {
 
     public void toTestCommon(View view) {
         startActivity(new Intent(MainActivity.this, TestCommonActivity.class));
+    }
+
+    public void toKt(View view) {
+        startActivity(new Intent(MainActivity.this, KtTestActivity.class));
+    }
+    public void toKtList(View view) {
+        startActivity(new Intent(MainActivity.this, KtTestListActivity.class));
     }
 
     protected void setToolbar(Toolbar toolbar) {

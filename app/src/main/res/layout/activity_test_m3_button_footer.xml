@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="activity"
-            type="com.laorencel.ui.test.m3.button.TestButtonActivity" />
+            name="appUi"
+            type="com.laorencel.uilibrary.ui.KtAppUi" />
 
         <import type="com.laorencel.uilibrary.widget.state.State" />
     </data>
@@ -25,35 +25,35 @@
             android:id="@+id/btn_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{(v)->activity.switchState(State.CONTENT)}"
+            android:onClick="@{(v)->appUi.switchState(State.CONTENT)}"
             android:text="content" />
 
         <Button
             android:id="@+id/btn_loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{(v)->activity.switchState(State.LOADING)}"
+            android:onClick="@{(v)->appUi.switchState(State.LOADING)}"
             android:text="loading" />
 
         <Button
             android:id="@+id/btn_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{(v)->activity.switchState(State.EMPTY)}"
+            android:onClick="@{(v)->appUi.switchState(State.EMPTY)}"
             android:text="empty" />
 
         <Button
             android:id="@+id/btn_failure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{(v)->activity.switchState(State.FAILURE)}"
+            android:onClick="@{(v)->appUi.switchState(State.FAILURE)}"
             android:text="failure" />
 
         <Button
             android:id="@+id/btn_no_auth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{(v)->activity.switchState(State.NO_AUTH)}"
+            android:onClick="@{(v)->appUi.switchState(State.NO_AUTH)}"
             android:text="no_auth" />
 
     </com.google.android.flexbox.FlexboxLayout>

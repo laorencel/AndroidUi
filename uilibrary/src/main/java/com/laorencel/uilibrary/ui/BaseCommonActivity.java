@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
@@ -17,10 +15,6 @@ import com.laorencel.uilibrary.util.StatusBarUtil;
 import com.laorencel.uilibrary.widget.state.State;
 import com.laorencel.uilibrary.widget.state.StateLayout;
 import com.laorencel.uilibrary.widget.state.bean.StateItem;
-import com.scwang.smart.refresh.layout.api.RefreshLayout;
-import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
-
-import java.util.Objects;
 
 public abstract class BaseCommonActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseActivity<VDB, VM> {
     protected ActivityBaseCommonBinding baseCommonBinding;
@@ -80,6 +74,11 @@ public abstract class BaseCommonActivity<VDB extends ViewDataBinding, VM extends
                 ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 contentBinding.getRoot().setLayoutParams(params);
                 baseCommonBinding.llContent.addView(contentBinding.getRoot());
+                baseCommonBinding.llContent.post(() -> {
+                   int height = baseCommonBinding.llContent.getHeight();
+                    contentBinding.getRoot().setMinimumHeight(height);
+                    baseCommonBinding.stateLayout.setMinimumHeight(height);
+                });
             }
         }
 
@@ -96,12 +95,6 @@ public abstract class BaseCommonActivity<VDB extends ViewDataBinding, VM extends
                 if (null != contentBinding) {
                     int navigationBarHeight = StatusBarUtil.getNavigationBarHeight(this);
                     Log.e("llBottom.getHeight", navigationBarHeight + " hasNavigationBar");
-//                    contentBinding.getRoot().setPadding(
-//                            contentBinding.getRoot().getPaddingLeft(),
-//                            contentBinding.getRoot().getPaddingTop(),
-//                            contentBinding.getRoot().getPaddingRight(),
-//                            contentBinding.getRoot().getPaddingBottom() + navigationBarHeight
-//                    );
                     footerBinding.getRoot().setPadding(
                             footerBinding.getRoot().getPaddingLeft(),
                             footerBinding.getRoot().getPaddingTop(),
@@ -124,20 +117,6 @@ public abstract class BaseCommonActivity<VDB extends ViewDataBinding, VM extends
         if (null != baseCommonBinding) {
             setToolbar(baseCommonBinding.toolbar);
 
-//            baseCommonBinding.refreshLayout.setEnableRefresh(refreshEnable());
-//            baseCommonBinding.refreshLayout.setEnableLoadMore(loadMoreEnable());
-//            baseCommonBinding.refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
-//                @Override
-//                public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-//                    BaseCommonActivity.this.onLoadMore(refreshLayout);
-//                }
-//
-//                @Override
-//                public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-//                    BaseCommonActivity.this.onRefresh(refreshLayout);
-//                }
-//            });
-
             baseCommonBinding.stateLayout.setOnStateClickListener(new StateLayout.OnStateClickListener() {
                 @Override
                 public void onClick(View view, State state) {
@@ -147,35 +126,13 @@ public abstract class BaseCommonActivity<VDB extends ViewDataBinding, VM extends
         }
     }
 
-    public void showToolbar(boolean show) {
-        if (show) {
-            Objects.requireNonNull(getSupportActionBar()).show();
-        } else {
-            Objects.requireNonNull(getSupportActionBar()).hide();
-        }
-//        baseCommonBinding.appbarLayout.setVisibility(show ? View.VISIBLE : View.GONE);
-    }
-
-//    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-//    }
-//
-//    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-//    }
-//
-//    public boolean refreshEnable() {
-//        return false;
-//    }
-//
-//    public boolean loadMoreEnable() {
-//        return false;
-//    }
-
     /**
      * 状态页面切换
      *
      * @param state State状态
      * @param item  StateItem配置
      */
+    @Override
     public void switchState(State state, StateItem item) {
         if (null != baseCommonBinding) {
             if (state == State.CONTENT) {

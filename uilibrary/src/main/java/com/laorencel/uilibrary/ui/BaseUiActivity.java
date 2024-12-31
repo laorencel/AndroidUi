@@ -54,18 +54,6 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
         return -1;
     }
 
-    /**
-     * 设置根组件是否setFitsSystemWindows为true，setFitsSystemWindows为true时，
-     * 系统会为该View设置一个paddingTop，值为statusbar的高度。
-     * 用户在布局文件中设置的padding会被忽略
-     * 可参考 https://www.jianshu.com/p/5cc3bd23be7b
-     *
-     * @return 默认true，因为本UI框架已经设置透明状态栏及全屏
-     */
-    protected boolean rootFitsSystemWindows() {
-        return false;
-    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +77,12 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
                 ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 contentBinding.getRoot().setLayoutParams(params);
                 baseUiBinding.refreshLayout.addView(contentBinding.getRoot());
+                //设置contentBinding和stateLayout最小高度，这样contentBinding设置背景色会协调
+                baseUiBinding.nestedScrollView.post(() -> {
+                    int height = baseUiBinding.nestedScrollView.getHeight();
+                    contentBinding.getRoot().setMinimumHeight(height);
+                    baseUiBinding.stateLayout.setMinimumHeight(height);
+                });
             }
         }
 
@@ -173,15 +167,6 @@ public abstract class BaseUiActivity<VDB extends ViewDataBinding, VM extends Bas
     @Override
     public void finishLoadMoreWithNoMoreData() {
         baseUiBinding.refreshLayout.finishLoadMoreWithNoMoreData();
-    }
-
-    public void showToolbar(boolean show) {
-        if (show) {
-            Objects.requireNonNull(getSupportActionBar()).show();
-        } else {
-            Objects.requireNonNull(getSupportActionBar()).hide();
-        }
-//        baseUiBinding.appbarLayout.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     /**

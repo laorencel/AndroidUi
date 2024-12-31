@@ -27,6 +27,8 @@
         <activity android:name=".login.LoginActivity"/>
         <activity android:name=".test.bottomnav.BottomNavActivity"/>
         <activity android:name=".test.common.TestCommonActivity"/>
+        <activity android:name=".test.kt.KtTestActivity"/>
+        <activity android:name=".test.kt.KtTestListActivity"/>
     </application>
 
 </manifest>
