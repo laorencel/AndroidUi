@@ -84,6 +84,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+    // 指定 kotlin 使用的 Jvm 版本，注K意要与自己使用的JDK版本一致
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+    }
+
     dataBinding {
         enabled = true
     }
