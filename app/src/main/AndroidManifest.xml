@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--    获取手机通讯录联系人列表    -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:name=".UiApplication"
         android:allowBackup="true"

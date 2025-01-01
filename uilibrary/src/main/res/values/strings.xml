@@ -7,4 +7,5 @@
 
     <string name="string_format">%1$s</string>
     <string name="string_two_line_center">--</string>
+    <string name="permission_required">程序运行时所必要的权限</string>
 </resources>

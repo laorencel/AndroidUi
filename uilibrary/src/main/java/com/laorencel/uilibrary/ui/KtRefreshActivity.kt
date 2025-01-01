@@ -109,10 +109,10 @@ abstract class KtRefreshActivity<VDB : ViewDataBinding, VM : KtViewModel> : KtAc
         if (null != baseBinding) {
             setToolbar(baseBinding.toolbar)
 
-            Log.e(
-                "",
-                "refreshEnable():" + refreshEnable() + " loadMoreEnable():" + loadMoreEnable()
-            )
+//            Log.e(
+//                "",
+//                "refreshEnable():" + refreshEnable() + " loadMoreEnable():" + loadMoreEnable()
+//            )
             baseBinding.refreshLayout.setEnableRefresh(refreshEnable())
             baseBinding.refreshLayout.setEnableLoadMore(loadMoreEnable())
             baseBinding.refreshLayout.setOnRefreshLoadMoreListener(object :
