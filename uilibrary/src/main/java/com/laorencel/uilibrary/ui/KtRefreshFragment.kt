@@ -14,6 +14,10 @@ import com.laorencel.uilibrary.widget.state.bean.StateItem
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 
+/**
+ * 通用Fragment，适用需要下拉刷新及上拉加载更多功能的界面。
+ * 已实现基础布局，包含headerLayout和footerLayout以及refreshLayout、stateLayout,只需实现layoutID()方法返回布局文件
+ */
 abstract class KtRefreshFragment<VDB : ViewDataBinding, VM : KtViewModel> : KtFragment<VDB, VM>() {
     protected lateinit var baseBinding: FragmentBaseKtRefreshBinding
 

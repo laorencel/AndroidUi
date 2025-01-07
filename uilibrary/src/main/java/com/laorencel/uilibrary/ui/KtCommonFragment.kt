@@ -13,6 +13,10 @@ import com.laorencel.uilibrary.widget.state.State
 import com.laorencel.uilibrary.widget.state.StateLayout.OnStateClickListener
 import com.laorencel.uilibrary.widget.state.bean.StateItem
 
+/**
+ * 通用Fragment，适用不需要下拉刷新及上拉加载更多功能的界面。
+ * 已实现基础布局，包含headerLayout和footerLayout以及stateLayout,只需实现layoutID()方法返回布局文件
+ */
 abstract class KtCommonFragment<VDB : ViewDataBinding, VM : KtViewModel> : KtFragment<VDB, VM>() {
 
     protected lateinit var baseBinding: FragmentBaseKtCommonBinding

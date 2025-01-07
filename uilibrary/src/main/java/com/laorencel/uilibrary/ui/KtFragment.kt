@@ -9,6 +9,10 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import com.laorencel.uilibrary.util.ClassUtil
 
+/**
+ * 通用Fragment
+ * 没有实现任何布局，如果需要切换页面状态，须实现switchState方法
+ */
 abstract class KtFragment<VDB : ViewDataBinding, VM : KtViewModel> : KtAppUiFragment() {
     lateinit var contentBinding: VDB;
     lateinit var viewModel: VM;

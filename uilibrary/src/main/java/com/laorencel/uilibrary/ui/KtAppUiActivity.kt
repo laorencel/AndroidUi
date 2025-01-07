@@ -11,6 +11,9 @@ import com.laorencel.uilibrary.util.kt.ActivityManager
 import com.laorencel.uilibrary.util.kt.TipUtil
 import com.laorencel.uilibrary.util.kt.isEmpty
 
+/**
+ * 通用Activity，适用完全自定义布局界面。
+ */
 abstract class KtAppUiActivity : AppCompatActivity(), KtAppUi {
 
     private var progressDialog: ProgressDialog? = null;

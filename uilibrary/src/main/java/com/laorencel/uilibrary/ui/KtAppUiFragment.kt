@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import com.laorencel.uilibrary.util.kt.TipUtil
 import com.laorencel.uilibrary.util.kt.isEmpty
 
+/**
+ * 通用Fragment，适用完全自定义布局界面。
+ */
 abstract class KtAppUiFragment : Fragment(), KtAppUi {
     private var progressDialog: ProgressDialog? = null;
 

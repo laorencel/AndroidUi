@@ -6,6 +6,9 @@ import com.laorencel.uilibrary.util.kt.TipUtil
 import com.laorencel.uilibrary.widget.state.State
 import com.laorencel.uilibrary.widget.state.bean.StateItem
 
+/**
+ * 通用Activity/Fragment常用操作。
+ */
 interface KtAppUi {
 
     /**

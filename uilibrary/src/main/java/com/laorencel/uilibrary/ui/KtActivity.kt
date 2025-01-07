@@ -10,6 +10,10 @@ import com.laorencel.uilibrary.util.ClassUtil
 import com.laorencel.uilibrary.util.kt.isEmpty
 import com.laorencel.uilibrary.widget.state.State
 
+/**
+ * 通用Activity
+ * 没有实现任何布局，如果需要切换页面状态，须实现switchState方法
+ */
 abstract class KtActivity<VDB : ViewDataBinding, VM : KtViewModel> : KtAppUiActivity() {
 
     lateinit var contentBinding: VDB;
