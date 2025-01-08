@@ -48,7 +48,8 @@ abstract class KtCommonFragment<VDB : ViewDataBinding, VM : KtViewModel> : KtFra
     ): View? {
 
 //        return super.createView(inflater, container, savedInstanceState);
-        if (null == baseBinding) {
+        //lateinit变量使用this::xxx.isInitialized判断该变量是否已经初始化，而不能使用null==xxx,因为null==xxx会调用getXxx,这时会报错
+        if (!this::baseBinding.isInitialized) {
             baseBinding =
                 DataBindingUtil.inflate(
                     inflater,
@@ -57,6 +58,14 @@ abstract class KtCommonFragment<VDB : ViewDataBinding, VM : KtViewModel> : KtFra
                     false
                 )
             baseBinding.rlRoot.fitsSystemWindows = rootFitsSystemWindows()
+
+            baseBinding.stateLayout.setOnStateClickListener(OnStateClickListener { view, state ->
+                onStateClick(
+                    view,
+                    state
+                )
+            })
+
             if (layoutID() != -1) {
                 contentBinding = DataBindingUtil.inflate(layoutInflater, layoutID(), null, false)
                 if (null != contentBinding && null != baseBinding) {
@@ -109,16 +118,7 @@ abstract class KtCommonFragment<VDB : ViewDataBinding, VM : KtViewModel> : KtFra
             parent?.removeView(baseBinding.root)
         }
 
-        if (null != baseBinding) {
-            baseBinding.stateLayout.setOnStateClickListener(OnStateClickListener { view, state ->
-                onStateClick(
-                    view,
-                    state
-                )
-            })
-        }
-
-        return baseBinding.getRoot()
+        return baseBinding.root
     }
 
     override fun switchState(state: State?, item: StateItem?) {

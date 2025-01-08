@@ -46,7 +46,7 @@ abstract class KtFragment<VDB : ViewDataBinding, VM : KtViewModel> : KtAppUiFrag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (null == viewModel) {
+        if (!this::viewModel.isInitialized) {
             viewModel = createViewModel() ?: (KtViewModel() as VM)
         }
     }

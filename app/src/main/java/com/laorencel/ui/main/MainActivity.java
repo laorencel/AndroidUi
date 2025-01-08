@@ -14,6 +14,7 @@ import com.laorencel.ui.test.bottomnav.BottomNavActivity;
 import com.laorencel.ui.test.common.TestCommonActivity;
 import com.laorencel.ui.test.kt.KtTestActivity;
 import com.laorencel.ui.test.kt.KtTestListActivity;
+import com.laorencel.ui.test.kt.frag.KtFragActivity;
 import com.laorencel.ui.test.m3.button.TestButtonActivity;
 import com.laorencel.uilibrary.ui.BaseUiActivity;
 
@@ -52,6 +53,9 @@ public class MainActivity extends BaseUiActivity<ActivityMainBinding, MainVM> {
     }
     public void toKtList(View view) {
         startActivity(new Intent(MainActivity.this, KtTestListActivity.class));
+    }
+    public void toKtFrag(View view) {
+        startActivity(new Intent(MainActivity.this, KtFragActivity.class));
     }
 
     protected void setToolbar(Toolbar toolbar) {
