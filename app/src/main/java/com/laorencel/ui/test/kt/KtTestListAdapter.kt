@@ -13,6 +13,6 @@ class KtTestListAdapter : KtRecyclerViewAdapter<Student>() {
     override fun onBindViewHolder(holder: KtRecyclerViewViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val dataBinding = holder.dataBinding as ItemStudentBinding
-        dataBinding.student = list[position];
+        dataBinding.student = list[position]
     }
 }

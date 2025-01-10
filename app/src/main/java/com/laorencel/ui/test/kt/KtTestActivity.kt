@@ -7,7 +7,9 @@ import androidx.lifecycle.lifecycleScope
 import com.laorencel.ui.R
 import com.laorencel.ui.databinding.ActivityTestM3ButtonBinding
 import com.laorencel.ui.databinding.ActivityTestM3ButtonFooterBinding
+import com.laorencel.ui.test.kt.frag.FragTitle
 import com.laorencel.uilibrary.ui.KtCommonActivity
+import com.laorencel.uilibrary.util.kt.GsonUtil
 import com.laorencel.uilibrary.util.kt.PermissionRequest
 import com.laorencel.uilibrary.util.kt.TipUtil
 import kotlinx.coroutines.launch
@@ -29,6 +31,28 @@ class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>()
 
         PermissionRequest.register(this)
 
+//        testGson()
+//        testConfirmDialog()
+
+
+    }
+
+    fun testGson() {
+        val title = FragTitle("tag1", "title1")
+        val titleString = GsonUtil.toJson(title)
+        val titleConvert: FragTitle? = GsonUtil.fromJson(titleString, FragTitle::class.java)
+        println("titleString $titleString, title:${title.toString()}, titleConvert:${titleConvert.toString()}")
+
+        val list = listOf(
+            FragTitle("tag2", "title2"),
+            FragTitle("tag3", "title3"),
+        )
+        val listString = GsonUtil.toJson(list)
+        val listConvert: List<FragTitle>? = GsonUtil.fromJsonList(listString, FragTitle::class.java)
+        println("listString $listString, list:${list.toString()}, listConvert:${listConvert.toString()}")
+    }
+
+    fun testConfirmDialog() {
         TipUtil.showConfirmDialog(
             "6秒自动关闭",
             "hahasdfksjf啊啥；都快放假啊啥的六块腹肌啊啥；的饭卡加水淀粉",

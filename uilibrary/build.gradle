@@ -140,6 +140,7 @@ dependencies {
     api 'com.squareup.okhttp3:logging-interceptor:4.9.3'
     //gson
     api 'com.google.code.gson:gson:2.9.0'
+
     //Logger
 //    api 'com.orhanobut:logger:2.2.0'
 
@@ -174,5 +175,6 @@ dependencies {
     api  'com.scwang.smart:refresh-header-material:2.0.3'    //谷歌刷新头
     api  'com.scwang.smart:refresh-header-two-level:2.0.3'   //二级刷新头
     api  'com.scwang.smart:refresh-footer-ball:2.0.3'        //球脉冲加载
-    api  'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
+    api  'com.scwang.smart:refresh-footer-classics:2.0.3' //经典加载
+
 }

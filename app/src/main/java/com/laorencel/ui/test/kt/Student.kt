@@ -1,3 +1,7 @@
 package com.laorencel.ui.test.kt
 
-data class Student(var name:String?,var age:Int?,var className:String?)
+open class Person( var name: String?,  var age: Int?){
+
+}
+class Student(name:String?, age: Int?,var className: String?) :
+    Person(name, age)
