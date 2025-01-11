@@ -23,6 +23,16 @@ fun getFilesDir(context: Context?): String? {
     }
 }
 
+fun getExternalFilesDir(context: Context?, type: String? = null): String? {
+    if (null != context) {
+        return context.getExternalFilesDir(type)?.absolutePath
+    } else {
+        return ActivityManager.getCurrentActivity()?.let {
+            return it.getExternalFilesDir(type)?.absolutePath
+        }
+    }
+}
+
 fun getCacheDir(context: Context?): String? {
     if (null != context) {
         return context.cacheDir.absolutePath
@@ -33,11 +43,32 @@ fun getCacheDir(context: Context?): String? {
     }
 }
 
+fun getExternalCacheDir(context: Context?): String? {
+    if (null != context) {
+        return context.externalCacheDir?.absolutePath
+    } else {
+        return ActivityManager.getCurrentActivity()?.let {
+            return it.externalCacheDir?.absolutePath
+        }
+    }
+}
+
 fun getFileInFilesDir(context: Context?, fileName: String?): File? {
     if (isEmpty(fileName)) {
         return null
     }
     val rootPath = getFilesDir(context)
+    return rootPath?.let {
+        val filePath = it + File.separator + fileName
+        getFile(filePath)
+    }
+}
+
+fun getFileInExternalFilesDir(context: Context?, fileName: String?): File? {
+    if (isEmpty(fileName)) {
+        return null
+    }
+    val rootPath = getExternalFilesDir(context)
     return rootPath?.let {
         val filePath = it + File.separator + fileName
         getFile(filePath)
@@ -55,18 +86,31 @@ fun getFileInCacheDir(context: Context?, fileName: String?): File? {
     }
 }
 
-fun getFile(filePath: String?): File? {
+fun getFileInExternalCacheDir(context: Context?, fileName: String?): File? {
+    if (isEmpty(fileName)) {
+        return null
+    }
+    val rootPath = getExternalCacheDir(context)
+    return rootPath?.let {
+        val filePath = it + File.separator + fileName
+        return getFile(filePath)
+    }
+}
+
+fun getFile(filePath: String?, makeFile: Boolean = true): File? {
     if (isEmpty(filePath)) {
         return null
     }
     try {
         val file = File(filePath!!)
         if (!file.exists()) {
-            val mkdirs = file.parentFile?.mkdirs()
-            if (mkdirs == true) {
-                val createNewFile = file.createNewFile()
-                if (createNewFile) {
-                    return file
+            if (makeFile) {
+                val mkdirs = file.parentFile?.mkdirs()
+                if (mkdirs == true) {
+                    val createNewFile = file.createNewFile()
+                    if (createNewFile) {
+                        return file
+                    }
                 }
             }
             return null
@@ -92,6 +136,19 @@ suspend fun writeToFileInFilesDir(
         }
     }
 
+suspend fun writeToFileInExternalFilesDir(
+    context: Context?,
+    fileName: String?,
+    content: String?,
+    append: Boolean = false
+): String? =
+    withContext(Dispatchers.IO) {
+        val file = getFileInExternalFilesDir(context, fileName)
+        file?.let {
+            writeToFile(it.absolutePath, content, append)
+        }
+    }
+
 suspend fun writeToFileInCacheDir(
     context: Context?,
     fileName: String?,
@@ -100,6 +157,19 @@ suspend fun writeToFileInCacheDir(
 ): String? =
     withContext(Dispatchers.IO) {
         val file = getFileInCacheDir(context, fileName)
+        file?.let {
+            writeToFile(it.absolutePath, content, append)
+        }
+    }
+
+suspend fun writeToFileInExternalCacheDir(
+    context: Context?,
+    fileName: String?,
+    content: String?,
+    append: Boolean = false
+): String? =
+    withContext(Dispatchers.IO) {
+        val file = getFileInExternalCacheDir(context, fileName)
         file?.let {
             writeToFile(it.absolutePath, content, append)
         }
@@ -151,12 +221,34 @@ suspend fun readFromFileInFilesDir(
         } ?: ""
     }
 
+suspend fun readFromFileInExternalFilesDir(
+    context: Context?,
+    fileName: String?,
+): String =
+    withContext(Dispatchers.IO) {
+        val file = getFileInExternalFilesDir(context, fileName)
+        file?.let {
+            readFromFile(it.absolutePath)
+        } ?: ""
+    }
+
 suspend fun readFromFileInCacheDir(
     context: Context?,
     fileName: String?,
 ): String =
     withContext(Dispatchers.IO) {
         val file = getFileInCacheDir(context, fileName)
+        file?.let {
+            readFromFile(it.absolutePath)
+        } ?: ""
+    }
+
+suspend fun readFromFileInExternalCacheDir(
+    context: Context?,
+    fileName: String?,
+): String =
+    withContext(Dispatchers.IO) {
+        val file = getFileInExternalCacheDir(context, fileName)
         file?.let {
             readFromFile(it.absolutePath)
         } ?: ""
