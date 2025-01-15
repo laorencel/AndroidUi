@@ -13,6 +13,11 @@ import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.nio.charset.StandardCharsets
 
+//应用内部存储：getFilesDir()、getCacheDir()。
+//应用外部存储：getExternalCacheDir()、getExternalFilesDir()
+//这几个方法下的目录因为都是与我们应用有关的目录，因此当我们的APP被卸载后其中的文件也会被清空。
+//所以这里如果想在APP被卸载后保留相关的文件，建议使用getExternalStorageDirectory()或者getExternalStoragePublicDirectory()自行处理文件读写。
+
 fun getFilesDir(context: Context?): String? {
     if (null != context) {
         return context.filesDir.absolutePath

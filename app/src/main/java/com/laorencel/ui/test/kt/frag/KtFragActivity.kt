@@ -3,20 +3,29 @@ package com.laorencel.ui.test.kt.frag
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.laorencel.ui.R
 import com.laorencel.ui.databinding.ActivityFragBinding
 import com.laorencel.uilibrary.ui.KtCommonActivity
 import com.laorencel.uilibrary.ui.KtViewModel
 import com.laorencel.uilibrary.ui.adapter.KtRecyclerViewAdapter
+import com.laorencel.uilibrary.util.kt.LiveDataBus
 
-class KtFragActivity:KtCommonActivity<ActivityFragBinding,KtViewModel>() {
+class KtFragActivity : KtCommonActivity<ActivityFragBinding, KtViewModel>() {
     override fun layoutID(): Int {
         return R.layout.activity_frag
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        LiveDataBus.with("key_test", FragTitle::class.java, true)
+            .observe(this) {
+                println("LiveDataBus key_test $it")
+                showSnackbar(it?.toString())
+            }
 
         initAdapter()
 
@@ -26,9 +35,9 @@ class KtFragActivity:KtCommonActivity<ActivityFragBinding,KtViewModel>() {
 
     private fun initAdapter() {
         val list = mutableListOf(
-            FragTitle("frag1","frag1", true),
-            FragTitle("frag2","frag2", true),
-            FragTitle("frag3","frag3", true),
+            FragTitle("frag1", "frag1", true),
+            FragTitle("frag2", "frag2", true),
+            FragTitle("frag3", "frag3", true),
         )
         val layoutManager = LinearLayoutManager(this)
         val adapter = FragTitleAdapter()

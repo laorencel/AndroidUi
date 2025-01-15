@@ -17,6 +17,7 @@ import com.laorencel.ui.test.kt.KtTestListActivity;
 import com.laorencel.ui.test.kt.frag.KtFragActivity;
 import com.laorencel.ui.test.m3.button.TestButtonActivity;
 import com.laorencel.uilibrary.ui.BaseUiActivity;
+import com.laorencel.uilibrary.util.kt.LiveDataBus;
 
 
 public class MainActivity extends BaseUiActivity<ActivityMainBinding, MainVM> {
@@ -29,7 +30,6 @@ public class MainActivity extends BaseUiActivity<ActivityMainBinding, MainVM> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     public void toTestM3Button(View view) {
