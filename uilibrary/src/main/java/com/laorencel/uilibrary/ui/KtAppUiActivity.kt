@@ -86,21 +86,21 @@ abstract class KtAppUiActivity : AppCompatActivity(), KtAppUi {
 
     override fun showSnackbar(content: String?) {
         if (!content.isNullOrEmpty()) {
-            TipUtil.showSnackbar(this.window.decorView, content)
+            TipUtil.showSnackbar(content)
         }
     }
 
     override fun showSnackbar(stringId: Int) {
-        TipUtil.showSnackbar(this.window.decorView, resources.getString(stringId))
+        TipUtil.showSnackbar(resources.getString(stringId), this.window?.decorView)
     }
 
     override fun showToast(stringId: Int) {
-        TipUtil.showToast(this, resources.getString(stringId))
+        TipUtil.showToast(resources.getString(stringId), this)
     }
 
     override fun showToast(content: String?) {
         if (!content.isNullOrEmpty()) {
-            TipUtil.showToast(this, content)
+            TipUtil.showToast(content, this)
         }
     }
 

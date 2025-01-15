@@ -43,21 +43,21 @@ abstract class KtAppUiFragment : Fragment(), KtAppUi {
 
     override fun showSnackbar(content: String?) {
         if (!content.isNullOrEmpty()) {
-            TipUtil.showSnackbar(this.view, content)
+            TipUtil.showSnackbar(content)
         }
     }
 
     override fun showSnackbar(stringId: Int) {
-        TipUtil.showSnackbar(this.view, resources.getString(stringId))
+        TipUtil.showSnackbar(resources.getString(stringId), this.view)
     }
 
     override fun showToast(stringId: Int) {
-        TipUtil.showToast(context, resources.getString(stringId))
+        TipUtil.showToast(resources.getString(stringId))
     }
 
     override fun showToast(content: String?) {
         if (!content.isNullOrEmpty()) {
-            TipUtil.showToast(context, content)
+            TipUtil.showToast(content, context)
         }
     }
 

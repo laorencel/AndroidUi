@@ -2,6 +2,7 @@ package com.laorencel.uilibrary.ui
 
 import android.content.DialogInterface
 import android.view.View
+import com.laorencel.uilibrary.util.kt.ActivityManager
 import com.laorencel.uilibrary.util.kt.TipUtil
 import com.laorencel.uilibrary.widget.state.State
 import com.laorencel.uilibrary.widget.state.bean.StateItem
@@ -115,15 +116,29 @@ interface KtAppUi {
     }
 
     fun showSnackbar(content: String?) {
+        if (!content.isNullOrEmpty()) {
+            TipUtil.showSnackbar(content)
+        }
     }
 
     fun showSnackbar(stringId: Int) {
+        TipUtil.showSnackbar(
+            ActivityManager.getCurrentActivity()?.resources?.getString(stringId)
+        )
     }
 
     fun showToast(stringId: Int) {
+        TipUtil.showToast(
+            ActivityManager.getCurrentActivity()?.resources?.getString(stringId),
+            ActivityManager.getCurrentActivity()
+        )
     }
 
     fun showToast(content: String?) {
+        TipUtil.showToast(
+            content,
+            ActivityManager.getCurrentActivity()
+        )
     }
 
     fun showConfirmDialog(

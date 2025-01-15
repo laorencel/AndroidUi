@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.laorencel.ui.R
 import com.laorencel.ui.databinding.ActivityFragBinding
@@ -11,6 +12,8 @@ import com.laorencel.uilibrary.ui.KtCommonActivity
 import com.laorencel.uilibrary.ui.KtViewModel
 import com.laorencel.uilibrary.ui.adapter.KtRecyclerViewAdapter
 import com.laorencel.uilibrary.util.kt.LiveDataBus
+import com.laorencel.uilibrary.util.kt.TipUtil
+import kotlinx.coroutines.launch
 
 class KtFragActivity : KtCommonActivity<ActivityFragBinding, KtViewModel>() {
     override fun layoutID(): Int {
@@ -26,6 +29,12 @@ class KtFragActivity : KtCommonActivity<ActivityFragBinding, KtViewModel>() {
                 println("LiveDataBus key_test $it")
                 showSnackbar(it?.toString())
             }
+
+//        lifecycleScope.launch{
+//           val result = TipUtil.showConfirmDialogWithResult("确定？")
+//            println("showConfirmDialogWithResult result:$result")
+//        }
+//        println("onCreate showConfirmDialogWithResult ")
 
         initAdapter()
 

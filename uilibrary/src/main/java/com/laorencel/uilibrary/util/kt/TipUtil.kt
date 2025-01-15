@@ -15,20 +15,23 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 object TipUtil {
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         Log.e("TipUtil e:", "$throwable")
     }
 
+    private val mainScope = CoroutineScope(Dispatchers.Main + coroutineExceptionHandler)
+
     /**
      * 显示 Snackbar
      *
      */
-    fun showSnackbar(view: View?, content: String?, duration: Int = Snackbar.LENGTH_LONG) {
+    fun showSnackbar(content: String?, view: View? = null, duration: Int = Snackbar.LENGTH_LONG) {
         if (!content.isNullOrEmpty()) {
-            CoroutineScope(Dispatchers.Main + coroutineExceptionHandler).launch {
+            mainScope.launch {
                 if (null == view) {
                     val currentActivity: Activity? = ActivityManager.getCurrentActivity()
                     if (null != currentActivity && !currentActivity.isFinishing) {
@@ -49,9 +52,9 @@ object TipUtil {
      * 显示 Toast
      *
      */
-    fun showToast(context: Context?, content: String?, duration: Int = Toast.LENGTH_LONG) {
+    fun showToast(content: String?, context: Context? = null, duration: Int = Toast.LENGTH_LONG) {
         if (!content.isNullOrEmpty()) {
-            CoroutineScope(Dispatchers.Main + coroutineExceptionHandler).launch {
+            mainScope.launch {
                 if (null == context) {
                     val currentActivity: Activity? = ActivityManager.getCurrentActivity()
                     if (null != currentActivity && !currentActivity.isFinishing) {
@@ -78,39 +81,78 @@ object TipUtil {
         onCancelListener: DialogInterface.OnClickListener? = null,
         autoCloseSeconds: Long? = 0
     ) {
-        CoroutineScope(Dispatchers.IO + coroutineExceptionHandler).launch {
+        mainScope.launch {
             val currentActivity: Activity? = ActivityManager.getCurrentActivity()
             if (null != currentActivity && !currentActivity.isFinishing) {
                 var dialog: AlertDialog? = null;
-                withContext(Dispatchers.Main) {
-                    val builder = MaterialAlertDialogBuilder(currentActivity)
-                        .setTitle(title)
-                        .setMessage(content)
-                        .setCancelable(cancelable)
-                        .setNegativeButton(
-                            if (isEmpty(confirmText)) currentActivity.resources.getString(
-                                R.string.confirm
-                            ) else confirmText, onConfirmListener
-                        )
+                val builder = MaterialAlertDialogBuilder(currentActivity)
+                    .setTitle(title)
+                    .setMessage(content)
+                    .setCancelable(cancelable)
 
-                    if (null != onCancelListener) {
-                        builder.setPositiveButton(
-                            if (isEmpty(cancelText)) currentActivity.resources.getString(
-                                R.string.cancel
-                            ) else cancelText, onCancelListener
-                        )
-                    }
-                    dialog = builder.show()
+                if (null != onConfirmListener) {
+                    builder.setPositiveButton(
+                        if (isEmpty(confirmText)) currentActivity.resources.getString(
+                            R.string.confirm
+                        ) else confirmText, onConfirmListener
+                    )
                 }
+                if (null != onCancelListener) {
+                    builder.setNegativeButton(
+                        if (isEmpty(cancelText)) currentActivity.resources.getString(
+                            R.string.cancel
+                        ) else cancelText, onCancelListener
+                    )
+                }
+                if (null == onConfirmListener && null == onCancelListener) {
+                    builder.setCancelable(true)
+                }
+
+                dialog = builder.show()
                 if (null != autoCloseSeconds && autoCloseSeconds > 0) {
-                    delay(autoCloseSeconds * 1000L)
-                    withContext(Dispatchers.Main) {
-                        if (null != dialog && dialog!!.isShowing) {
-                            dialog!!.dismiss()
+                    launch {
+                        delay(autoCloseSeconds * 1000L)
+                        if (null != dialog && dialog.isShowing) {
+                            dialog.dismiss()
                         }
                     }
                 }
             }
         }
+    }
+
+    /**
+     * 显示 确认Dialog 并返回结果:true/false
+     *
+     */
+    suspend fun showConfirmDialogWithResult(
+        title: String? = null,
+        content: String? = null,
+        confirmText: String? = null,
+        cancelText: String? = null,
+    ): Boolean = suspendCoroutine { coroutine ->
+        mainScope.launch {
+            val currentActivity: Activity? = ActivityManager.getCurrentActivity()
+            if (null != currentActivity && !currentActivity.isFinishing) {
+                var dialog: AlertDialog? = null;
+                val builder = MaterialAlertDialogBuilder(currentActivity)
+                    .setTitle(title)
+                    .setMessage(content)
+                    .setCancelable(false)
+                    .setPositiveButton(
+                        if (isEmpty(confirmText)) currentActivity.resources.getString(
+                            R.string.confirm
+                        ) else confirmText
+                    ) { dialog, which -> coroutine.resume(true) }
+                    .setNegativeButton(
+                        if (isEmpty(cancelText)) currentActivity.resources.getString(
+                            R.string.cancel
+                        ) else cancelText
+                    ) { dialog, which -> coroutine.resume(false) }
+
+                dialog = builder.show()
+            }
+        }
+
     }
 }
