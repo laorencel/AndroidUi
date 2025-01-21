@@ -177,4 +177,9 @@ dependencies {
     api  'com.scwang.smart:refresh-footer-ball:2.0.3'        //球脉冲加载
     api  'com.scwang.smart:refresh-footer-classics:2.0.3' //经典加载
 
+    // XLog 日志打印 可参考：https://github.com/elvishew/xLog
+    implementation 'com.elvishew:xlog:1.10.1'
+
+    // 二维码生成 可参考：https://blog.csdn.net/xch_yang/article/details/82147461
+    api 'com.google.zxing:core:3.3.0'
 }
