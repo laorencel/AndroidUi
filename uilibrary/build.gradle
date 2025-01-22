@@ -152,9 +152,7 @@ dependencies {
 //    // XPopup弹窗 https://gitee.com/lxj_gitee/XPopup
 //    api 'com.github.li-xiaojun:XPopup:2.9.19'
 //
-//    // glide
-//    api 'com.github.bumptech.glide:glide:4.11.0'
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
 
     // SmartRefreshLayout 智能下拉刷新框架 地址：https://github.com/scwang90/SmartRefreshLayout/tree/master
     // 注意：分包之后不会有默认的Header和Footer需要手动添加！还是原来的三种方法！
@@ -182,4 +180,8 @@ dependencies {
 
     // 二维码生成 可参考：https://blog.csdn.net/xch_yang/article/details/82147461
     api 'com.google.zxing:core:3.3.0'
+
+    // glide
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.laorencel.uilibrary.bean.Pagination
 import com.laorencel.uilibrary.ui.adapter.KtRecyclerViewAdapter
 import com.laorencel.uilibrary.util.ClassUtil
+import com.laorencel.uilibrary.util.StatusBarUtil
 import com.laorencel.uilibrary.util.kt.isEmpty
 import com.laorencel.uilibrary.widget.state.State
 
@@ -26,6 +27,15 @@ abstract class KtActivity<VDB : ViewDataBinding, VM : KtViewModel> : KtAppUiActi
 //        setContentView(viewDataBinding.getRoot());//写法二和写法三需要setContentView
         contentBinding = DataBindingUtil.setContentView(this, layoutID())
         contentBinding.root.fitsSystemWindows = rootFitsSystemWindows()
+
+        val navigationBarHeight = StatusBarUtil.getNavigationBarHeight(this)
+//            Log.e("navigationBarHeight", "navigationBarHeight:" + navigationBarHeight)
+        contentBinding.root.setPadding(
+            contentBinding.root.paddingLeft,
+            contentBinding.root.paddingTop,
+            contentBinding.root.paddingRight,
+            contentBinding.root.paddingBottom + navigationBarHeight
+        )
 
         viewModel = createViewModel() ?: (KtViewModel() as VM)
 
