@@ -52,12 +52,12 @@ class KtFragActivity : KtCommonActivity<ActivityFragBinding, KtViewModel>() {
         val adapter = FragTitleAdapter()
         contentBinding.rvTitle.layoutManager = layoutManager
         contentBinding.rvTitle.adapter = adapter
-        adapter.setOnItemClickListener(object :
+        adapter.onItemClickListener = object :
             KtRecyclerViewAdapter.OnItemClickListener<FragTitle> {
             override fun onClick(view: View?, position: Int, data: FragTitle) {
                 switchFragment(data.tag)
             }
-        })
+        }
         adapter.setListData(list)
     }
 

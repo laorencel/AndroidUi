@@ -16,14 +16,14 @@ class KtRecyclerViewViewHolder(var dataBinding: ViewDataBinding) :
     ) {
 }
 
-open abstract class KtRecyclerViewAdapter<T>(var list: MutableList<T> = mutableListOf()) :
+abstract class KtRecyclerViewAdapter<T>(var list: MutableList<T> = mutableListOf()) :
     RecyclerView.Adapter<KtRecyclerViewViewHolder>() {
 
     var onItemClickListener: OnItemClickListener<T>? = null
 
-    fun setOnItemClickListener(listener: OnItemClickListener<T>?) {
-        this.onItemClickListener = listener
-    }
+//    fun setOnItemClickListener(listener: OnItemClickListener<T>?) {
+//        this.onItemClickListener = listener
+//    }
 
     abstract fun layoutId(): Int
 
