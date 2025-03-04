@@ -30,14 +30,14 @@ abstract class KtRefreshFragment<VDB : ViewDataBinding, VM : KtViewModel> : KtFr
     /**
      * 页面头部布局资源layoutID(添加在appbarLayout內，toolbar下面，stateLayout上面)
      */
-    protected fun headerLayoutID(): Int {
+    protected open fun headerLayoutID(): Int {
         return -1
     }
 
     /**
      * 页面底部布局资源layoutID(添加在bottomAppbar內，stateLayout下面，固定在底部)
      */
-    protected fun footerLayoutID(): Int {
+    protected open fun footerLayoutID(): Int {
         return -1
     }
 
