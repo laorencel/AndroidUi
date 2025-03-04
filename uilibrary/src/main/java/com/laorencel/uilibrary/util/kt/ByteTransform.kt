@@ -180,22 +180,22 @@ object ByteTransform {
      * byte占用1个字节
      * short占用2个字节
      */
-    fun byteArrayToShortArray(data: ByteArray): ShortArray {
+    fun byteArrayToShortArray(data: ByteArray, bigEndian: Boolean = true): ShortArray {
         val array = ShortArray(data.size / 2)
 //        for (i in sdata.indices) sdata[i] = ModbusUtils.toShort(data[i * 2], data[i * 2 + 1])
         val arrayToShort = ByteArray(2)
         for (i in array.indices) {
             arrayToShort[0] = data[i * 2]
             arrayToShort[1] = data[i * 2 + 1]
-            array[i] = byteArrayToShort(arrayToShort)
+            array[i] = byteArrayToShort(arrayToShort,bigEndian)
         }
         return array
     }
 
-    fun shortArrayToByteArray(data: ShortArray): ByteArray {
+    fun shortArrayToByteArray(data: ShortArray, bigEndian: Boolean = true): ByteArray {
         val byteArray = ByteArray(data.size * 2)
         for (i in data.indices) {
-            val array = shortToByteArray(data[i])
+            val array = shortToByteArray(data[i],bigEndian)
             byteArray[i * 2] = array[0]
             byteArray[i * 2 + 1] = array[1]
         }
