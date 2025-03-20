@@ -1,5 +1,6 @@
 package com.laorencel.uilibrary.util.kt.log
 
+import android.util.Log
 import com.elvishew.xlog.LogConfiguration
 import com.elvishew.xlog.LogLevel
 import com.elvishew.xlog.XLog
@@ -24,7 +25,10 @@ data class YLogConfig(
 
 object YLog {
 
+    var TAG = "YLog"
     var enable: Boolean = true
+    var isInit: Boolean = false
+        private set
 
     //是否暂停
     private var isPause: Boolean = false
@@ -38,6 +42,8 @@ object YLog {
 
     fun initLog(enableLog: Boolean, config: YLogConfig) {
         enable = enableLog
+        TAG = config.tag.ifEmpty { "YLog" }
+
         val logConfig = LogConfiguration.Builder()
             .tag(config.tag)
             .logLevel(LogLevel.ALL)
@@ -69,14 +75,19 @@ object YLog {
         } else {
             XLog.init(logConfig, androidPrinter)
         }
+        isInit = true
         XLog.enableStackTrace(2)
     }
 
 
     fun d(msg: String?) {
-        if (enable) {
+        if (enable && !msg.isNullOrEmpty()) {
             if (!isPause) {
-                XLog.d(msg)
+                if (isInit) {
+                    XLog.d(msg)
+                } else {
+                    Log.d(TAG, msg)
+                }
                 //            Log.d(TAG, msg);
             } else {
                 pauseMsgList.add(
@@ -90,10 +101,13 @@ object YLog {
     }
 
     fun e(msg: String?) {
-        if (enable) {
+        if (enable && !msg.isNullOrEmpty()) {
             if (!isPause) {
-                XLog.e(msg)
-                //            Log.e(TAG, msg);
+                if (isInit) {
+                    XLog.e(msg)
+                } else {
+                    Log.d(TAG, msg)
+                }
             } else {
                 pauseMsgList.add(
                     DateUtil.millisToString(
@@ -113,9 +127,7 @@ object YLog {
         isPause = false
         if (!isEmpty(pauseMsgList)) {
             pauseMsgList.forEach { msg: String ->
-                d(
-                    "pauseMsg:$msg"
-                )
+                d("pauseMsg:$msg")
             }
         }
         pauseMsgList.clear()
