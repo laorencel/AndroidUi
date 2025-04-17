@@ -8,6 +8,7 @@ import androidx.databinding.ViewDataBinding
 import com.laorencel.uilibrary.R
 import com.laorencel.uilibrary.databinding.ActivityBaseKtCommonBinding
 import com.laorencel.uilibrary.util.StatusBarUtil
+import com.laorencel.uilibrary.util.kt.log.logE
 import com.laorencel.uilibrary.widget.state.State
 import com.laorencel.uilibrary.widget.state.bean.StateItem
 
@@ -86,7 +87,7 @@ abstract class KtCommonActivity<VDB : ViewDataBinding, VM : KtViewModel> : KtAct
 
                 if (null != contentBinding) {
                     val navigationBarHeight = StatusBarUtil.getNavigationBarHeight(this)
-//                    Log.e("llBottom.getHeight", "$navigationBarHeight hasNavigationBar")
+//                    logE("llBottom.getHeight $navigationBarHeight hasNavigationBar")
                     footerBinding!!.root.setPadding(
                         footerBinding!!.root.paddingLeft,
                         footerBinding!!.root.paddingTop,
@@ -97,7 +98,7 @@ abstract class KtCommonActivity<VDB : ViewDataBinding, VM : KtViewModel> : KtAct
             }
         } else {
             val navigationBarHeight = StatusBarUtil.getNavigationBarHeight(this)
-//            Log.e("navigationBarHeight", "navigationBarHeight:" + navigationBarHeight)
+//            logE("navigationBarHeight", "navigationBarHeight:" + navigationBarHeight)
             baseBinding.root.setPadding(
                 baseBinding.root.paddingLeft,
                 baseBinding.root.paddingTop,

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.laorencel.uilibrary.R
+import com.laorencel.uilibrary.util.kt.log.logE
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +21,7 @@ import kotlin.coroutines.suspendCoroutine
 
 object TipUtil {
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
-        Log.e("TipUtil e:", "$throwable")
+        logE("TipUtil e: ${Log.getStackTraceString(throwable)}")
     }
 
     private val mainScope = CoroutineScope(Dispatchers.Main + coroutineExceptionHandler)

@@ -10,6 +10,7 @@ import androidx.databinding.ViewDataBinding
 import com.laorencel.uilibrary.R
 import com.laorencel.uilibrary.databinding.ActivityBaseKtRefreshBinding
 import com.laorencel.uilibrary.util.StatusBarUtil
+import com.laorencel.uilibrary.util.kt.log.logE
 import com.laorencel.uilibrary.widget.state.State
 import com.laorencel.uilibrary.widget.state.bean.StateItem
 import com.scwang.smart.refresh.layout.api.RefreshLayout
@@ -113,8 +114,7 @@ abstract class KtRefreshActivity<VDB : ViewDataBinding, VM : KtViewModel> : KtAc
         if (null != baseBinding) {
             setToolbar(baseBinding.toolbar)
 
-//            Log.e(
-//                "",
+//            logE(
 //                "refreshEnable():" + refreshEnable() + " loadMoreEnable():" + loadMoreEnable()
 //            )
             baseBinding.refreshLayout.setEnableRefresh(refreshEnable())

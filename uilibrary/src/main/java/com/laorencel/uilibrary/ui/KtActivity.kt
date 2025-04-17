@@ -9,6 +9,7 @@ import com.laorencel.uilibrary.ui.adapter.KtRecyclerViewAdapter
 import com.laorencel.uilibrary.util.ClassUtil
 import com.laorencel.uilibrary.util.StatusBarUtil
 import com.laorencel.uilibrary.util.kt.isEmpty
+import com.laorencel.uilibrary.util.kt.log.logE
 import com.laorencel.uilibrary.widget.state.State
 
 /**
@@ -29,7 +30,7 @@ abstract class KtActivity<VDB : ViewDataBinding, VM : KtViewModel> : KtAppUiActi
         contentBinding.root.fitsSystemWindows = rootFitsSystemWindows()
 
         val navigationBarHeight = StatusBarUtil.getNavigationBarHeight(this)
-//            Log.e("navigationBarHeight", "navigationBarHeight:" + navigationBarHeight)
+//            logE("navigationBarHeight navigationBarHeight:" + navigationBarHeight)
         contentBinding.root.setPadding(
             contentBinding.root.paddingLeft,
             contentBinding.root.paddingTop,

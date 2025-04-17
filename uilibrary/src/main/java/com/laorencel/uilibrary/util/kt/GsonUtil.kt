@@ -3,6 +3,7 @@ package com.laorencel.uilibrary.util.kt
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
+import com.laorencel.uilibrary.util.kt.log.logE
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
@@ -28,7 +29,8 @@ object GsonUtil {
                 val t = gson.fromJson(json, classType)
                 return t
             } catch (e: JsonSyntaxException) {
-                Log.e("GsonUtil", "fromJson JsonSyntaxException $e")
+                e.printStackTrace()
+                logE("GsonUtil fromJson JsonSyntaxException $e")
             }
         }
         return null
@@ -50,7 +52,7 @@ object GsonUtil {
                 val t = gson.fromJson<List<T>>(json, type)
                 return t
             } catch (e: JsonSyntaxException) {
-                Log.e("GsonInstance", "fromJson JsonSyntaxException $e")
+                logE("GsonInstance fromJsonList JsonSyntaxException $e")
             }
         }
         return null

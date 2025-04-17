@@ -2,6 +2,7 @@ package com.laorencel.uilibrary.util.kt
 
 import android.content.Context
 import android.util.Log
+import com.laorencel.uilibrary.util.kt.log.logE
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.BufferedReader
@@ -123,7 +124,7 @@ fun getFile(filePath: String?, makeFile: Boolean = true): File? {
             return file
         }
     } catch (e: Exception) {
-        Log.e("FileUtil", "getFile e:$e")
+        logE("FileUtil getFile e:$e")
         return null
     }
 }
@@ -203,13 +204,13 @@ suspend fun writeToFile(filePath: String?, content: String?, append: Boolean = f
                     OutputStreamWriter(FileOutputStream(filePath, append), StandardCharsets.UTF_8)
                 osw.write(content)
                 osw.close()
-//                Log.e("FileUtil", "writeToFile complete")
+//                logE("FileUtil", "writeToFile complete")
                 return@withContext filePath
             } else {
                 return@withContext null
             }
         } catch (e: Exception) {
-            Log.e("FileUtil", "writeToFile e:$e")
+            logE("FileUtil writeToFile e:$e")
         }
         return@withContext null
     }
@@ -284,7 +285,7 @@ suspend fun readFromFile(filePath: String): String = withContext(Dispatchers.IO)
         inStream.close() //关闭输入流
         return@withContext content.toString()
     } catch (e: java.lang.Exception) {
-        Log.e("FileUtil", "readFromFile e:$e")
+        logE("FileUtil readFromFile e:${Log.getStackTraceString(e)}")
     }
     return@withContext content.toString()
 }
