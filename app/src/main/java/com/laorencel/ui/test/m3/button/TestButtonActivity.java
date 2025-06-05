@@ -11,6 +11,7 @@ import com.laorencel.ui.R;
 import com.laorencel.ui.databinding.ActivityTestM3ButtonBinding;
 import com.laorencel.ui.databinding.ActivityTestM3ButtonFooterBinding;
 import com.laorencel.uilibrary.ui.BaseUiActivity;
+import com.laorencel.uilibrary.util.kt.TipUtil;
 import com.laorencel.uilibrary.widget.state.State;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 
@@ -43,6 +44,12 @@ public class TestButtonActivity extends BaseUiActivity<ActivityTestM3ButtonBindi
         super.onCreate(savedInstanceState);
 
         ((ActivityTestM3ButtonFooterBinding) footerBinding).setAppUi(TestButtonActivity.this);
+//        contentBinding.btnShape.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                TipUtil.INSTANCE.showInputDialog("输入框","请输入",null,null);
+//            }
+//        });
     }
 
     @Override

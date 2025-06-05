@@ -41,6 +41,7 @@
             android:text="@string/font_icon_arrow_right" />
 
         <Button
+            android:id="@+id/btn_shape"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/surface_corner_small"

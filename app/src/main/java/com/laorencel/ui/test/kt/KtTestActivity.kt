@@ -13,6 +13,7 @@ import com.laorencel.uilibrary.util.kt.GsonUtil
 import com.laorencel.uilibrary.util.kt.PermissionRequest
 import com.laorencel.uilibrary.util.kt.TipUtil
 import kotlinx.coroutines.launch
+import throttleClick
 
 class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>() {
     override fun layoutID(): Int {
@@ -34,7 +35,12 @@ class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>()
 //        testGson()
 //        testConfirmDialog()
 
-
+        contentBinding.btnShape.throttleClick {
+            lifecycleScope.launch {
+                val result = TipUtil.showInputDialog("输入框", "请输入")
+                println("result $result")
+            }
+        }
     }
 
     fun testGson() {

@@ -3,8 +3,10 @@ package com.laorencel.uilibrary.util.kt
 import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
+import android.text.InputType
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -18,6 +20,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
+
 
 object TipUtil {
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
@@ -150,6 +153,41 @@ object TipUtil {
                             R.string.cancel
                         ) else cancelText
                     ) { dialog, which -> coroutine.resume(false) }
+
+                dialog = builder.show()
+            }
+        }
+
+    }
+
+    suspend fun showInputDialog(
+        title: String? = null,
+        placeholder: String? = null,
+        confirmText: String? = null,
+        cancelText: String? = null,
+        inputType: Int = InputType.TYPE_NULL,
+    ): String? = suspendCoroutine { coroutine ->
+        mainScope.launch {
+            val currentActivity: Activity? = ActivityManager.getCurrentActivity()
+            if (null != currentActivity && !currentActivity.isFinishing) {
+                var dialog: AlertDialog? = null;
+                val editText = EditText(currentActivity)
+                editText.hint = placeholder
+                editText.inputType = inputType
+                val builder = MaterialAlertDialogBuilder(currentActivity)
+                    .setTitle(title)
+                    .setView(editText)
+                    .setCancelable(false)
+                    .setPositiveButton(
+                        if (isEmpty(confirmText)) currentActivity.resources.getString(
+                            R.string.confirm
+                        ) else confirmText
+                    ) { dialog, which -> coroutine.resume(editText.text.toString()) }
+                    .setNegativeButton(
+                        if (isEmpty(cancelText)) currentActivity.resources.getString(
+                            R.string.cancel
+                        ) else cancelText
+                    ) { dialog, which -> coroutine.resume(null) }
 
                 dialog = builder.show()
             }
