@@ -30,6 +30,11 @@ abstract class KtAppUiActivity : AppCompatActivity(), KtAppUi {
         createView(savedInstanceState)
     }
 
+    override fun onResume() {
+        super.onResume()
+        ActivityManager.setCurrentActivity(this)
+    }
+
     protected abstract fun createView(savedInstanceState: Bundle?)
 
     /**
