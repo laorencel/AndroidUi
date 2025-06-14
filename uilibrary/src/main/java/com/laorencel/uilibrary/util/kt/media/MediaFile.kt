@@ -1,7 +1,7 @@
 package com.laorencel.uilibrary.util.kt.media
 
 import android.media.MediaMetadataRetriever
-import android.util.Log
+import com.laorencel.uilibrary.util.kt.log.logD
 import java.io.IOException
 
 
@@ -337,19 +337,19 @@ object MediaFile {
         try {
             if (path != null) {
                 mmr.setDataSource(path, HashMap())
-                Log.d("getDuration time", "bbbbb")
+                logD("getDuration time bbbbb")
             }
             val time = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
-            Log.d("getDuration time", time!!)
-            duration = time.toLong()
+            logD("getDuration time $time")
+            duration = time!!.toLong()
         } catch (ex: Exception) {
-            Log.d("getDuration ex", ex.toString())
+            logD("getDuration ex $ex")
             ex.printStackTrace()
         } finally {
             try {
                 mmr.release()
             } catch (e: IOException) {
-                Log.d("getDuration e", e.toString())
+                logD("getDuration e $e")
                 e.printStackTrace()
             }
         }

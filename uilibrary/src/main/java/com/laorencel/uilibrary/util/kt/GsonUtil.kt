@@ -1,6 +1,5 @@
 package com.laorencel.uilibrary.util.kt
 
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.laorencel.uilibrary.util.kt.log.logE

@@ -1,6 +1,5 @@
 package com.laorencel.uilibrary.util.kt.log
 
-import android.util.Log
 import com.elvishew.xlog.LogConfiguration
 import com.elvishew.xlog.LogLevel
 import com.elvishew.xlog.XLog
@@ -86,7 +85,7 @@ object YLog {
                 if (isInit) {
                     XLog.d(msg)
                 } else {
-                    Log.d(TAG, msg)
+                    println("$TAG $msg")
                 }
                 //            Log.d(TAG, msg);
             } else {
@@ -106,7 +105,7 @@ object YLog {
                 if (isInit) {
                     XLog.e(msg)
                 } else {
-                    Log.d(TAG, msg)
+                    println("$TAG $msg")
                 }
             } else {
                 pauseMsgList.add(
