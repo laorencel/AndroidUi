@@ -1,7 +1,7 @@
 <resources>
 
     <style name="AppTheme" parent="AppTheme.NoStatusBar"></style>
-    <style name="AppTheme.NoStatusBar" parent="AppTheme.TextAppearance">
+    <style name="AppTheme.NoStatusBar" parent="AppTheme.Material3.Color.TextColor">
         <!--        edge to edge    -->
         <!-- 顶部状态栏  Status bar color. -->
         <item name="android:statusBarColor">@android:color/transparent</item>
@@ -13,17 +13,14 @@
         <!--        <item name="android:windowLightNavigationBar">true</item>-->
         <!--状态栏是否覆盖在ContentView上：true:覆盖，状态栏会根据statusBarColor配色；false：状态栏会跟ContentView分离-->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:windowBackground">@color/md_theme_light_background</item>
+        <item name="android:windowBackground">?attr/android:colorBackground</item>
 
         <!--        窗口（Activity）切换动画-->
         <item name="android:windowAnimationStyle">@style/default_animation</item>
 
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorPrimaryVariant">@color/md_theme_light_primary</item>
-        <item name="colorAccent">@color/md_theme_light_secondary</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondaryVariant">@color/md_theme_light_secondary</item>
+        <item name="colorAccent">?attr/colorSecondary</item>
+        <item name="colorSecondaryVariant">?attr/colorSecondaryVariant</item>
 
 <!--        <item name="enableEdgeToEdge">?attr/enableEdgeToEdge</item>-->
     </style>

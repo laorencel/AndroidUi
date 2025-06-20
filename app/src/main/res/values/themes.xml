@@ -1,5 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+<!--    <style name="LauncherTheme" parent="AppTheme.Material3.Color.TextColor">-->
     <style name="LauncherTheme" parent="AppTheme">
 <!--        <item name="android:windowBackground">@drawable/bg_launch</item>-->
     </style>
