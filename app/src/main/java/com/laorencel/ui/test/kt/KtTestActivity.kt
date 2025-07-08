@@ -1,6 +1,10 @@
 package com.laorencel.ui.test.kt
 
 import android.Manifest
+import android.content.ComponentName
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
@@ -12,6 +16,7 @@ import com.laorencel.uilibrary.ui.KtCommonActivity
 import com.laorencel.uilibrary.util.kt.GsonUtil
 import com.laorencel.uilibrary.util.kt.PermissionRequest
 import com.laorencel.uilibrary.util.kt.TipUtil
+import com.laorencel.uilibrary.util.kt.log.logD
 import kotlinx.coroutines.launch
 import throttleClick
 
@@ -36,13 +41,59 @@ class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>()
 //        testConfirmDialog()
 
         contentBinding.btnShape.throttleClick {
-            lifecycleScope.launch {
-                val result = TipUtil.showInputDialog("输入框", "请输入")
-                println("result $result")
-            }
+//            getPackageInfo()
+            switchShowApp(false)
+//            lifecycleScope.launch {
+//                val result = TipUtil.showInputDialog("输入框", "请输入")
+//                println("result $result")
+//            }
         }
     }
 
+    private fun switchShowApp(show: Boolean) {
+        val packageManager = packageManager;
+//        val componentName = ComponentName(this, "com.laorencel.ui.main.MainActivity");
+        val componentName =
+            ComponentName("com.yx.steammachine", "com.yx.steammachine.ui.mainui.MainUiActivity");
+        Log.d("test", componentName.toString())
+//        val res = packageManager.getComponentEnabledSetting(componentName);
+//        if (res == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
+//            || res == PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+//        ) {
+        if (!show) {
+            // 隐藏应用图标
+            packageManager.setComponentEnabledSetting(
+                componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP
+            );
+        } else {
+            // 显示应用图标
+            packageManager.setComponentEnabledSetting(
+                componentName, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
+                PackageManager.DONT_KILL_APP
+            );
+        }
+    }
+
+    private fun getPackageInfo() {
+
+        val packages = getPackageManager().getInstalledPackages(0).filter { !isSystemApp(it) };
+        logD("getPackageInfo ${packages.size}")
+        packages.forEach { packageInfo ->
+            logD("$packageInfo")
+//            logD(
+//                "appName:${
+//                    packageInfo.applicationInfo.loadLabel(getPackageManager()).toString()
+//                }," +
+//                        " packageName:${packageInfo.packageName} "
+//            )
+        }
+    }
+    fun isSystemApp(pi: PackageInfo): Boolean {
+        val isSysApp = (pi.applicationInfo.flags and ApplicationInfo.FLAG_SYSTEM) == 1
+        val isSysUpd = (pi.applicationInfo.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 1
+        return isSysApp || isSysUpd
+    }
     fun testGson() {
         val title = FragTitle("tag1", "title1")
         val titleString = GsonUtil.toJson(title)
