@@ -134,7 +134,8 @@ object TipUtil {
         content: String? = null,
         confirmText: String? = null,
         cancelText: String? = null,
-    ): Boolean = suspendCoroutine { coroutine ->
+        autoCloseSeconds: Long? = 0
+    ): Boolean? = suspendCoroutine { coroutine ->
         mainScope.launch {
             val currentActivity: Activity? = ActivityManager.getCurrentActivity()
             if (null != currentActivity && !currentActivity.isFinishing) {
@@ -155,6 +156,17 @@ object TipUtil {
                     ) { dialog, which -> coroutine.resume(false) }
 
                 dialog = builder.show()
+                if (null != autoCloseSeconds && autoCloseSeconds > 0) {
+                    launch {
+                        delay(autoCloseSeconds * 1000L)
+                        if (null != dialog && dialog.isShowing) {
+                            dialog.dismiss()
+                            coroutine.resume(null)
+                        }
+                    }
+                }
+            } else {
+                coroutine.resume(null)
             }
         }
 
@@ -166,6 +178,7 @@ object TipUtil {
         confirmText: String? = null,
         cancelText: String? = null,
         inputType: Int = InputType.TYPE_NULL,
+        autoCloseSeconds: Long? = 0
     ): String? = suspendCoroutine { coroutine ->
         mainScope.launch {
             val currentActivity: Activity? = ActivityManager.getCurrentActivity()
@@ -190,6 +203,18 @@ object TipUtil {
                     ) { dialog, which -> coroutine.resume(null) }
 
                 dialog = builder.show()
+
+                if (null != autoCloseSeconds && autoCloseSeconds > 0) {
+                    launch {
+                        delay(autoCloseSeconds * 1000L)
+                        if (null != dialog && dialog.isShowing) {
+                            dialog.dismiss()
+                            coroutine.resume(null)
+                        }
+                    }
+                }
+            } else {
+                coroutine.resume(null)
             }
         }
 
