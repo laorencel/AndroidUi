@@ -60,7 +60,8 @@ object CrcUtil {
      * @return
      */
     fun crc8_0x07(bytes: ByteArray, off: Int = 0, len: Int = bytes.size): Byte {
-        var result = 0xFF.toByte()
+//        var result = 0xFF.toByte()
+        var result = 0x00.toByte()
         for (i in 0 until len) {
             result = CRC8_0x07_TABLE[result.toInt() xor (bytes[i + off].toInt() and 0xFF) and 0xFF]
         }

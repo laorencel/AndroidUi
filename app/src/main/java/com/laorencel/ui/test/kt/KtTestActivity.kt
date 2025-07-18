@@ -17,6 +17,7 @@ import com.laorencel.uilibrary.util.kt.GsonUtil
 import com.laorencel.uilibrary.util.kt.PermissionRequest
 import com.laorencel.uilibrary.util.kt.TipUtil
 import com.laorencel.uilibrary.util.kt.log.logD
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import throttleClick
 
@@ -42,11 +43,28 @@ class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>()
 
         contentBinding.btnShape.throttleClick {
 //            getPackageInfo()
-            switchShowApp(false)
+//            switchShowApp(false)
 //            lifecycleScope.launch {
 //                val result = TipUtil.showInputDialog("输入框", "请输入")
 //                println("result $result")
 //            }
+
+            lifecycleScope.launch(Dispatchers.Main) {
+
+                val result = TipUtil.showConfirmDialogWithResult(
+                    "重启应用",
+                    "当前信号弱，连接不稳定，10秒后将自动重启",
+                    "重启",
+                    "不重启",
+                    autoCloseSeconds = 10
+                )
+                logD("result $result ")
+                if (result == null || result == true) {
+                    logD("aaa ")
+                } else {
+                    logD("bbb")
+                }
+            }
         }
     }
 
