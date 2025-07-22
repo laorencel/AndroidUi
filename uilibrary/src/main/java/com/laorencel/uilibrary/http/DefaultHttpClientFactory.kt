@@ -2,6 +2,9 @@ package com.laorencel.uilibrary.http
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.laorencel.uilibrary.http.RetrofitClient.CONNECT_TIMEOUT
+import com.laorencel.uilibrary.http.RetrofitClient.READ_TIMEOUT
+import com.laorencel.uilibrary.http.RetrofitClient.WRITE_TIMEOUT
 import com.laorencel.uilibrary.http.RetrofitClient.createRetrofit
 import com.laorencel.uilibrary.http.adapter.IntegerTypeAdapter
 import com.laorencel.uilibrary.http.adapter.NullOnEmptyTypeAdapterFactory
@@ -40,7 +43,12 @@ object DefaultHttpClientFactory {
         return api
     }
 
-    fun <T> create(apiClass: Class<T>, baseUrl: String): T {
+    fun <T> create(
+        apiClass: Class<T>, baseUrl: String,
+        connectTimeout: Long = CONNECT_TIMEOUT,
+        readTimeout: Long = READ_TIMEOUT,
+        writeTimeout: Long = WRITE_TIMEOUT
+    ): T {
         val factories: MutableList<Converter.Factory> = ArrayList()
         //GsonConverterFactory gson转换
         val gson = gson
@@ -50,14 +58,25 @@ object DefaultHttpClientFactory {
         factories.add(ScalarsConverterFactory.create())
         val interceptors: MutableList<Interceptor> = ArrayList()
         interceptors.add(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        return create(apiClass, baseUrl, factories, interceptors)
+        return create(
+            apiClass,
+            baseUrl,
+            factories,
+            interceptors,
+            connectTimeout,
+            readTimeout,
+            writeTimeout
+        )
     }
 
     fun <T> create(
         apiClass: Class<T>,
         baseUrl: String,
         factories: List<Converter.Factory>?,
-        interceptors: List<Interceptor>?
+        interceptors: List<Interceptor>?,
+        connectTimeout: Long = CONNECT_TIMEOUT,
+        readTimeout: Long = READ_TIMEOUT,
+        writeTimeout: Long = WRITE_TIMEOUT,
     ): T {
         val obj = clientMap[apiClass.name + "_" + baseUrl]
 
@@ -65,7 +84,14 @@ object DefaultHttpClientFactory {
             return obj as T
         }
 
-        val api:T = createRetrofit(baseUrl, factories, interceptors, 30, 30, 30).create(apiClass)
+        val api: T = createRetrofit(
+            baseUrl,
+            factories,
+            interceptors,
+            connectTimeout,
+            readTimeout,
+            writeTimeout
+        ).create(apiClass)
         clientMap[apiClass.name + "_" + baseUrl] = api as Any
         return api
     }
