@@ -1,86 +1,73 @@
-package com.laorencel.uilibrary.http;
+package com.laorencel.uilibrary.http
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.laorencel.uilibrary.http.adapter.IntegerTypeAdapter;
-import com.laorencel.uilibrary.http.adapter.NullOnEmptyTypeAdapterFactory;
-import com.laorencel.uilibrary.http.adapter.StringTypeAdapter;
-import com.laorencel.uilibrary.http.converter.DefaultGsonConverterFactory;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import okhttp3.Interceptor;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Converter;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.laorencel.uilibrary.http.RetrofitClient.createRetrofit
+import com.laorencel.uilibrary.http.adapter.IntegerTypeAdapter
+import com.laorencel.uilibrary.http.adapter.NullOnEmptyTypeAdapterFactory
+import com.laorencel.uilibrary.http.adapter.StringTypeAdapter
+import com.laorencel.uilibrary.http.converter.DefaultGsonConverterFactory
+import okhttp3.Interceptor
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Converter
+import retrofit2.converter.scalars.ScalarsConverterFactory
 
 /**
  * 默认的网络请求工厂，作为一个实例，实际项目中可以按此编写
  */
-public class DefaultHttpClientFactory {
-
-    private DefaultHttpClientFactory() {
-    }
-
-    private static class Builder {
-        private static final DefaultHttpClientFactory INSTANCE = new DefaultHttpClientFactory();
-    }
-
-    public static DefaultHttpClientFactory get() {
-        return DefaultHttpClientFactory.Builder.INSTANCE;
-    }
+object DefaultHttpClientFactory {
 
     //实现多个api存储，以baseUrl为key
-    private Map<String, Object> clientMap = new HashMap<>();
+    private val clientMap: MutableMap<String, Any> = HashMap()
 
-    private Gson gson;
+    private var gson: Gson? = null
+        get() {
+            if (null == field) {
+                field = GsonBuilder()
+                    .setLenient() //                .registerTypeAdapter(long.class, LongTypeAdapter)
+                    //                .registerTypeAdapter(Long.class, LongTypeAdapter)
+                    .registerTypeAdapter(Int::class.javaPrimitiveType, IntegerTypeAdapter())
+                    .registerTypeAdapter(Int::class.java, IntegerTypeAdapter())
+                    .registerTypeAdapter(String::class.java, StringTypeAdapter())
+                    .registerTypeAdapterFactory(NullOnEmptyTypeAdapterFactory())
+                    .create()
+            }
+            return field
+        }
 
-    public Object getHttpClient(String key) {
-        Object api = clientMap.get(key);
-        return api;
+    fun getHttpClient(key: String): Any? {
+        val api = clientMap[key]
+        return api
     }
 
-    public <T> T create(Class<T> apiClass, String baseUrl) {
-        List<Converter.Factory> factories = new ArrayList<>();
+    fun <T> create(apiClass: Class<T>, baseUrl: String): T {
+        val factories: MutableList<Converter.Factory> = ArrayList()
         //GsonConverterFactory gson转换
-        Gson gson = getGson();
-        factories.add(DefaultGsonConverterFactory.create(gson));
-//        factories.add(GsonConverterFactory.create());
+        val gson = gson
+        factories.add(DefaultGsonConverterFactory.create(gson))
+        //        factories.add(GsonConverterFactory.create());
         //ScalarsConverterFactory 支持转为字符串 也就是说处理类型为String
-        factories.add(ScalarsConverterFactory.create());
-        List<Interceptor> interceptors = new ArrayList<>();
-        interceptors.add(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
-        return create(apiClass, baseUrl, factories, interceptors);
+        factories.add(ScalarsConverterFactory.create())
+        val interceptors: MutableList<Interceptor> = ArrayList()
+        interceptors.add(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        return create(apiClass, baseUrl, factories, interceptors)
     }
 
-    public <T> T create(Class<T> apiClass, String baseUrl, List<Converter.Factory> factories, List<Interceptor> interceptors) {
-        Object obj = clientMap.get(apiClass.getName() + "_" + baseUrl);
+    fun <T> create(
+        apiClass: Class<T>,
+        baseUrl: String,
+        factories: List<Converter.Factory>?,
+        interceptors: List<Interceptor>?
+    ): T {
+        val obj = clientMap[apiClass.name + "_" + baseUrl]
 
         if (null != obj) {
-            return (T) obj;
+            return obj as T
         }
 
-        T api = RetrofitClient.get().createRetrofit(baseUrl, factories, interceptors).create(apiClass);
-        clientMap.put(apiClass.getName() + "_" + baseUrl, api);
-        return api;
+        val api:T = createRetrofit(baseUrl, factories, interceptors, 30, 30, 30).create(apiClass)
+        clientMap[apiClass.name + "_" + baseUrl] = api as Any
+        return api
     }
 
-    private Gson getGson() {
-        if (null == gson) {
-            gson = new GsonBuilder()
-                    .setLenient()
-//                .registerTypeAdapter(long.class, LongTypeAdapter)
-//                .registerTypeAdapter(Long.class, LongTypeAdapter)
-                    .registerTypeAdapter(int.class, new IntegerTypeAdapter())
-                    .registerTypeAdapter(Integer.class, new IntegerTypeAdapter())
-                    .registerTypeAdapter(String.class, new StringTypeAdapter())
-                    .registerTypeAdapterFactory(new NullOnEmptyTypeAdapterFactory())
-                    .create();
-        }
-        return gson;
-    }
 }

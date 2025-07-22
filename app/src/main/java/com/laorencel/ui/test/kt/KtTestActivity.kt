@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import com.laorencel.ui.R
 import com.laorencel.ui.databinding.ActivityTestM3ButtonBinding
 import com.laorencel.ui.databinding.ActivityTestM3ButtonFooterBinding
+import com.laorencel.ui.http.Api
+import com.laorencel.ui.http.request
 import com.laorencel.ui.test.kt.frag.FragTitle
 import com.laorencel.uilibrary.ui.KtCommonActivity
 import com.laorencel.uilibrary.util.kt.GsonUtil
@@ -41,6 +43,12 @@ class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>()
 //        testGson()
 //        testConfirmDialog()
 
+        lifecycleScope.launch {
+            val apiResult =  request {
+                Api.instance.getDevice("77111f9dd01a775c")
+            }
+            logD("apiResult:$apiResult")
+        }
         contentBinding.btnShape.throttleClick {
 //            getPackageInfo()
 //            switchShowApp(false)
@@ -107,11 +115,13 @@ class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>()
 //            )
         }
     }
+
     fun isSystemApp(pi: PackageInfo): Boolean {
         val isSysApp = (pi.applicationInfo.flags and ApplicationInfo.FLAG_SYSTEM) == 1
         val isSysUpd = (pi.applicationInfo.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 1
         return isSysApp || isSysUpd
     }
+
     fun testGson() {
         val title = FragTitle("tag1", "title1")
         val titleString = GsonUtil.toJson(title)
