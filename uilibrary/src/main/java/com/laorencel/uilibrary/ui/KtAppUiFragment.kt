@@ -68,7 +68,13 @@ abstract class KtAppUiFragment : Fragment(), KtAppUi {
         showProgress(show, "", true)
     }
 
-    override fun showProgress(show: Boolean, message: String?, cancelable: Boolean) {
+    override fun showProgress(
+        show: Boolean,
+        message: String?,
+        cancelable: Boolean,
+        progress: Int?,
+        maxProgress: Int?
+    ) {
         if (show) {
             if (!isEmpty(lastProgressMessage) && !lastProgressMessage.equals(message)) {
                 //2次弹窗message不一样，销毁重新创建
@@ -80,14 +86,22 @@ abstract class KtAppUiFragment : Fragment(), KtAppUi {
                 progressDialog!!.setCanceledOnTouchOutside(cancelable) //设置在点击Dialog外是否取消Dialog进度条
                 progressDialog!!.setMessage(if (!isEmpty(message)) message else "加载中")
             }
+            if (null != progress && null != maxProgress) {
+                progressDialog!!.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL)
+                // 这里设置的是是否显示进度,设为false才是显示的哦！
+                progressDialog!!.isIndeterminate = false
+                progressDialog!!.max = maxProgress
+                progressDialog!!.progress = progress
+//                if (progress >= maxProgress) {
+//                    destroyProgress()
+//                }
+            }
             //            Logger.d("progressDialog!!.isShowing()" + (progressDialog!!.isShowing()));
             if (progressDialog != null && !progressDialog!!.isShowing) {
                 progressDialog!!.show()
             }
         } else {
-            if (progressDialog != null && progressDialog!!.isShowing) {
-                progressDialog!!.dismiss()
-            }
+            destroyProgress()
         }
     }
 

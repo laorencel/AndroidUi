@@ -10,6 +10,7 @@ import com.laorencel.uilibrary.manager.UiWindowManager
 import com.laorencel.uilibrary.util.kt.ActivityManager
 import com.laorencel.uilibrary.util.kt.TipUtil
 import com.laorencel.uilibrary.util.kt.isEmpty
+import kotlin.math.max
 
 /**
  * 通用Activity，适用完全自定义布局界面。
@@ -116,11 +117,17 @@ abstract class KtAppUiActivity : AppCompatActivity(), KtAppUi {
         showProgress(show, "", true)
     }
 
-    override fun showProgress(show: Boolean, message: String?, cancelable: Boolean) {
+    override fun showProgress(
+        show: Boolean,
+        message: String?,
+        cancelable: Boolean,
+        progress: Int?,
+        maxProgress: Int?
+    ) {
         if (show) {
             if (!isEmpty(lastProgressMessage) && !lastProgressMessage.equals(message)) {
                 //2次弹窗message不一样，销毁重新创建
-                destroyProgress()
+                destroyProgressDialog()
             }
             if (progressDialog == null) {
                 progressDialog = ProgressDialog(this)
@@ -128,18 +135,26 @@ abstract class KtAppUiActivity : AppCompatActivity(), KtAppUi {
                 progressDialog!!.setCanceledOnTouchOutside(cancelable) //设置在点击Dialog外是否取消Dialog进度条
                 progressDialog!!.setMessage(if (!isEmpty(message)) message else "加载中")
             }
+            if (null != progress && null != maxProgress) {
+                progressDialog!!.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL)
+                // 这里设置的是是否显示进度,设为false才是显示的哦！
+                progressDialog!!.isIndeterminate = false
+                progressDialog!!.max = maxProgress
+                progressDialog!!.progress = progress
+//                if (progress >= maxProgress) {
+//                    destroyProgress()
+//                }
+            }
             //            Logger.d("progressDialog!!.isShowing()" + (progressDialog!!.isShowing()));
             if (progressDialog != null && !progressDialog!!.isShowing()) {
                 progressDialog!!.show()
             }
         } else {
-            if (progressDialog != null && progressDialog!!.isShowing()) {
-                progressDialog!!.dismiss()
-            }
+            destroyProgressDialog()
         }
     }
 
-    protected fun destroyProgress() {
+    protected fun destroyProgressDialog() {
         if (progressDialog != null) {
             if (progressDialog!!.isShowing()) {
                 progressDialog!!.dismiss()
@@ -149,7 +164,7 @@ abstract class KtAppUiActivity : AppCompatActivity(), KtAppUi {
     }
 
     override fun onDestroy() {
-        destroyProgress()
+        destroyProgressDialog()
         super.onDestroy()
     }
 }

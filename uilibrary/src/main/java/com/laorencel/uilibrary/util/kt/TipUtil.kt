@@ -1,6 +1,7 @@
 package com.laorencel.uilibrary.util.kt
 
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.text.InputType
@@ -218,5 +219,63 @@ object TipUtil {
             }
         }
 
+    }
+
+    private var progressDialog: ProgressDialog? = null;
+
+    //上次加载弹窗message内容
+    private val lastProgressMessage: String? = null
+    fun showProgressDialog(
+        show: Boolean,
+        message: String?,
+        cancelable: Boolean = true,
+        progress: Int? = null,
+        maxProgress: Int? = null,
+    ) {
+        mainScope.launch {
+            if (show) {
+                if (!isEmpty(lastProgressMessage) && !lastProgressMessage.equals(message)) {
+                    //2次弹窗message不一样，销毁重新创建
+                    destroyProgressDialog()
+                }
+                val currentActivity: Activity? = ActivityManager.getCurrentActivity()
+
+                if (progressDialog == null) {
+                    if (null != currentActivity && !currentActivity.isFinishing) {
+                        progressDialog = ProgressDialog(currentActivity)
+                        progressDialog!!.setCancelable(cancelable) //设置是否可以通过点击Back键取消
+                        progressDialog!!.setCanceledOnTouchOutside(cancelable) //设置在点击Dialog外是否取消Dialog进度条
+                        progressDialog!!.setMessage(if (!isEmpty(message)) message else "加载中")
+                    }
+                }
+                if (null != progress && null != maxProgress) {
+                    progressDialog!!.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL)
+                    // 这里设置的是是否显示进度,设为false才是显示的哦！
+                    progressDialog!!.isIndeterminate = false
+                    progressDialog!!.max = maxProgress
+                    progressDialog!!.progress = progress
+//                if (progress >= maxProgress) {
+//                    destroyProgress()
+//                }
+                }
+                //            Logger.d("progressDialog!!.isShowing()" + (progressDialog!!.isShowing()));
+                if (progressDialog != null && !progressDialog!!.isShowing()) {
+                    progressDialog!!.show()
+                }
+            } else {
+                destroyProgressDialog()
+            }
+        }
+    }
+
+    fun destroyProgressDialog() {
+        mainScope.launch {
+            if (progressDialog != null) {
+                if (progressDialog!!.isShowing()) {
+                    progressDialog!!.dismiss()
+                }
+                progressDialog = null
+            }
+        }
     }
 }

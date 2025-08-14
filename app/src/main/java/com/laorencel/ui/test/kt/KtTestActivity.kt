@@ -14,13 +14,17 @@ import com.laorencel.ui.databinding.ActivityTestM3ButtonFooterBinding
 import com.laorencel.ui.http.Api
 import com.laorencel.ui.http.request
 import com.laorencel.ui.test.kt.frag.FragTitle
+import com.laorencel.ui.util.tts.TtsManager
 import com.laorencel.uilibrary.ui.KtCommonActivity
 import com.laorencel.uilibrary.util.kt.GsonUtil
 import com.laorencel.uilibrary.util.kt.PermissionRequest
 import com.laorencel.uilibrary.util.kt.TipUtil
 import com.laorencel.uilibrary.util.kt.log.logD
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import throttleClick
 
 class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>() {
@@ -31,6 +35,7 @@ class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>()
     override fun footerLayoutID(): Int {
         return R.layout.activity_test_m3_button_footer
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,11 +48,18 @@ class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>()
 //        testGson()
 //        testConfirmDialog()
 
+//        lifecycleScope.launch {
+//            val apiResult =  request {
+//                Api.instance.getDevice("77111f9dd01a775c")
+//            }
+//            logD("apiResult:$apiResult")
+//        }
+
+        showAutoProgress(10, 100, 1000L)
         lifecycleScope.launch {
-            val apiResult =  request {
-                Api.instance.getDevice("77111f9dd01a775c")
-            }
-            logD("apiResult:$apiResult")
+            delay(5000L)
+            cancelAutoProgress()
+            showToast("完成")
         }
         contentBinding.btnShape.throttleClick {
 //            getPackageInfo()
@@ -57,20 +69,56 @@ class KtTestActivity : KtCommonActivity<ActivityTestM3ButtonBinding, KtTestVM>()
 //                println("result $result")
 //            }
 
-            lifecycleScope.launch(Dispatchers.Main) {
 
-                val result = TipUtil.showConfirmDialogWithResult(
-                    "重启应用",
-                    "当前信号弱，连接不稳定，10秒后将自动重启",
-                    "重启",
-                    "不重启",
-                    autoCloseSeconds = 10
-                )
-                logD("result $result ")
-                if (result == null || result == true) {
-                    logD("aaa ")
-                } else {
-                    logD("bbb")
+//            TtsManager.queue("当前信号弱，连接不稳定，10秒后将自动重启 1234567890")
+
+//            lifecycleScope.launch(Dispatchers.Main) {
+//
+//                val result = TipUtil.showConfirmDialogWithResult(
+//                    "重启应用",
+//                    "当前信号弱，连接不稳定，10秒后将自动重启",
+//                    "重启",
+//                    "不重启",
+//                    autoCloseSeconds = 10
+//                )
+//                logD("result $result ")
+//                if (result == null || result == true) {
+//                    logD("aaa ")
+//                } else {
+//                    logD("bbb")
+//                }
+//            }
+
+
+        }
+    }
+
+    private var progressDialogJob: Job? = null
+    private fun cancelAutoProgress() {
+        if (null != progressDialogJob && progressDialogJob!!.isActive) {
+            progressDialogJob!!.cancel()
+            progressDialogJob = null
+        }
+        showProgress(false)
+    }
+
+    private fun showAutoProgress(step: Int, maxProgress: Int, intervalMillis: Long) {
+        cancelAutoProgress()
+        progressDialogJob = lifecycleScope.launch(Dispatchers.IO) {
+            var currentProgress = 0
+            withContext(Dispatchers.Main) {
+                showProgress(true, "加载中", false, currentProgress, maxProgress)
+            }
+
+            repeat((maxProgress / step)) {
+                delay(intervalMillis)
+                currentProgress += step
+                withContext(Dispatchers.Main) {
+//                    if (currentProgress >= maxProgress) {
+//                        showProgress(false)
+//                    } else {
+                        showProgress(true, "加载中", false, currentProgress, maxProgress)
+//                    }
                 }
             }
         }

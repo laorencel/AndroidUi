@@ -168,5 +168,11 @@ interface KtAppUi {
         showProgress(show, "", true)
     }
 
-    fun showProgress(show: Boolean, message: String?, cancelable: Boolean)
+    fun showProgress(
+        show: Boolean,
+        message: String?,
+        cancelable: Boolean,
+        progress: Int? = null,
+        maxProgress: Int? = null
+    )
 }
