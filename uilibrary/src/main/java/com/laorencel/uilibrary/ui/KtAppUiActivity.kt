@@ -6,10 +6,16 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import com.laorencel.uilibrary.manager.UiWindowManager
 import com.laorencel.uilibrary.util.kt.ActivityManager
 import com.laorencel.uilibrary.util.kt.TipUtil
 import com.laorencel.uilibrary.util.kt.isEmpty
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.math.max
 
 /**
@@ -111,7 +117,7 @@ abstract class KtAppUiActivity : AppCompatActivity(), KtAppUi {
     }
 
     //上次加载弹窗message内容
-    private val lastProgressMessage: String? = null
+    private var lastProgressMessage: String? = null
 
     override fun showProgress(show: Boolean) {
         showProgress(show, "", true)
@@ -129,11 +135,13 @@ abstract class KtAppUiActivity : AppCompatActivity(), KtAppUi {
                 //2次弹窗message不一样，销毁重新创建
                 destroyProgressDialog()
             }
+            lastProgressMessage = message
             if (progressDialog == null) {
                 progressDialog = ProgressDialog(this)
                 progressDialog!!.setCancelable(cancelable) //设置是否可以通过点击Back键取消
                 progressDialog!!.setCanceledOnTouchOutside(cancelable) //设置在点击Dialog外是否取消Dialog进度条
-                progressDialog!!.setMessage(if (!isEmpty(message)) message else "加载中")
+                progressDialog!!.setTitle(if (!isEmpty(message)) message else "加载中")
+//                progressDialog!!.setMessage(if (!isEmpty(message)) message else "加载中")
             }
             if (null != progress && null != maxProgress) {
                 progressDialog!!.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL)
@@ -163,8 +171,57 @@ abstract class KtAppUiActivity : AppCompatActivity(), KtAppUi {
         }
     }
 
+    private var autoProgressDialogJob: Job? = null
+    fun cancelAutoProgressDialog() {
+        if (null != autoProgressDialogJob && autoProgressDialogJob!!.isActive) {
+            autoProgressDialogJob!!.cancel()
+            autoProgressDialogJob = null
+        }
+        showProgress(false)
+    }
+
+    /**
+     * 自增长进度条，一般用于网络请求进度加载（不知道进度）
+     * @param autoClose 达到maxProgress后是否自动关闭弹窗
+     */
+    fun showAutoProgressDialog(
+        message: String,
+        step: Int,
+        maxProgress: Int,
+        intervalMillis: Long,
+        autoClose: Boolean = false
+    ) {
+        //自增长进度条，一般用于网络请求进度加载（不知道进度）
+        cancelAutoProgressDialog()
+        autoProgressDialogJob = lifecycleScope.launch(Dispatchers.IO) {
+            var currentProgress = 0
+            withContext(Dispatchers.Main) {
+                showProgress(true, message, false, currentProgress, maxProgress)
+            }
+
+            repeat((maxProgress / step)) {
+                delay(intervalMillis)
+                currentProgress += step
+                if (!autoClose) {
+                    //如果不是自动关闭弹窗，currentProgress达到maxProgress减1
+                    if (currentProgress >= maxProgress) {
+                        currentProgress = maxProgress - 1
+                    }
+                }
+                withContext(Dispatchers.Main) {
+                    if (currentProgress >= maxProgress) {
+                        showProgress(false)
+                    } else {
+                        showProgress(true, message, false, currentProgress, maxProgress)
+                    }
+                }
+            }
+        }
+    }
+
     override fun onDestroy() {
         destroyProgressDialog()
+        cancelAutoProgressDialog()
         super.onDestroy()
     }
 }
