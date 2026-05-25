@@ -30,14 +30,11 @@ public class BottomNavActivity extends BaseActivity<ActivityBottomNavBinding, Ma
         contentBinding.bottomNavView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        switchFragment(FRAGMENT_TAG_HOME);
-                        break;
-                    case R.id.navigation_mine:
-                        switchFragment(FRAGMENT_TAG_MINE);
-                        break;
-
+                int itemId = item.getItemId();
+                if (itemId == R.id.navigation_home) {
+                    switchFragment(FRAGMENT_TAG_HOME);
+                } else if (itemId == R.id.navigation_mine) {
+                    switchFragment(FRAGMENT_TAG_MINE);
                 }
                 return true;
             }
